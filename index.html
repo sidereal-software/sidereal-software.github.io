@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Sidereal Software - Coming Soon</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css"
+      rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: radial-gradient(ellipse at bottom, #222 0%, #000 100%);
+        color: #fff;
+        font-family: "Segoe UI", Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .stars {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="stars"></canvas>
+    <div class="relative z-10 text-center p-8 bg-black/70 rounded-xl shadow-md">
+      <h1 class="text-4xl font-bold mb-2 tracking-wide">Sidereal Software</h1>
+      <p class="text-lg mb-6 text-gray-300 tracking-wide">Engineering the night sky</p>
+      <div class="text-base text-white opacity-70 tracking-widest">Coming Soon</div>
+    </div>
+    <script>
+      // Simple animated starfield
+      const canvas = document.querySelector(".stars");
+      const ctx = canvas.getContext("2d");
+      let w,
+        h,
+        stars = [];
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resize);
+      function Star() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.radius = Math.random() * 1.2 + 0.2;
+        this.alpha = Math.random() * 0.5 + 0.5;
+        this.speed = Math.random() * 0.05 + 0.02;
+      }
+      function createStars(count) {
+        stars = [];
+        for (let i = 0; i < count; i++) {
+          stars.push(new Star());
+        }
+      }
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        for (let star of stars) {
+          ctx.globalAlpha = star.alpha;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+          ctx.fillStyle = "#fff";
+          ctx.fill();
+          star.y += star.speed;
+          if (star.y > h) {
+            star.x = Math.random() * w;
+            star.y = 0;
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      resize();
+      createStars(150);
+      animate();
+    </script>
+  </body>
+</html>
