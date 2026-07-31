@@ -22,6 +22,7 @@ Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is 
 - `npm run dev` - dev server
 - `npm run build` - type-check and production build (must pass before proposing a commit)
 - `npm run lint` - oxlint
+- `npm test` - vitest component tests (jsdom + Testing Library)
 - `npm run format` / `npm run format:check` - Prettier
 
 ## Structure
@@ -63,7 +64,7 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 
 - Do not commit or push changes unless explicitly instructed.
 - Never use `git add .`; stage only the files relevant to the current task.
-- Before proposing a commit, run `npm run build`, `npm run lint`, and
+- Before proposing a commit, run `npm run build`, `npm run lint`, `npm test`, and
   `npm run format:check`.
 - Show `git status --short` and summarize the staged diff.
 - Use Conventional Commits messages (`type(scope): summary`). If a ticket ID appears in
