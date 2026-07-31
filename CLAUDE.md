@@ -6,8 +6,11 @@ Guidance for AI agents working in this repository.
 
 Marketing website for Sidereal Software (https://sidereal.software), an astronomy
 software consultancy founded by Dan Avner. Single-page React app deployed to GitHub
-Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is set by
-`public/CNAME`.
+Pages via GitHub Actions: `.github/workflows/deploy.yml` deploys `main` and fails
+loudly if the Pages settings drift; `ci.yml` runs the same checks on branches and PRs.
+The custom domain is configured in the repository's Pages settings (authoritative);
+`public/CNAME` is kept for reference but ignored by workflow deploys - never delete
+either.
 
 ## Stack
 
@@ -22,24 +25,25 @@ Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is 
 ## Commands
 
 - `npm run dev` - dev server
-- `npm run build` - type-check and production build (must pass before proposing a commit)
+- `npm run build` - type-check and production build
 - `npm run lint` - oxlint
 - `npm test` - vitest component tests (jsdom + Testing Library)
 - `npm run format` / `npm run format:check` - Prettier
 
 ## Structure
 
-- `src/App.tsx` - assembles the page from section components, ordered for client
-  conversion: hero, trust strip, services, case study, experience, testimonials,
-  founder, process, contact
+- `src/App.tsx` - assembles the page from section components; the order is the sales
+  narrative, and the alternating section background bands come from a
+  `main > section:nth-child(even)` rule in `src/index.css`, so reordering sections
+  keeps the banding correct automatically
 - `src/components/sections/` - one file per section
 - `src/components/ui/` - vendored shadcn/ui primitives; keep these unmodified and style
   via className at call sites
-- `src/index.css` - Tailwind setup and all theme tokens. The site supports light and
-  dark: an inline script in `index.html` applies the `dark` class before first paint
-  (stored preference, then system setting) and the header `ThemeToggle` switches it.
-  To retheme, edit the `:root` and `.dark` blocks only.
-- `public/CNAME` - custom domain; never delete
+- `src/index.css` - Tailwind setup and all theme tokens. Light and dark are both
+  supported: an inline script in `index.html` applies the `dark` class before first
+  paint (stored preference, then system setting) and the header `ThemeToggle` switches
+  it. To retheme, edit the `:root` and `.dark` blocks only. Both themes pass WCAG AA
+  contrast (verified with axe); re-check contrast when changing tokens.
 
 ## Content
 
@@ -48,7 +52,9 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 (https://www.danavner.com) and direction given in conversation.
 
 - The contact form submits through Formspree via `@formspree/react`; the form ID
-  constant lives in `src/components/sections/contact.tsx`.
+  constant lives in `src/components/sections/contact.tsx`. Preserve the `_gotcha`
+  honeypot field and the reveal-on-click email (the address is assembled at runtime so
+  scrapers never see it).
 - The testimonials section (`src/components/sections/testimonials.tsx`) quotes
   letters of recommendation; the excerpts were approved for public use by Dan.
   Get his approval again before altering a quote or adding a new one.

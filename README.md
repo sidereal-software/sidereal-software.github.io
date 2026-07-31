@@ -8,7 +8,7 @@ astronomy software for observatories, research teams, and scientific institution
 - [Vite](https://vite.dev) + [React 19](https://react.dev) + TypeScript
 - [Tailwind CSS v4](https://tailwindcss.com) with [shadcn/ui](https://ui.shadcn.com)
   components (vendored in `src/components/ui/`)
-- Deployed to GitHub Pages via GitHub Actions on every push to `main`
+- Light and dark themes (Solar Dusk palette), WCAG AA contrast in both
 
 ## Development
 
@@ -16,13 +16,17 @@ astronomy software for observatories, research teams, and scientific institution
 npm install
 npm run dev      # local dev server
 npm run build    # type-check + production build
+npm test         # vitest component tests
 npm run lint     # oxlint
 npm run format   # prettier
 ```
 
+CI (`.github/workflows/ci.yml`) runs lint, format check, tests, and the build on every
+non-main branch push and every pull request.
+
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and
+Pushes to `main` trigger `.github/workflows/deploy.yml`, which runs the same checks and
 publishes `dist/` to GitHub Pages. Two settings in Settings > Pages are required and
 cannot be set by the workflow (they need repo admin): "Source" must be
 "GitHub Actions", and "Custom domain" must be `sidereal.software`. With workflow
