@@ -52,10 +52,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="In their words"
-          description="Excerpts from letters of recommendation, shared with permission."
-        />
+        <SectionHeading title="In their words" />
         <Carousel
           opts={{ loop: true, align: 'start' }}
           plugins={[
