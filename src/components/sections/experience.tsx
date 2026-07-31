@@ -1,36 +1,61 @@
-import { ArrowRight } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
+import { GitHubIcon } from '@/components/icons'
 import { SectionHeading } from '@/components/section-heading'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
-const leadProjects = [
-  { name: 'GOATS', descriptor: 'Time-domain follow-up platform' },
-  { name: 'GPP Client', descriptor: 'Async Python GraphQL client' },
-  { name: 'GPP Resource', descriptor: 'Now in development' },
-]
+interface Job {
+  org: string
+  detail: string
+  role: string
+  period: string
+  summary: string
+  links: { label: string; href: string; github?: boolean }[]
+}
 
-const experience = [
+const experience: Job[] = [
   {
-    org: 'NSF NOIRLab',
+    org: 'NSF NOIRLab / AURA',
     detail: 'Gemini Observatory',
-    role: 'Software Engineer',
+    role: 'Software Engineer III',
+    period: '2023 - Present',
     summary:
-      'Full-stack engineering for the international Gemini Observatory, leading development of time-domain follow-up and Gemini Program Platform tooling.',
+      "Principal engineer and architect for GOATS and the GPP Client, and now leading GPP Resource. Moved Gemini's DRAGONS data-reduction pipeline into the browser with Django and WebSockets.",
+    links: [
+      { label: 'GOATS', href: 'https://github.com/gemini-hlsw/goats', github: true },
+      {
+        label: 'GPP Client',
+        href: 'https://github.com/gemini-hlsw/gpp-client',
+        github: true,
+      },
+      {
+        label: 'DRAGONS',
+        href: 'https://github.com/GeminiDRSoftware/DRAGONS',
+        github: true,
+      },
+    ],
   },
   {
     org: 'Caltech / IPAC',
     detail: 'California Institute of Technology',
-    role: 'Software Engineer',
+    role: 'Application Developer',
+    period: '2021 - 2023',
     summary:
-      "Developed data-processing pipelines for NASA's SPHEREx all-sky spectral survey mission.",
+      "Developed production data-processing pipelines for NASA's SPHEREx mission, building astrophysics algorithms with the science team and integrating Rubin Observatory pipeline and Butler software.",
+    links: [{ label: 'SPHEREx mission', href: 'https://spherex.caltech.edu' }],
   },
   {
     org: 'Steward Observatory',
     detail: 'University of Arizona',
-    role: 'Software Engineer',
+    role: 'R&D Software Engineer III',
+    period: '2019 - 2021',
     summary:
-      'Built autonomous telescope and instrument control software for research observatories.',
+      'Automated research telescopes for classical and autonomous observing, leading projects from embedded dome and mirror-cover control up to web frontends, with 150+ nights at the telescope.',
+    links: [
+      { label: 'pyINDI', href: 'https://github.com/MMTObservatory/pyINDI', github: true },
+    ],
   },
 ]
 
@@ -42,33 +67,8 @@ export function Experience() {
       <SectionHeading
         eyebrow="Experience"
         title="A decade across observatories and missions"
-        description="Lead engineer for GOATS and GPP Client, and now GPP Resource, at NSF NOIRLab."
+        description="Telescope and spacecraft software, from embedded instrument control to the browser."
       />
-
-      <Card className="bg-card/60 mb-6 backdrop-blur-sm">
-        <CardContent>
-          <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
-            {leadProjects.map((project, index) => (
-              <div
-                key={project.name}
-                className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-                {index > 0 && (
-                  <ArrowRight
-                    className="text-muted-foreground size-5 rotate-90 md:rotate-0"
-                    aria-hidden="true"
-                  />
-                )}
-                <div className="text-center">
-                  <div className="font-display text-lg font-semibold">{project.name}</div>
-                  <div className="text-muted-foreground text-sm">
-                    {project.descriptor}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
 
       <Card className="bg-card/60 backdrop-blur-sm">
         <CardContent>
@@ -76,15 +76,29 @@ export function Experience() {
             {experience.map((job, index) => (
               <li key={job.org}>
                 {index > 0 && <Separator className="my-6" />}
-                <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_2fr] md:gap-8">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr] md:gap-8">
                   <div>
                     <h3 className="font-display font-semibold">{job.org}</h3>
                     <p className="text-muted-foreground text-sm">{job.detail}</p>
-                    <p className="text-muted-foreground mt-1 text-sm">{job.role}</p>
+                    <p className="text-muted-foreground mt-1 text-sm">
+                      {job.role} · {job.period}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed md:self-center">
-                    {job.summary}
-                  </p>
+                  <div className="space-y-3 md:self-center">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {job.summary}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {job.links.map((link) => (
+                        <Button key={link.href} variant="outline" size="sm" asChild>
+                          <a href={link.href} target="_blank" rel="noreferrer">
+                            {link.github ? <GitHubIcon /> : <ExternalLink />}
+                            {link.label}
+                          </a>
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </li>
             ))}

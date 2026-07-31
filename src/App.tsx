@@ -7,6 +7,7 @@ import { Founder } from '@/components/sections/founder'
 import { Hero } from '@/components/sections/hero'
 import { Projects } from '@/components/sections/projects'
 import { Services } from '@/components/sections/services'
+import { Skills } from '@/components/sections/skills'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <main className="relative z-10">
         <Hero />
         <Projects />
+        <Skills />
         <Experience />
         <Services />
         <Founder />
