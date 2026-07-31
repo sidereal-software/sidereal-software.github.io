@@ -40,8 +40,8 @@ export function Founder() {
             <div className="text-muted-foreground space-y-4 text-sm leading-relaxed">
               <p>
                 Dan is a software engineer at NSF NOIRLab supporting the international
-                Gemini Observatory, where he is the lead engineer of GOATS, Gemini's
-                platform for rapid time-domain and multi-messenger follow-up.
+                Gemini Observatory, where he has been the lead engineer for GOATS, the GPP
+                Client, and now GPP Resource.
               </p>
               <p>
                 Before NOIRLab, he built data-processing pipelines for NASA's SPHEREx
