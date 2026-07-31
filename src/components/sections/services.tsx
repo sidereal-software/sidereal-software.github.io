@@ -63,23 +63,6 @@ const services: Service[] = [
   },
 ]
 
-const engagements = [
-  {
-    name: 'TOM Toolkit Deployment',
-    description:
-      'Stand up a target and observation manager for your survey or follow-up program.',
-  },
-  {
-    name: 'Pipeline Modernization',
-    description: 'Rescue, refactor, or web-enable an existing data-processing pipeline.',
-  },
-  {
-    name: 'Observatory Control Software',
-    description:
-      'Instrument drivers, automation, and control interfaces from hardware to browser.',
-  },
-]
-
 const techStack: { category: string; items: string[] }[] = [
   {
     category: 'Languages',
@@ -132,19 +115,24 @@ export function Services() {
         <Card className="bg-card/60 mb-16 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-center font-serif text-2xl">
-              Typical Engagements
+              Don't write software? That's the point.
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              {engagements.map((engagement) => (
-                <div key={engagement.name}>
-                  <h3 className="font-semibold">{engagement.name}</h3>
-                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-                    {engagement.description}
-                  </p>
-                </div>
-              ))}
+            <div className="text-muted-foreground mx-auto max-w-3xl space-y-4 text-center text-sm leading-relaxed md:text-base">
+              <p>
+                Most projects start with someone who is not a programmer: a scientist, a
+                keeper, an operations lead who knows exactly what makes their day harder
+                than it should be. If you can describe the problem, Sidereal can design
+                and build the app that removes it - automating a routine, replacing the
+                spreadsheet that stopped scaling, or putting your field work on your
+                phone.
+              </p>
+              <p>
+                That is how ARK began: wildlife professionals needed their everyday record
+                keeping to be easier, so a tool is being built around how they actually
+                work.
+              </p>
             </div>
           </CardContent>
         </Card>

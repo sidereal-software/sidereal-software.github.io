@@ -70,6 +70,13 @@ describe('App', () => {
     expect(screen.getByText('ARK - Animal Record Keeper')).toBeInTheDocument()
   })
 
+  it('speaks to non-software clients', () => {
+    render(<App />)
+    expect(
+      screen.getByText("Don't write software? That's the point."),
+    ).toBeInTheDocument()
+  })
+
   it('toggles and persists the theme', () => {
     document.documentElement.classList.remove('dark')
     localStorage.clear()
