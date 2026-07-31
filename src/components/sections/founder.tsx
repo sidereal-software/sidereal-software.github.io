@@ -27,11 +27,17 @@ export function Founder() {
       />
       <Card className="bg-card/60 overflow-hidden py-0 backdrop-blur-sm">
         <CardContent className="grid grid-cols-1 gap-0 p-0 md:grid-cols-[2fr_3fr]">
-          <img
-            src={portrait}
-            alt="Portrait of Dan Avner"
-            className="h-full max-h-[420px] w-full object-cover object-top md:max-h-none"
-          />
+          <div className="relative max-h-[420px] md:max-h-none">
+            <img
+              src={portrait}
+              alt="Portrait of Dan Avner"
+              className="h-full w-full object-cover object-top saturate-[0.85] sepia-[0.15]"
+            />
+            <div
+              className="bg-primary/15 absolute inset-0 mix-blend-soft-light"
+              aria-hidden="true"
+            />
+          </div>
           <div className="flex flex-col justify-center gap-5 p-8 md:p-10">
             <div>
               <h3 className="font-display text-2xl font-bold">Dan Avner</h3>
