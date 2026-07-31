@@ -15,7 +15,7 @@ Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is 
 - Tailwind CSS v4 (CSS-first config in `src/index.css`, no `tailwind.config`)
 - shadcn/ui components, vendored in `src/components/ui/` (the shadcn registry is not
   reachable from all dev environments; add new components by vendoring their source)
-- lucide-react icons, Fontsource fonts (Inter Variable, Space Grotesk Variable)
+- lucide-react icons, Fontsource fonts (Oxanium Variable)
 
 ## Commands
 
