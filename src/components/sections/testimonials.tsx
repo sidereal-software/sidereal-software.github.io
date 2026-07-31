@@ -50,42 +50,44 @@ const testimonials: Testimonial[] = [
 
 export function Testimonials() {
   return (
-    <section
-      id="testimonials"
-      className="mx-auto max-w-6xl scroll-mt-16 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Testimonials"
-        title="In their words"
-        description="Excerpts from letters of recommendation, shared with permission."
-      />
-      <Carousel
-        opts={{ loop: true, align: 'start' }}
-        plugins={[
-          Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true }),
-        ]}
-        className="mx-auto max-w-5xl px-12">
-        <CarouselContent>
-          {testimonials.map((testimonial) => (
-            <CarouselItem key={testimonial.name} className="md:basis-1/2">
-              <Card className="bg-card/60 h-full backdrop-blur-sm">
-                <CardContent className="flex h-full flex-col gap-6">
-                  <blockquote className="flex-1 font-serif text-base italic leading-relaxed">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </blockquote>
-                  <footer className="font-mono text-xs">
-                    <div className="text-foreground font-medium">{testimonial.name}</div>
-                    <div className="text-muted-foreground mt-1">
-                      {testimonial.title} · {testimonial.org}
-                    </div>
-                  </footer>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-0" />
-        <CarouselNext className="right-0" />
-      </Carousel>
+    <section id="testimonials" className="scroll-mt-16 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Testimonials"
+          title="In their words"
+          description="Excerpts from letters of recommendation, shared with permission."
+        />
+        <Carousel
+          opts={{ loop: true, align: 'start' }}
+          plugins={[
+            Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true }),
+          ]}
+          className="mx-auto max-w-5xl px-12">
+          <CarouselContent>
+            {testimonials.map((testimonial) => (
+              <CarouselItem key={testimonial.name} className="md:basis-1/2">
+                <Card className="bg-card/60 h-full backdrop-blur-sm">
+                  <CardContent className="flex h-full flex-col gap-6">
+                    <blockquote className="flex-1 font-serif text-base italic leading-relaxed">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </blockquote>
+                    <footer className="font-mono text-xs">
+                      <div className="text-foreground font-medium">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-muted-foreground mt-1">
+                        {testimonial.title} · {testimonial.org}
+                      </div>
+                    </footer>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
+        </Carousel>
+      </div>
     </section>
   )
 }

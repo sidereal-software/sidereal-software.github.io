@@ -92,3 +92,11 @@
     @apply bg-background text-foreground antialiased;
   }
 }
+
+@layer components {
+  /* Alternate section bands so each section reads as a new chapter. Applied
+     structurally so reordering sections in App.tsx keeps the cadence. */
+  main > section:nth-child(even) {
+    @apply bg-card/40 border-y;
+  }
+}

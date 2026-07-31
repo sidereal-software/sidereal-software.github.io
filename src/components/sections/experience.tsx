@@ -61,61 +61,61 @@ const experience: Job[] = [
 
 export function Experience() {
   return (
-    <section
-      id="experience"
-      className="mx-auto max-w-6xl scroll-mt-16 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Experience"
-        title="A decade across observatories and missions"
-        description="Telescope and spacecraft software, from embedded instrument control to the browser."
-      />
+    <section id="experience" className="scroll-mt-16 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Experience"
+          title="A decade across observatories and missions"
+          description="Telescope and spacecraft software, from embedded instrument control to the browser."
+        />
 
-      <Card className="bg-card/60 backdrop-blur-sm">
-        <CardContent>
-          <ul>
-            {experience.map((job, index) => (
-              <li key={job.org}>
-                {index > 0 && <Separator className="my-6" />}
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr] md:gap-8">
-                  <div>
-                    <h3 className="font-semibold">{job.org}</h3>
-                    <p className="text-muted-foreground text-sm">{job.detail}</p>
-                    <p className="text-muted-foreground mt-1 font-mono text-xs">
-                      {job.role} · {job.period}
-                    </p>
-                  </div>
-                  <div className="space-y-3 md:self-center">
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {job.summary}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {job.links.map((link) => (
-                        <Button key={link.href} variant="outline" size="sm" asChild>
-                          <a href={link.href} target="_blank" rel="noreferrer">
-                            {link.github ? <GitHubIcon /> : <ExternalLink />}
-                            {link.label}
-                          </a>
-                        </Button>
-                      ))}
+        <Card className="bg-card/60 backdrop-blur-sm">
+          <CardContent>
+            <ul>
+              {experience.map((job, index) => (
+                <li key={job.org}>
+                  {index > 0 && <Separator className="my-6" />}
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr] md:gap-8">
+                    <div>
+                      <h3 className="font-semibold">{job.org}</h3>
+                      <p className="text-muted-foreground text-sm">{job.detail}</p>
+                      <p className="text-muted-foreground mt-1 font-mono text-xs">
+                        {job.role} · {job.period}
+                      </p>
+                    </div>
+                    <div className="space-y-3 md:self-center">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {job.summary}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {job.links.map((link) => (
+                          <Button key={link.href} variant="outline" size="sm" asChild>
+                            <a href={link.href} target="_blank" rel="noreferrer">
+                              {link.github ? <GitHubIcon /> : <ExternalLink />}
+                              {link.label}
+                            </a>
+                          </Button>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-      <p className="text-muted-foreground mt-6 text-center text-sm">
-        Now building in the open:{' '}
-        <a
-          href="https://github.com/sidereal-software/indi-nexus"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-foreground font-medium underline underline-offset-4">
-          INDINexus
-        </a>
-        , a typed Python framework for INDI instrument control.
-      </p>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+        <p className="text-muted-foreground mt-6 text-center text-sm">
+          Now building in the open:{' '}
+          <a
+            href="https://github.com/sidereal-software/indi-nexus"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground font-medium underline underline-offset-4">
+            INDINexus
+          </a>
+          , a typed Python framework for INDI instrument control.
+        </p>
+      </div>
     </section>
   )
 }

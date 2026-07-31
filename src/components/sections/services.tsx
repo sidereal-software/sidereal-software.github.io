@@ -109,73 +109,73 @@ const techStack: { category: string; items: string[] }[] = [
 
 export function Services() {
   return (
-    <section
-      id="services"
-      className="mx-auto max-w-6xl scroll-mt-16 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Services"
-        title="Full-stack astronomy software"
-        description="Deep domain expertise across the entire stack, from instrument hardware to the browser."
-      />
-      <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <Card key={service.title} className="bg-card/60 backdrop-blur-sm">
-            <CardHeader>
-              <service.icon className="text-primary" aria-hidden="true" />
-              <CardTitle className="pt-2 text-lg">{service.title}</CardTitle>
-              <CardDescription className="leading-relaxed">
-                {service.description}
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        ))}
-      </div>
+    <section id="services" className="scroll-mt-16 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Services"
+          title="Full-stack astronomy software"
+          description="Deep domain expertise across the entire stack, from instrument hardware to the browser."
+        />
+        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <Card key={service.title} className="bg-card/60 backdrop-blur-sm">
+              <CardHeader>
+                <service.icon className="text-primary" aria-hidden="true" />
+                <CardTitle className="pt-2 text-lg">{service.title}</CardTitle>
+                <CardDescription className="leading-relaxed">
+                  {service.description}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
 
-      <Card className="bg-card/60 mb-16 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-center font-serif text-2xl">
-            Typical Engagements
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {engagements.map((engagement) => (
-              <div key={engagement.name}>
-                <h3 className="font-semibold">{engagement.name}</h3>
-                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-                  {engagement.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="bg-card/60 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-center font-serif text-2xl">
-            Technology Stack
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {techStack.map((group) => (
-              <div key={group.category}>
-                <h3 className="text-muted-foreground mb-3 font-mono text-sm font-semibold tracking-widest uppercase">
-                  {group.category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <Badge key={item} variant="outline">
-                      {item}
-                    </Badge>
-                  ))}
+        <Card className="bg-card/60 mb-16 backdrop-blur-sm">
+          <CardHeader>
+            <CardTitle className="text-center font-serif text-2xl">
+              Typical Engagements
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+              {engagements.map((engagement) => (
+                <div key={engagement.name}>
+                  <h3 className="font-semibold">{engagement.name}</h3>
+                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                    {engagement.description}
+                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-card/60 backdrop-blur-sm">
+          <CardHeader>
+            <CardTitle className="text-center font-serif text-2xl">
+              Technology Stack
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {techStack.map((group) => (
+                <div key={group.category}>
+                  <h3 className="text-muted-foreground mb-3 font-mono text-sm font-semibold tracking-widest uppercase">
+                    {group.category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <Badge key={item} variant="outline">
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </section>
   )
 }

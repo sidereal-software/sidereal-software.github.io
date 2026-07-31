@@ -30,45 +30,45 @@ const caseStudies: CaseStudy[] = [
 
 export function CaseStudies() {
   return (
-    <section
-      id="work"
-      className="mx-auto max-w-6xl scroll-mt-16 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Selected Work"
-        title="From problem to production"
-        description="One engagement in depth: the problem, the approach, and what changed."
-      />
-      <div className="flex flex-col gap-6">
-        {caseStudies.map((study) => (
-          <Card key={study.name} className="bg-card/60 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="font-serif text-xl">{study.name}</CardTitle>
-              <CardDescription className="font-mono text-xs">
-                {study.meta}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <dl className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                {(
-                  [
-                    ['Problem', study.problem],
-                    ['Approach', study.approach],
-                    ['Outcome', study.outcome],
-                  ] as const
-                ).map(([label, text]) => (
-                  <div key={label}>
-                    <dt className="text-primary mb-2 font-mono text-xs font-medium tracking-widest uppercase">
-                      {label}
-                    </dt>
-                    <dd className="text-muted-foreground text-sm leading-relaxed">
-                      {text}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </CardContent>
-          </Card>
-        ))}
+    <section id="work" className="scroll-mt-16 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Selected Work"
+          title="From problem to production"
+          description="One engagement in depth: the problem, the approach, and what changed."
+        />
+        <div className="flex flex-col gap-6">
+          {caseStudies.map((study) => (
+            <Card key={study.name} className="bg-card/60 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="font-serif text-xl">{study.name}</CardTitle>
+                <CardDescription className="font-mono text-xs">
+                  {study.meta}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <dl className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  {(
+                    [
+                      ['Problem', study.problem],
+                      ['Approach', study.approach],
+                      ['Outcome', study.outcome],
+                    ] as const
+                  ).map(([label, text]) => (
+                    <div key={label}>
+                      <dt className="text-primary mb-2 font-mono text-xs font-medium tracking-widest uppercase">
+                        {label}
+                      </dt>
+                      <dd className="text-muted-foreground text-sm leading-relaxed">
+                        {text}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   )

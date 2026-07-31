@@ -8,7 +8,7 @@ const institutions = [
 
 export function TrustStrip() {
   return (
-    <section aria-label="Institutions" className="bg-card/40 border-y">
+    <section aria-label="Institutions">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-8 sm:px-6 lg:px-8">
         <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
           Experience across
