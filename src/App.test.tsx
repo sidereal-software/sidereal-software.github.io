@@ -70,6 +70,39 @@ describe('App', () => {
     expect(screen.getByText('ARK - Animal Record Keeper')).toBeInTheDocument()
   })
 
+  it('toggles and persists the theme', () => {
+    document.documentElement.classList.remove('dark')
+    localStorage.clear()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: 'Switch to dark mode' }))
+    expect(document.documentElement.classList.contains('dark')).toBe(true)
+    expect(localStorage.getItem('theme')).toBe('dark')
+    fireEvent.click(screen.getByRole('button', { name: 'Switch to light mode' }))
+    expect(document.documentElement.classList.contains('dark')).toBe(false)
+    expect(localStorage.getItem('theme')).toBe('light')
+  })
+
+  it('renders the labeled contact form with its spam honeypot', () => {
+    render(<App />)
+    expect(screen.getByLabelText('Name')).toBeInTheDocument()
+    expect(screen.getByLabelText('Email')).toBeInTheDocument()
+    expect(screen.getByLabelText('Organization (optional)')).toBeInTheDocument()
+    expect(screen.getByLabelText('What are you working on?')).toBeInTheDocument()
+    expect(document.querySelector('input[name="_gotcha"]')).not.toBeNull()
+  })
+
+  it('credits every testimonial author', () => {
+    render(<App />)
+    for (const author of [
+      'Chris Johnson',
+      'Scott Swindell',
+      'David Trilling',
+      'Christina Nelson',
+    ]) {
+      expect(screen.getByText(author)).toBeInTheDocument()
+    }
+  })
+
   it('links the experience repos', () => {
     render(<App />)
     for (const href of [
