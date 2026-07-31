@@ -1,21 +1,19 @@
-import { Clock, Mail, Send } from 'lucide-react'
+import { useForm, ValidationError } from '@formspree/react'
+import { CheckCircle2, Clock, Send } from 'lucide-react'
 
 import { SectionHeading } from '@/components/section-heading'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
 
 const CONTACT_EMAIL = 'hello@sidereal.software'
-
-// Set to the Formspree form ID (e.g. "xzbqwxyz") to enable the inquiry form.
-// While empty, the section falls back to the direct email card so the live
-// site never ships a form that cannot submit.
-const FORMSPREE_ID = ''
+const FORMSPREE_ID = 'maqrzvzv'
 
 export function Contact() {
+  const [state, handleSubmit] = useForm(FORMSPREE_ID)
+
   return (
     <section
       id="contact"
@@ -26,12 +24,18 @@ export function Contact() {
         description="Tell me about your observatory, mission, or research software problem."
       />
       <Card className="bg-card/60 mx-auto max-w-xl backdrop-blur-sm">
-        {FORMSPREE_ID ? (
+        {state.succeeded ? (
+          <CardContent className="space-y-4 py-8 text-center">
+            <CheckCircle2 className="text-primary mx-auto size-10" aria-hidden="true" />
+            <p className="font-serif text-xl font-bold">Message sent</p>
+            <p className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
+              <Clock className="size-4" aria-hidden="true" />
+              Thanks for reaching out. I typically respond within 1-2 business days.
+            </p>
+          </CardContent>
+        ) : (
           <CardContent>
-            <form
-              action={`https://formspree.io/f/${FORMSPREE_ID}`}
-              method="POST"
-              className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
                 type="hidden"
                 name="_subject"
@@ -40,6 +44,12 @@ export function Contact() {
               <div className="flex flex-col gap-2">
                 <Label htmlFor="contact-name">Name</Label>
                 <Input id="contact-name" name="name" required autoComplete="name" />
+                <ValidationError
+                  prefix="Name"
+                  field="name"
+                  errors={state.errors}
+                  className="text-destructive text-sm"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="contact-email">Email</Label>
@@ -50,6 +60,12 @@ export function Contact() {
                   required
                   autoComplete="email"
                 />
+                <ValidationError
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
+                  className="text-destructive text-sm"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="contact-org">Organization (optional)</Label>
@@ -58,11 +74,21 @@ export function Contact() {
               <div className="flex flex-col gap-2">
                 <Label htmlFor="contact-message">What are you working on?</Label>
                 <Textarea id="contact-message" name="message" required rows={5} />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                  className="text-destructive text-sm"
+                />
               </div>
-              <Button type="submit" size="lg">
+              <Button type="submit" size="lg" disabled={state.submitting}>
                 <Send />
-                Send inquiry
+                {state.submitting ? 'Sending...' : 'Send inquiry'}
               </Button>
+              <ValidationError
+                errors={state.errors}
+                className="text-destructive text-sm"
+              />
             </form>
             <p className="text-muted-foreground mt-6 text-center text-sm">
               Prefer email?{' '}
@@ -71,24 +97,6 @@ export function Contact() {
                 className="hover:text-foreground font-mono underline underline-offset-4">
                 {CONTACT_EMAIL}
               </a>
-            </p>
-          </CardContent>
-        ) : (
-          <CardContent className="space-y-6 text-center">
-            <p className="text-muted-foreground">
-              For project inquiries, questions, or just to say hello, reach out directly
-              via email.
-            </p>
-            <Button size="lg" className="font-mono" asChild>
-              <a href={`mailto:${CONTACT_EMAIL}`}>
-                <Mail />
-                {CONTACT_EMAIL}
-              </a>
-            </Button>
-            <Separator />
-            <p className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
-              <Clock className="size-4" aria-hidden="true" />
-              Typically responds within 1-2 business days
             </p>
           </CardContent>
         )}

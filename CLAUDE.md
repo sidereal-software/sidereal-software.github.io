@@ -43,12 +43,11 @@ Site content is factual and about real people and projects. Do not invent projec
 credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 (https://www.danavner.com) and direction given in conversation.
 
-- The contact form posts to Formspree; the form ID constant lives in
-  `src/components/sections/contact.tsx` and the section renders a direct-email
-  fallback while the ID is empty.
+- The contact form submits through Formspree via `@formspree/react`; the form ID
+  constant lives in `src/components/sections/contact.tsx`.
 - The testimonials section (`src/components/sections/testimonials.tsx`) quotes
-  private letters of recommendation. It stays unrendered in `App.tsx` until each
-  author approves public use of their excerpt.
+  letters of recommendation; the excerpts were approved for public use by Dan.
+  Get his approval again before altering a quote or adding a new one.
 
 ## Agent rules
 
