@@ -63,6 +63,23 @@ const services: Service[] = [
   },
 ]
 
+const engagements = [
+  {
+    name: 'TOM Toolkit Deployment',
+    description:
+      'Stand up a target and observation manager for your survey or follow-up program.',
+  },
+  {
+    name: 'Pipeline Modernization',
+    description: 'Rescue, refactor, or web-enable an existing data-processing pipeline.',
+  },
+  {
+    name: 'Observatory Control Software',
+    description:
+      'Instrument drivers, automation, and control interfaces from hardware to browser.',
+  },
+]
+
 const techStack: { category: string; items: string[] }[] = [
   {
     category: 'Backend',
@@ -96,6 +113,26 @@ export function Services() {
           </Card>
         ))}
       </div>
+
+      <Card className="bg-card/60 mb-16 backdrop-blur-sm">
+        <CardHeader>
+          <CardTitle className="text-center font-serif text-2xl">
+            Typical Engagements
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {engagements.map((engagement) => (
+              <div key={engagement.name}>
+                <h3 className="font-semibold">{engagement.name}</h3>
+                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {engagement.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
 
       <Card className="bg-card/60 backdrop-blur-sm">
         <CardHeader>
