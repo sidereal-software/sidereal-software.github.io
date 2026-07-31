@@ -32,6 +32,7 @@ describe('App', () => {
       'A full-stack toolkit, proven in production',
       'A decade across observatories and missions',
       'Full-stack astronomy software',
+      'In their words',
       'Meet the founder',
       'Start a project',
     ]) {
