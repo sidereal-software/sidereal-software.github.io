@@ -7,9 +7,7 @@ import { Experience } from '@/components/sections/experience'
 import { Founder } from '@/components/sections/founder'
 import { Hero } from '@/components/sections/hero'
 import { Process } from '@/components/sections/process'
-import { Projects } from '@/components/sections/projects'
 import { Services } from '@/components/sections/services'
-import { Skills } from '@/components/sections/skills'
 import { Testimonials } from '@/components/sections/testimonials'
 
 function App() {
@@ -19,14 +17,12 @@ function App() {
       <main className="relative z-10">
         <Hero />
         <TrustStrip />
-        <CaseStudies />
-        <Process />
-        <Projects />
-        <Skills />
-        <Experience />
         <Services />
+        <CaseStudies />
+        <Experience />
         <Testimonials />
         <Founder />
+        <Process />
         <Contact />
       </main>
       <SiteFooter />

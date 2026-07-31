@@ -82,12 +82,29 @@ const engagements = [
 
 const techStack: { category: string; items: string[] }[] = [
   {
-    category: 'Backend',
-    items: ['Python', 'Django & DRF', 'FastAPI', 'Celery', 'PostgreSQL', 'Redis'],
+    category: 'Languages',
+    items: ['Python', 'TypeScript', 'JavaScript', 'C/C++', 'Shell', 'MATLAB'],
   },
-  { category: 'Frontend', items: ['React', 'TypeScript', 'WebSockets'] },
-  { category: 'Astronomy', items: ['TOM Toolkit', 'Astropy', 'INDI'] },
-  { category: 'DevOps', items: ['Docker', 'GitHub Actions', 'pytest', 'Git'] },
+  {
+    category: 'Web & Data',
+    items: [
+      'Django & DRF',
+      'FastAPI',
+      'GraphQL',
+      'React',
+      'WebSockets',
+      'PostgreSQL',
+      'Redis',
+    ],
+  },
+  {
+    category: 'Astronomy',
+    items: ['DRAGONS', 'TOM Toolkit', 'INDI', 'Astropy', 'astroquery', 'IRAF'],
+  },
+  {
+    category: 'Packaging & CI',
+    items: ['conda-forge', 'Docker', 'GitHub Actions', 'Jenkins', 'pytest', 'pre-commit'],
+  },
 ]
 
 export function Services() {

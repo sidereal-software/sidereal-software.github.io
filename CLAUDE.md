@@ -29,8 +29,10 @@ Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is 
 
 ## Structure
 
-- `src/App.tsx` - assembles the page from section components
-- `src/components/sections/` - hero, projects, services, founder, contact
+- `src/App.tsx` - assembles the page from section components, ordered for client
+  conversion: hero, trust strip, services, case study, experience, testimonials,
+  founder, process, contact
+- `src/components/sections/` - one file per section
 - `src/components/ui/` - vendored shadcn/ui primitives; keep these unmodified and style
   via className at call sites
 - `src/index.css` - Tailwind setup and all theme tokens. The site renders dark

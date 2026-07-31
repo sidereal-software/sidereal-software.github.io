@@ -12,10 +12,9 @@ import {
 } from '@/components/ui/sheet'
 
 const navLinks = [
-  { href: '#work', label: 'Work' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
   { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#experience', label: 'Experience' },
   { href: '#about', label: 'About' },
 ]
 

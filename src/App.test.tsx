@@ -27,14 +27,12 @@ describe('App', () => {
     render(<App />)
     for (const heading of [
       'Production software for observatories, missions, and research teams',
-      'From problem to production',
-      'How we work',
-      'What Sidereal is building now',
-      'A full-stack toolkit, proven in production',
-      'A decade across observatories and missions',
       'Full-stack astronomy software',
+      'From problem to production',
+      'A decade across observatories and missions',
       'In their words',
       'Meet the founder',
+      'How we work',
       'Start a project',
     ]) {
       expect(

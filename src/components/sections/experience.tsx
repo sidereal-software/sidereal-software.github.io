@@ -105,6 +105,17 @@ export function Experience() {
           </ul>
         </CardContent>
       </Card>
+      <p className="text-muted-foreground mt-6 text-center text-sm">
+        Now building in the open:{' '}
+        <a
+          href="https://github.com/sidereal-software/indi-nexus"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-foreground font-medium underline underline-offset-4">
+          INDINexus
+        </a>
+        , a typed Python framework for INDI instrument control.
+      </p>
     </section>
   )
 }
