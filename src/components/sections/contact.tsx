@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
-const CONTACT_EMAIL = 'contact@siderealsoftware.dev'
+const CONTACT_EMAIL = 'hello@sidereal.software'
 
 export function Contact() {
   return (

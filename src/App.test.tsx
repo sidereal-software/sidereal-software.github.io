@@ -55,7 +55,7 @@ describe('App', () => {
   it('links the contact email', () => {
     render(<App />)
     expect(
-      document.querySelector('a[href="mailto:contact@siderealsoftware.dev"]'),
+      document.querySelector('a[href="mailto:hello@sidereal.software"]'),
     ).not.toBeNull()
   })
 
