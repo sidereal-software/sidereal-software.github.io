@@ -23,6 +23,8 @@ npm run format   # prettier
 ## Deployment
 
 Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and
-publishes `dist/` to GitHub Pages. The custom domain (`sidereal.software`) is configured
-by `public/CNAME`. The repository's Pages settings must have "Source" set to
-"GitHub Actions".
+publishes `dist/` to GitHub Pages. Two settings in Settings > Pages are required and
+cannot be set by the workflow (they need repo admin): "Source" must be
+"GitHub Actions", and "Custom domain" must be `sidereal.software`. With workflow
+deploys GitHub ignores the `public/CNAME` file, so the settings are the source of
+truth; the deploy fails loudly if they drift.
