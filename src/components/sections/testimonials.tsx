@@ -1,5 +1,14 @@
+import Autoplay from 'embla-carousel-autoplay'
+
 import { SectionHeading } from '@/components/section-heading'
 import { Card, CardContent } from '@/components/ui/card'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 
 interface Testimonial {
   quote: string
@@ -49,23 +58,34 @@ export function Testimonials() {
         title="In their words"
         description="Excerpts from letters of recommendation, shared with permission."
       />
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {testimonials.map((testimonial) => (
-          <Card key={testimonial.name} className="bg-card/60 backdrop-blur-sm">
-            <CardContent className="flex h-full flex-col gap-6">
-              <blockquote className="flex-1 font-serif text-base italic leading-relaxed">
-                &ldquo;{testimonial.quote}&rdquo;
-              </blockquote>
-              <footer className="font-mono text-xs">
-                <div className="text-foreground font-medium">{testimonial.name}</div>
-                <div className="text-muted-foreground mt-1">
-                  {testimonial.title} · {testimonial.org}
-                </div>
-              </footer>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <Carousel
+        opts={{ loop: true, align: 'start' }}
+        plugins={[
+          Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true }),
+        ]}
+        className="mx-auto max-w-5xl px-12">
+        <CarouselContent>
+          {testimonials.map((testimonial) => (
+            <CarouselItem key={testimonial.name} className="md:basis-1/2">
+              <Card className="bg-card/60 h-full backdrop-blur-sm">
+                <CardContent className="flex h-full flex-col gap-6">
+                  <blockquote className="flex-1 font-serif text-base italic leading-relaxed">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <footer className="font-mono text-xs">
+                    <div className="text-foreground font-medium">{testimonial.name}</div>
+                    <div className="text-muted-foreground mt-1">
+                      {testimonial.title} · {testimonial.org}
+                    </div>
+                  </footer>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-0" />
+        <CarouselNext className="right-0" />
+      </Carousel>
     </section>
   )
 }
