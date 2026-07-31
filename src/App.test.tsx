@@ -29,6 +29,7 @@ describe('App', () => {
       'Production software for observatories, missions, and research teams',
       'Full-stack astronomy software',
       'From problem to production',
+      'What Sidereal is building',
       'A decade across observatories and missions',
       'In their words',
       'Meet the founder',
@@ -61,6 +62,12 @@ describe('App', () => {
     expect(
       document.querySelector('a[href="mailto:hello@sidereal.software"]'),
     ).not.toBeNull()
+  })
+
+  it('features both Sidereal projects', () => {
+    render(<App />)
+    expect(screen.getByText('INDINexus')).toBeInTheDocument()
+    expect(screen.getByText('ARK - Animal Record Keeper')).toBeInTheDocument()
   })
 
   it('links the experience repos', () => {

@@ -8,6 +8,7 @@ import { Faq } from '@/components/sections/faq'
 import { Founder } from '@/components/sections/founder'
 import { Hero } from '@/components/sections/hero'
 import { Process } from '@/components/sections/process'
+import { Projects } from '@/components/sections/projects'
 import { Services } from '@/components/sections/services'
 import { Testimonials } from '@/components/sections/testimonials'
 
@@ -20,6 +21,7 @@ function App() {
         <TrustStrip />
         <Services />
         <CaseStudies />
+        <Projects />
         <Experience />
         <Testimonials />
         <Founder />
