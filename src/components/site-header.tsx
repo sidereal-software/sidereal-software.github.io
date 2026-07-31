@@ -12,12 +12,11 @@ import {
 } from '@/components/ui/sheet'
 
 const navLinks = [
+  { href: '#work', label: 'Work' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
   { href: '#services', label: 'Services' },
   { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
 ]
 
 export function SiteHeader() {
@@ -41,6 +40,9 @@ export function SiteHeader() {
               </a>
             </Button>
           ))}
+          <Button size="sm" className="ml-2" asChild>
+            <a href="#contact">Start a project</a>
+          </Button>
         </div>
 
         <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -66,6 +68,11 @@ export function SiteHeader() {
                   </a>
                 </Button>
               ))}
+              <Button size="lg" className="mt-2" asChild>
+                <a href="#contact" onClick={() => setMenuOpen(false)}>
+                  Start a project
+                </a>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
