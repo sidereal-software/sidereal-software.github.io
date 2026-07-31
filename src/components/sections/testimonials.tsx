@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     quote:
       'The range of skills that Dan mastered to complete this project is really astounding... Not only did Dan essentially complete the project, but he made it look easy.',
     name: 'David Trilling',
-    title: 'Professor of Astronomy',
+    title: 'Professor & Chair, Astronomy & Planetary Science',
     org: 'Northern Arizona University',
   },
   {
