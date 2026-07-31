@@ -29,7 +29,8 @@
   --font-sans:
     'Oxanium Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     sans-serif;
-  --font-display: var(--font-sans);
+  --font-serif: 'Merriweather Variable', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Fira Code Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /*
