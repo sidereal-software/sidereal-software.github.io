@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
 const stats = [
@@ -13,9 +12,6 @@ export function Hero() {
   return (
     <section id="home" className="relative flex min-h-svh items-center justify-center">
       <div className="mx-auto max-w-5xl px-4 pt-16 text-center sm:px-6 lg:px-8">
-        <Badge variant="outline" className="text-muted-foreground mb-6 px-3 py-1">
-          Astronomy software, built for production
-        </Badge>
         <h1 className="font-serif text-5xl font-bold tracking-tight text-balance md:text-7xl">
           Engineering the{' '}
           <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
