@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import App from './App'
@@ -54,8 +54,10 @@ describe('App', () => {
     }
   })
 
-  it('links the contact email', () => {
+  it('reveals the contact email on click', () => {
     render(<App />)
+    expect(document.querySelector('a[href^="mailto:"]')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /prefer email/i }))
     expect(
       document.querySelector('a[href="mailto:hello@sidereal.software"]'),
     ).not.toBeNull()

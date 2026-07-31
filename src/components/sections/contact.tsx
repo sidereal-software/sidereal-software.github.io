@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 import { CheckCircle2, Clock, Send } from 'lucide-react'
 
@@ -8,11 +9,16 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 
-const CONTACT_EMAIL = 'hello@sidereal.software'
+// Assembled at render time so the address never appears as a contiguous
+// scrapable string in the served HTML or the bundle.
+const EMAIL_USER = 'hello'
+const EMAIL_DOMAIN = ['sidereal', 'software'].join('.')
 const FORMSPREE_ID = 'maqrzvzv'
 
 export function Contact() {
   const [state, handleSubmit] = useForm(FORMSPREE_ID)
+  const [emailRevealed, setEmailRevealed] = useState(false)
+  const email = `${EMAIL_USER}@${EMAIL_DOMAIN}`
 
   return (
     <section
@@ -40,6 +46,14 @@ export function Contact() {
                 type="hidden"
                 name="_subject"
                 value="New inquiry from sidereal.software"
+              />
+              <input
+                type="text"
+                name="_gotcha"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
               />
               <div className="flex flex-col gap-2">
                 <Label htmlFor="contact-name">Name</Label>
@@ -91,12 +105,20 @@ export function Contact() {
               />
             </form>
             <p className="text-muted-foreground mt-6 text-center text-sm">
-              Prefer email?{' '}
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="hover:text-foreground font-mono underline underline-offset-4">
-                {CONTACT_EMAIL}
-              </a>
+              {emailRevealed ? (
+                <a
+                  href={`mailto:${email}`}
+                  className="hover:text-foreground font-mono underline underline-offset-4">
+                  {email}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setEmailRevealed(true)}
+                  className="hover:text-foreground cursor-pointer underline underline-offset-4">
+                  Prefer email? Click to reveal the address.
+                </button>
+              )}
             </p>
           </CardContent>
         )}
