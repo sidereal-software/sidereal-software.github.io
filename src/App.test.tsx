@@ -33,7 +33,7 @@ describe('App', () => {
       'A decade across observatories and missions',
       'Full-stack astronomy software',
       'Meet the founder',
-      'Get in touch',
+      'Start a project',
     ]) {
       expect(
         screen.getByRole('heading', { name: new RegExp(heading, 'i') }),
