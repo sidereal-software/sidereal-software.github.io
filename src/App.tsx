@@ -4,6 +4,7 @@ import { TrustStrip } from '@/components/trust-strip'
 import { CaseStudies } from '@/components/sections/case-studies'
 import { Contact } from '@/components/sections/contact'
 import { Experience } from '@/components/sections/experience'
+import { Faq } from '@/components/sections/faq'
 import { Founder } from '@/components/sections/founder'
 import { Hero } from '@/components/sections/hero'
 import { Process } from '@/components/sections/process'
@@ -23,6 +24,7 @@ function App() {
         <Testimonials />
         <Founder />
         <Process />
+        <Faq />
         <Contact />
       </main>
       <SiteFooter />

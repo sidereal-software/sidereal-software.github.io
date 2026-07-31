@@ -33,6 +33,7 @@ describe('App', () => {
       'In their words',
       'Meet the founder',
       'How we work',
+      'Common questions',
       'Start a project',
     ]) {
       expect(
