@@ -27,6 +27,7 @@ describe('App', () => {
     render(<App />)
     for (const heading of [
       'Production software for observatories, missions, and research teams',
+      'From problem to production',
       'What Sidereal is building now',
       'A full-stack toolkit, proven in production',
       'A decade across observatories and missions',
