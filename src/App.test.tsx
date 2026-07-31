@@ -26,7 +26,7 @@ describe('App', () => {
   it('renders every major section heading', () => {
     render(<App />)
     for (const heading of [
-      'Engineering the night sky',
+      'Production software for observatories, missions, and research teams',
       'What Sidereal is building now',
       'A full-stack toolkit, proven in production',
       'A decade across observatories and missions',
