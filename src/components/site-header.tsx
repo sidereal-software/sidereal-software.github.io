@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Menu } from 'lucide-react'
 
 import logo from '@/assets/logo.png'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -31,50 +32,55 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <Button key={link.href} variant="ghost" asChild>
-              <a href={link.href} className="text-muted-foreground hover:text-foreground">
-                {link.label}
-              </a>
-            </Button>
-          ))}
-          <Button size="sm" className="ml-2" asChild>
-            <a href="#contact">Start a project</a>
-          </Button>
-        </div>
-
-        <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" aria-label="Open menu">
-              <Menu className="size-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle className="font-serif">Sidereal Software</SheetTitle>
-            </SheetHeader>
-            <div className="flex flex-col gap-1 px-4">
-              {navLinks.map((link) => (
-                <Button
-                  key={link.href}
-                  variant="ghost"
-                  size="lg"
-                  className="justify-start"
-                  asChild>
-                  <a href={link.href} onClick={() => setMenuOpen(false)}>
-                    {link.label}
-                  </a>
-                </Button>
-              ))}
-              <Button size="lg" className="mt-2" asChild>
-                <a href="#contact" onClick={() => setMenuOpen(false)}>
-                  Start a project
+        <div className="flex items-center gap-1">
+          <div className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => (
+              <Button key={link.href} variant="ghost" asChild>
+                <a
+                  href={link.href}
+                  className="text-muted-foreground hover:text-foreground">
+                  {link.label}
                 </a>
               </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+            ))}
+          </div>
+          <ThemeToggle />
+          <Button size="sm" className="ml-1 hidden md:inline-flex" asChild>
+            <a href="#contact">Start a project</a>
+          </Button>
+
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Menu className="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle className="font-serif">Sidereal Software</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-1 px-4">
+                {navLinks.map((link) => (
+                  <Button
+                    key={link.href}
+                    variant="ghost"
+                    size="lg"
+                    className="justify-start"
+                    asChild>
+                    <a href={link.href} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </a>
+                  </Button>
+                ))}
+                <Button size="lg" className="mt-2" asChild>
+                  <a href="#contact" onClick={() => setMenuOpen(false)}>
+                    Start a project
+                  </a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   )

@@ -35,8 +35,10 @@ Pages via GitHub Actions (`.github/workflows/deploy.yml`). The custom domain is 
 - `src/components/sections/` - one file per section
 - `src/components/ui/` - vendored shadcn/ui primitives; keep these unmodified and style
   via className at call sites
-- `src/index.css` - Tailwind setup and all theme tokens. The site renders dark
-  (`class="dark"` on `<html>`). To retheme, edit the `:root` and `.dark` blocks only.
+- `src/index.css` - Tailwind setup and all theme tokens. The site supports light and
+  dark: an inline script in `index.html` applies the `dark` class before first paint
+  (stored preference, then system setting) and the header `ThemeToggle` switches it.
+  To retheme, edit the `:root` and `.dark` blocks only.
 - `public/CNAME` - custom domain; never delete
 
 ## Content

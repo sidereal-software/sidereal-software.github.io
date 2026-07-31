@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section id="home" className="relative flex min-h-svh items-center justify-center">
       <div className="mx-auto max-w-4xl px-4 pt-16 text-center sm:px-6 lg:px-8">
-        <p className="bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text font-serif text-lg italic text-transparent md:text-xl">
+        <p className="bg-gradient-to-r from-amber-700 via-orange-700 to-rose-700 bg-clip-text font-serif text-lg italic text-transparent md:text-xl dark:from-amber-300 dark:via-orange-400 dark:to-rose-400">
           Engineering the night sky
         </p>
         <h1 className="mt-4 font-serif text-4xl font-bold tracking-tight text-balance md:text-6xl">
