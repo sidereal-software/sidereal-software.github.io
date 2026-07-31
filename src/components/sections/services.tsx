@@ -88,7 +88,7 @@ export function Services() {
           <Card key={service.title} className="bg-card/60 backdrop-blur-sm">
             <CardHeader>
               <service.icon className="text-primary" aria-hidden="true" />
-              <CardTitle className="font-display pt-2 text-lg">{service.title}</CardTitle>
+              <CardTitle className="pt-2 text-lg">{service.title}</CardTitle>
               <CardDescription className="leading-relaxed">
                 {service.description}
               </CardDescription>
@@ -99,7 +99,7 @@ export function Services() {
 
       <Card className="bg-card/60 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="font-display text-center text-2xl">
+          <CardTitle className="text-center font-serif text-2xl">
             Technology Stack
           </CardTitle>
         </CardHeader>
@@ -107,7 +107,7 @@ export function Services() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {techStack.map((group) => (
               <div key={group.category}>
-                <h3 className="text-muted-foreground mb-3 text-sm font-semibold tracking-widest uppercase">
+                <h3 className="text-muted-foreground mb-3 font-mono text-sm font-semibold tracking-widest uppercase">
                   {group.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">

@@ -78,9 +78,9 @@ export function Experience() {
                 {index > 0 && <Separator className="my-6" />}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr] md:gap-8">
                   <div>
-                    <h3 className="font-display font-semibold">{job.org}</h3>
+                    <h3 className="font-semibold">{job.org}</h3>
                     <p className="text-muted-foreground text-sm">{job.detail}</p>
-                    <p className="text-muted-foreground mt-1 text-sm">
+                    <p className="text-muted-foreground mt-1 font-mono text-xs">
                       {job.role} · {job.period}
                     </p>
                   </div>

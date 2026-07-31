@@ -16,7 +16,7 @@ export function Hero() {
         <Badge variant="outline" className="text-muted-foreground mb-6 px-3 py-1">
           Astronomy software, built for production
         </Badge>
-        <h1 className="font-display text-5xl font-bold tracking-tight text-balance md:text-7xl">
+        <h1 className="font-serif text-5xl font-bold tracking-tight text-balance md:text-7xl">
           Engineering the{' '}
           <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
             night sky
@@ -42,7 +42,7 @@ export function Hero() {
         <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-6">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <dd className="font-display bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+              <dd className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text font-serif text-4xl font-bold text-transparent md:text-5xl">
                 {stat.value}
               </dd>
               <dt className="text-muted-foreground mt-2 text-sm md:text-base">

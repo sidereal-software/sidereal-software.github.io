@@ -79,7 +79,7 @@ export function Skills() {
           <Card key={group.title} className="bg-card/60 backdrop-blur-sm">
             <CardHeader>
               <group.icon className="text-primary" aria-hidden="true" />
-              <CardTitle className="font-display pt-2 text-lg">{group.title}</CardTitle>
+              <CardTitle className="pt-2 text-lg">{group.title}</CardTitle>
               <CardDescription className="leading-relaxed">
                 {group.description}
               </CardDescription>

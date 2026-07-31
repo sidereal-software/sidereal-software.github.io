@@ -40,8 +40,10 @@ export function Founder() {
           </div>
           <div className="flex flex-col justify-center gap-5 p-8 md:p-10">
             <div>
-              <h3 className="font-display text-2xl font-bold">Dan Avner</h3>
-              <p className="text-muted-foreground mt-1">Founder & Principal Engineer</p>
+              <h3 className="font-serif text-2xl font-bold">Dan Avner</h3>
+              <p className="text-muted-foreground mt-1 font-mono text-sm">
+                Founder & Principal Engineer
+              </p>
             </div>
             <div className="text-muted-foreground space-y-4 text-sm leading-relaxed">
               <p>

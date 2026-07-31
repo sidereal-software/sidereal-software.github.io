@@ -25,8 +25,10 @@ export function Projects() {
       />
       <Card className="bg-card/60 mx-auto max-w-3xl backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="font-display text-2xl">INDINexus</CardTitle>
-          <CardDescription>In active development · MIT licensed</CardDescription>
+          <CardTitle className="font-serif text-2xl">INDINexus</CardTitle>
+          <CardDescription className="font-mono text-xs">
+            In active development · MIT licensed
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-muted-foreground text-sm leading-relaxed">

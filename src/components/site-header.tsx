@@ -28,7 +28,7 @@ export function SiteHeader() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="" className="size-9 dark:invert" width={36} height={36} />
-          <span className="font-display text-lg font-semibold tracking-tight">
+          <span className="font-serif text-lg font-semibold tracking-tight">
             Sidereal Software
           </span>
         </a>
@@ -51,7 +51,7 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent side="right">
             <SheetHeader>
-              <SheetTitle className="font-display">Sidereal Software</SheetTitle>
+              <SheetTitle className="font-serif">Sidereal Software</SheetTitle>
             </SheetHeader>
             <div className="flex flex-col gap-1 px-4">
               {navLinks.map((link) => (

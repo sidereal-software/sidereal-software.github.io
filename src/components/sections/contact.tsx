@@ -23,7 +23,7 @@ export function Contact() {
             For project inquiries, questions, or just to say hello, reach out directly via
             email.
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" className="font-mono" asChild>
             <a href={`mailto:${CONTACT_EMAIL}`}>
               <Mail />
               {CONTACT_EMAIL}
