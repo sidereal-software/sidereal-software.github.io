@@ -87,7 +87,7 @@ export function Services() {
         {services.map((service) => (
           <Card key={service.title} className="bg-card/60 backdrop-blur-sm">
             <CardHeader>
-              <service.icon className="text-sky-400" aria-hidden="true" />
+              <service.icon className="text-primary" aria-hidden="true" />
               <CardTitle className="font-display pt-2 text-lg">{service.title}</CardTitle>
               <CardDescription className="leading-relaxed">
                 {service.description}
