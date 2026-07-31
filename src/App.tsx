@@ -9,6 +9,9 @@ import { Hero } from '@/components/sections/hero'
 import { Projects } from '@/components/sections/projects'
 import { Services } from '@/components/sections/services'
 import { Skills } from '@/components/sections/skills'
+// The testimonial excerpts come from private letters of recommendation; do not
+// render the section until each author has approved public use of their quote.
+// import { Testimonials } from '@/components/sections/testimonials'
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
         <Skills />
         <Experience />
         <Services />
+        {/* <Testimonials /> */}
         <Founder />
         <Contact />
       </main>
