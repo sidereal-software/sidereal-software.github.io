@@ -64,7 +64,6 @@ export function Experience() {
     <section id="experience" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Experience"
           title="A decade across observatories and missions"
           description="Telescope and spacecraft software, from embedded instrument control to the browser."
         />

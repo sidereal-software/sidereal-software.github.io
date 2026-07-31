@@ -60,7 +60,6 @@ export function CaseStudies() {
     <section id="work" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Selected Work"
           title="From problem to production"
           description="Two engagements in depth: the problem, the approach, and what changed."
         />

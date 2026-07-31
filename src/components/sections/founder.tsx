@@ -20,7 +20,6 @@ export function Founder() {
     <section id="about" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="About"
           title="Meet the founder"
           description="Sidereal Software is founded and led by an engineer who builds observatory software for a living."
         />

@@ -45,7 +45,6 @@ export function Projects() {
     <section id="projects" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Projects"
           title="What Sidereal is building"
           description="Two products in active development."
         />

@@ -24,7 +24,6 @@ export function Contact() {
     <section id="contact" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Contact"
           title="Start a project"
           description="Tell me about your observatory, mission, or research software problem."
         />
