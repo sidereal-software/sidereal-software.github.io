@@ -26,26 +26,6 @@ const caseStudies: CaseStudy[] = [
     outcome:
       'Astronomers go from an incoming alert to calibrated Gemini data inside a single browser tab.',
   },
-  {
-    name: 'DRAGONS in the Browser',
-    meta: 'Lead Engineer · Gemini Observatory',
-    problem:
-      "Gemini's DRAGONS data-reduction pipeline lived on the command line, keeping calibrated data out of reach for observers who are not pipeline experts.",
-    approach:
-      'Led the transition to a web platform: Django services wrapping the pipeline, WebSockets streaming live progress, and a browser interface for interactive reduction.',
-    outcome:
-      'A desktop-only scientific pipeline became point-and-click, available to every GOATS user.',
-  },
-  {
-    name: 'SPHEREx Pipelines',
-    meta: 'Application Developer · Caltech / IPAC',
-    problem:
-      "NASA's SPHEREx mission needed production-grade data-processing pipelines robust enough to survey the entire sky in near-infrared spectra.",
-    approach:
-      'Developed pipeline software in Python alongside the science team, integrating Rubin Observatory pipeline and Butler frameworks, with Jenkins CI and rigorous testing.',
-    outcome:
-      'Production pipeline workflows meeting the standards of NASA science operations.',
-  },
 ]
 
 export function CaseStudies() {
@@ -56,7 +36,7 @@ export function CaseStudies() {
       <SectionHeading
         eyebrow="Selected Work"
         title="From problem to production"
-        description="Three engagements: the problem, the approach, and what changed."
+        description="One engagement in depth: the problem, the approach, and what changed."
       />
       <div className="flex flex-col gap-6">
         {caseStudies.map((study) => (
