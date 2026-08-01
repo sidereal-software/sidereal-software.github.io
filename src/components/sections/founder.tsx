@@ -35,7 +35,7 @@ export function Founder() {
             </div>
             <div className="flex flex-col justify-center gap-6 p-8 md:p-10">
               <p className="font-serif text-2xl leading-snug font-bold text-balance md:text-3xl">
-                &ldquo;Always leave it better than you found it.&rdquo;
+                &ldquo;I build the tools I wished I had at 3 a.m. on the mountain.&rdquo;
               </p>
               <div className="text-muted-foreground space-y-4 text-sm leading-relaxed">
                 <p>
