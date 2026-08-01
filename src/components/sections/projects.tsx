@@ -44,10 +44,7 @@ export function Projects() {
   return (
     <section id="projects" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="What Sidereal is building"
-          description="Two products in active development."
-        />
+        <SectionHeading title="What Sidereal is building" />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project) => (
             <Card key={project.name} className="bg-card/60 backdrop-blur-sm">

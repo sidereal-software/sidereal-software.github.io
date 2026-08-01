@@ -26,7 +26,7 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Start a project"
-          description="Tell me about your observatory, your mission, or the tool your team needs."
+          description="Tell me about your observatory, your lab, your field work, or the tool your team needs."
         />
         <div className="-mt-6 mb-8 flex justify-center">
           <Badge variant="outline" className="gap-2 px-3 py-1.5">

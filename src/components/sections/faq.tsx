@@ -10,7 +10,7 @@ const faqs = [
   {
     question: 'What kinds of projects are a good fit?',
     answer:
-      'Observatory control systems, data-processing pipelines, TOM Toolkit deployments, and scientific web platforms - whether that means building something new or modernizing a system you already run.',
+      'Observatory control systems, data-processing pipelines, and scientific web platforms are the core of the practice, but any science with a software problem is a good fit: ARK exists because wildlife professionals needed better record keeping. Building something new and modernizing a system you already run are both welcome.',
   },
   {
     question: 'Where are you based, and do you work remotely?',
@@ -38,10 +38,7 @@ export function Faq() {
   return (
     <section id="faq" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Common questions"
-          description="The practical details, before you reach out."
-        />
+        <SectionHeading title="Common questions" />
         <Accordion type="single" collapsible className="mx-auto max-w-2xl">
           {faqs.map((faq) => (
             <AccordionItem key={faq.question} value={faq.question}>

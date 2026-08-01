@@ -13,8 +13,9 @@ export function Hero() {
           Production software for observatories, missions, and research teams.
         </h1>
         <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg text-balance md:text-xl">
-          Sidereal Software designs and builds the systems behind modern astronomy, from
-          instrument control to real-time data platforms.
+          Sidereal Software builds the systems behind modern astronomy, from instrument
+          control to real-time data platforms, and brings the same engineering to every
+          science.
         </p>
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>

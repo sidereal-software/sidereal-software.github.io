@@ -35,7 +35,7 @@ const services: Service[] = [
     icon: Globe,
     title: 'Scientific Web Platforms',
     description:
-      'Django-based web applications, TOM Toolkit deployments, and data portals for astronomical research teams.',
+      'Django-based web applications, TOM Toolkit deployments, and data portals for research teams in any field.',
   },
   {
     icon: Braces,
@@ -47,7 +47,7 @@ const services: Service[] = [
     icon: Database,
     title: 'Backend Systems',
     description:
-      'Scalable database architectures, data processing pipelines, and integration with existing observatory infrastructure.',
+      'Scalable database architectures, data processing pipelines, and integration with the infrastructure your team already runs.',
   },
   {
     icon: Cpu,
@@ -59,7 +59,7 @@ const services: Service[] = [
     icon: MonitorSmartphone,
     title: 'Frontend Development',
     description:
-      'Modern React interfaces with TypeScript, real-time data visualization, and responsive design for astronomers.',
+      'Modern React interfaces with TypeScript, real-time data visualization, and responsive design for working scientists.',
   },
 ]
 
