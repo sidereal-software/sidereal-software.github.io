@@ -58,6 +58,12 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 - The testimonials section (`src/components/sections/testimonials.tsx`) quotes
   letters of recommendation; the excerpts were approved for public use by Dan.
   Get his approval again before altering a quote or adding a new one.
+- Analytics is GoatCounter, loaded from a script tag in `index.html`. It sets no
+  cookies and collects no personal data, so the site needs no consent banner; keep it
+  that way. `src/head.test.ts` guards that tag and the other easily-lost head tags.
+- `public/og.png` is a 1200x630 screenshot of the hero in dark mode. It is the social
+  preview, so regenerate it whenever the hero copy changes or it will advertise stale
+  wording.
 
 ## Agent rules
 
