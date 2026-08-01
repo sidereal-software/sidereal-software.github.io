@@ -28,7 +28,7 @@ const caseStudies: CaseStudy[] = [
     problem:
       'Time-domain astronomers juggled separate tools for alerts, triggering, data retrieval, and reduction. When following up a transient event, every lost hour costs science.',
     approach:
-      'Architected an end-to-end web platform on Django, TOM Toolkit, and WebSockets: target ingestion, target-of-opportunity triggering, automated data retrieval, and real-time reduction in one application.',
+      'I architected an end-to-end web platform on Django, TOM Toolkit, and WebSockets: target ingestion, target-of-opportunity triggering, automated data retrieval, and real-time reduction in one application.',
     outcome:
       'Astronomers go from an incoming alert to calibrated Gemini data inside a single browser tab.',
     links: [
@@ -41,7 +41,7 @@ const caseStudies: CaseStudy[] = [
     problem:
       'Writing INDI instrument drivers was slow, and desktop-bound control GUIs kept operators tied to the control room. Staff needed to command telescopes from anywhere, including a phone.',
     approach:
-      'Co-developed a pure-Python implementation of the INDI protocol on asyncio and led the frontend: web tooling that auto-generates responsive control GUIs straight from INDI device properties. Presented at SPIE 2022.',
+      'I co-developed a pure-Python implementation of the INDI protocol on asyncio and led the frontend: web tooling that auto-generates responsive control GUIs straight from INDI device properties. Presented at SPIE 2022.',
     outcome:
       'Faster driver development and browser control panels that work from a phone, in service at the MMT, Bok, and Kuiper telescopes. Its lessons now drive INDINexus.',
     links: [

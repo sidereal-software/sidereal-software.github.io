@@ -10,27 +10,27 @@ const faqs = [
   {
     question: 'What kinds of projects are a good fit?',
     answer:
-      'Observatory control systems, data-processing pipelines, and scientific web platforms are the core of the practice, but any science with a software problem is a good fit: ARK exists because wildlife professionals needed better record keeping. Building something new and modernizing a system you already run are both welcome.',
+      'Observatory control systems, data-processing pipelines, and scientific web platforms are what I build most, but any science with a software problem is a good fit: ARK exists because wildlife professionals needed better record keeping. I take on new builds and modernizations of systems you already run.',
   },
   {
     question: 'Where are you based, and do you work remotely?',
     answer:
-      'Sidereal Software is based in Los Angeles, California (Pacific Time) and operates fully remotely, shipping production systems for observatories and teams spread across sites and time zones.',
+      'I am based in Los Angeles, California (Pacific Time) and work fully remotely. Most of my career has been spent shipping production systems for observatories and teams spread across sites and time zones.',
   },
   {
     question: 'How are engagements structured?',
     answer:
-      'Every project starts with a free intro call, followed by a written proposal with deliverables, milestones, and a clear price. Fixed-scope projects and ongoing support arrangements are both on the table.',
+      'Every project starts with a free intro call, after which I send a written proposal with deliverables, milestones, and a clear price. I take both fixed-scope projects and ongoing support arrangements.',
   },
   {
     question: 'We already have a codebase. Is that a problem?',
     answer:
-      'That is the normal case. Most engagements start inside an existing system: rescuing a pipeline, modernizing an interface, or extending a platform without breaking operations.',
+      'That is the normal case. Most of my engagements start inside an existing system: rescuing a pipeline, modernizing an interface, or extending a platform without breaking operations.',
   },
   {
     question: 'Who owns the work?',
     answer:
-      'You do. Deliverables are handed over documented and tested, and open-sourcing components can be part of the plan when it benefits your project.',
+      'You do. I hand over every deliverable documented and tested, and open-sourcing components can be part of the plan when it benefits your project.',
   },
 ]
 

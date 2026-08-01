@@ -133,8 +133,8 @@ export function Contact() {
                 )}
               </p>
               <p className="text-muted-foreground mt-3 flex items-center justify-center gap-2 text-sm">
-                <Clock className="size-4" aria-hidden="true" />
-                Typically responds within 1-2 business days
+                <Clock className="size-4" aria-hidden="true" />I typically respond within
+                1-2 business days
               </p>
               <p className="text-muted-foreground mt-2 flex items-center justify-center gap-2 text-sm">
                 <MapPin className="size-4" aria-hidden="true" />

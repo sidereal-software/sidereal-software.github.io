@@ -30,10 +30,10 @@ describe('App', () => {
       'Full-stack scientific software',
       'From problem to production',
       'What Sidereal is building',
-      'A decade across observatories and missions',
+      'A career across observatories and missions',
       'In their words',
       'Meet the founder',
-      'How we work',
+      'How I work',
       'Common questions',
       'Start a project',
     ]) {
@@ -116,7 +116,7 @@ describe('App', () => {
     }
   })
 
-  it('links the experience repos', () => {
+  it('links every featured repository', () => {
     render(<App />)
     for (const href of [
       'https://github.com/gemini-hlsw/goats',

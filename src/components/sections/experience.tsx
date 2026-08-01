@@ -12,7 +12,7 @@ interface Job {
   role: string
   period: string
   summary: string
-  links: { label: string; href: string; github?: boolean }[]
+  links?: { label: string; href: string; github?: boolean }[]
 }
 
 const experience: Job[] = [
@@ -22,7 +22,7 @@ const experience: Job[] = [
     role: 'Software Engineer III',
     period: '2023 - Present',
     summary:
-      "Principal engineer and architect for GOATS and the GPP Client, and now leading GPP Resource. Moved Gemini's DRAGONS data-reduction pipeline into the browser with Django and WebSockets.",
+      "I am the principal engineer and architect for GOATS and the GPP Client, and I now lead GPP Resource. I moved Gemini's DRAGONS data-reduction pipeline into the browser with Django and WebSockets.",
     links: [
       { label: 'GOATS', href: 'https://github.com/gemini-hlsw/goats', github: true },
       {
@@ -43,7 +43,7 @@ const experience: Job[] = [
     role: 'Application Developer',
     period: '2021 - 2023',
     summary:
-      "Developed production data-processing pipelines for NASA's SPHEREx mission, building astrophysics algorithms with the science team and integrating Rubin Observatory pipeline and Butler software.",
+      "I developed production data-processing pipelines for NASA's SPHEREx mission, building astrophysics algorithms alongside the science team and integrating Rubin Observatory pipeline and Butler software.",
     links: [{ label: 'SPHEREx mission', href: 'https://spherex.caltech.edu' }],
   },
   {
@@ -52,10 +52,7 @@ const experience: Job[] = [
     role: 'R&D Software Engineer III',
     period: '2019 - 2021',
     summary:
-      'Automated research telescopes for classical and autonomous observing, leading projects from embedded dome and mirror-cover control up to web frontends, with 150+ nights at the telescope.',
-    links: [
-      { label: 'pyINDI', href: 'https://github.com/MMTObservatory/pyINDI', github: true },
-    ],
+      'I automated research telescopes for classical and autonomous observing, owning projects from embedded dome and mirror-cover control up to the web interfaces operators use. This is where pyINDI began, and where I logged 150+ nights at the telescope.',
   },
 ]
 
@@ -64,7 +61,7 @@ export function Experience() {
     <section id="experience" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="A decade across observatories and missions"
+          title="A career across observatories and missions"
           description="Telescope and spacecraft software, from embedded instrument control to the browser."
         />
 
@@ -86,16 +83,18 @@ export function Experience() {
                       <p className="text-muted-foreground text-sm leading-relaxed">
                         {job.summary}
                       </p>
-                      <div className="flex flex-wrap gap-2">
-                        {job.links.map((link) => (
-                          <Button key={link.href} variant="outline" size="sm" asChild>
-                            <a href={link.href} target="_blank" rel="noreferrer">
-                              {link.github ? <GitHubIcon /> : <ExternalLink />}
-                              {link.label}
-                            </a>
-                          </Button>
-                        ))}
-                      </div>
+                      {job.links && (
+                        <div className="flex flex-wrap gap-2">
+                          {job.links.map((link) => (
+                            <Button key={link.href} variant="outline" size="sm" asChild>
+                              <a href={link.href} target="_blank" rel="noreferrer">
+                                {link.github ? <GitHubIcon /> : <ExternalLink />}
+                                {link.label}
+                              </a>
+                            </Button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </li>

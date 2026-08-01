@@ -26,7 +26,7 @@ export function Process() {
     <section id="process" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="How we work"
+          title="How I work"
           description="A defined path from first conversation to handover."
         />
         <Card className="bg-card/60 backdrop-blur-sm">

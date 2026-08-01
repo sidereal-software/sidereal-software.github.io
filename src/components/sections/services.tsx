@@ -123,14 +123,13 @@ export function Services() {
               <p>
                 Most projects start with someone who is not a programmer: a scientist, a
                 keeper, an operations lead who knows exactly what makes their day harder
-                than it should be. If you can describe the problem, Sidereal can design
-                and build the app that removes it - automating a routine, replacing the
-                spreadsheet that stopped scaling, or putting your field work on your
-                phone.
+                than it should be. If you can describe the problem, I can design and build
+                the app that removes it - automating a routine, replacing the spreadsheet
+                that stopped scaling, or putting your field work on your phone.
               </p>
               <p>
                 That is how ARK began: wildlife professionals needed their everyday record
-                keeping to be easier, so a tool is being built around how they actually
+                keeping to be easier, so I am building a tool around how they actually
                 work.
               </p>
             </div>
