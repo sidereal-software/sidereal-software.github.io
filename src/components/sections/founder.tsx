@@ -3,11 +3,8 @@ import { Globe } from 'lucide-react'
 import portrait from '@/assets/me.jpg'
 import { GitHubIcon, LinkedInIcon } from '@/components/icons'
 import { SectionHeading } from '@/components/section-heading'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-
-const affiliations = ['NSF NOIRLab', 'Caltech / IPAC', 'Steward Observatory']
 
 const links = [
   { icon: Globe, label: 'danavner.com', href: 'https://www.danavner.com' },
@@ -45,25 +42,19 @@ export function Founder() {
               </div>
               <div className="text-muted-foreground space-y-4 text-sm leading-relaxed">
                 <p>
-                  Dan is a software engineer at NSF NOIRLab supporting the international
-                  Gemini Observatory, where he is the principal engineer and architect for
-                  GOATS and the GPP Client, and now leads GPP Resource.
+                  Dan has spent his career inside observatories, not just writing code for
+                  them: over 150 nights at the telescope, mountain operations at Steward
+                  Observatory, a master's in applied physics, and years of building tools
+                  he and his colleagues had to rely on the next night. That is where the
+                  obsession with intuitive, reliable interfaces comes from.
                 </p>
                 <p>
-                  Before NOIRLab, he built data-processing pipelines for NASA's SPHEREx
-                  mission at Caltech/IPAC and autonomous telescope and instrument control
-                  software at Steward Observatory. His work centers on full-stack
-                  engineering and real-time web applications, with an emphasis on
-                  intuitive, reliable interfaces that make complex astronomical workflows
-                  efficient for scientists.
+                  Today he is a software engineer at NSF NOIRLab supporting the
+                  international Gemini Observatory. Sidereal Software is where that
+                  experience goes to work for everyone else: teams who need production
+                  software shaped around how they actually operate, built by someone who
+                  has stood where they stand.
                 </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {affiliations.map((affiliation) => (
-                  <Badge key={affiliation} variant="secondary">
-                    {affiliation}
-                  </Badge>
-                ))}
               </div>
               <div className="flex flex-wrap gap-2">
                 {links.map((link) => (
