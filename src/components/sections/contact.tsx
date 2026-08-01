@@ -98,7 +98,7 @@ export function Contact() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="contact-message">What are you working on?</Label>
+                  <Label htmlFor="contact-message">What do you need help with?</Label>
                   <Textarea id="contact-message" name="message" required rows={5} />
                   <ValidationError
                     prefix="Message"

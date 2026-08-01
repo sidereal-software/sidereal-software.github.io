@@ -33,27 +33,30 @@ export function Founder() {
                 aria-hidden="true"
               />
             </div>
-            <div className="flex flex-col justify-center gap-5 p-8 md:p-10">
-              <div>
-                <h3 className="font-serif text-2xl font-bold">Dan Avner</h3>
-                <p className="text-muted-foreground mt-1 font-mono text-sm">
-                  Founder & Principal Engineer
-                </p>
-              </div>
+            <div className="flex flex-col justify-center gap-6 p-8 md:p-10">
+              <p className="font-serif text-2xl leading-snug font-bold text-balance md:text-3xl">
+                &ldquo;Always leave it better than you found it.&rdquo;
+              </p>
               <div className="text-muted-foreground space-y-4 text-sm leading-relaxed">
                 <p>
-                  Dan has spent his career inside observatories, not just writing code for
+                  I've spent my career inside observatories, not just writing code for
                   them: over 150 nights at the telescope, mountain operations at Steward
-                  Observatory, a master's in applied physics, and years of building tools
-                  he and his colleagues had to rely on the next night. That is where the
+                  Observatory, a master's in applied physics, and years of building the
+                  tools my colleagues and I had to rely on the next night. That's where my
                   obsession with intuitive, reliable interfaces comes from.
                 </p>
                 <p>
-                  Today he is a software engineer at NSF NOIRLab supporting the
-                  international Gemini Observatory. Sidereal Software is where that
+                  Today I'm a software engineer at NSF NOIRLab supporting the
+                  international Gemini Observatory, and Sidereal Software is where that
                   experience goes to work for everyone else: teams who need production
                   software shaped around how they actually operate, built by someone who
                   has stood where they stand.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-bold">Dan Avner</h3>
+                <p className="text-muted-foreground mt-1 font-mono text-sm">
+                  Founder & Principal Engineer
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">

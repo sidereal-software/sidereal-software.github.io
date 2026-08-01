@@ -94,7 +94,7 @@ describe('App', () => {
     expect(screen.getByLabelText('Name')).toBeInTheDocument()
     expect(screen.getByLabelText('Email')).toBeInTheDocument()
     expect(screen.getByLabelText('Organization (optional)')).toBeInTheDocument()
-    expect(screen.getByLabelText('What are you working on?')).toBeInTheDocument()
+    expect(screen.getByLabelText('What do you need help with?')).toBeInTheDocument()
     expect(document.querySelector('input[name="_gotcha"]')).not.toBeNull()
   })
 
