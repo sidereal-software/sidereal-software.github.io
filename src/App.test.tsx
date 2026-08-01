@@ -98,6 +98,12 @@ describe('App', () => {
     expect(document.querySelector('input[name="_gotcha"]')).not.toBeNull()
   })
 
+  it('states availability and location', () => {
+    render(<App />)
+    expect(screen.getByText('Currently taking on new projects')).toBeInTheDocument()
+    expect(screen.getByText('Los Angeles, California · Pacific Time')).toBeInTheDocument()
+  })
+
   it('credits every testimonial author', () => {
     render(<App />)
     for (const author of [

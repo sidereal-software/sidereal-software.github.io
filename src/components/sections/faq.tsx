@@ -13,9 +13,9 @@ const faqs = [
       'Observatory control systems, data-processing pipelines, TOM Toolkit deployments, and scientific web platforms - whether that means building something new or modernizing a system you already run.',
   },
   {
-    question: 'Do you work remotely?',
+    question: 'Where are you based, and do you work remotely?',
     answer:
-      'Yes. Sidereal Software operates fully remotely and has shipped production systems for observatories and teams spread across sites and time zones.',
+      'Sidereal Software is based in Los Angeles, California (Pacific Time) and operates fully remotely, shipping production systems for observatories and teams spread across sites and time zones.',
   },
   {
     question: 'How are engagements structured?',

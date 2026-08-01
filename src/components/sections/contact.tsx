@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import { CheckCircle2, Clock, Send } from 'lucide-react'
+import { CheckCircle2, Clock, MapPin, Send } from 'lucide-react'
 
 import { SectionHeading } from '@/components/section-heading'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -27,6 +28,15 @@ export function Contact() {
           title="Start a project"
           description="Tell me about your observatory, your mission, or the tool your team needs."
         />
+        <div className="-mt-6 mb-8 flex justify-center">
+          <Badge variant="outline" className="gap-2 px-3 py-1.5">
+            <span className="relative flex size-2" aria-hidden="true">
+              <span className="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 motion-reduce:animate-none"></span>
+              <span className="bg-primary relative inline-flex size-2 rounded-full"></span>
+            </span>
+            Currently taking on new projects
+          </Badge>
+        </div>
         <Card className="bg-card/60 mx-auto max-w-xl backdrop-blur-sm">
           {state.succeeded ? (
             <CardContent className="space-y-4 py-8 text-center">
@@ -125,6 +135,10 @@ export function Contact() {
               <p className="text-muted-foreground mt-3 flex items-center justify-center gap-2 text-sm">
                 <Clock className="size-4" aria-hidden="true" />
                 Typically responds within 1-2 business days
+              </p>
+              <p className="text-muted-foreground mt-2 flex items-center justify-center gap-2 text-sm">
+                <MapPin className="size-4" aria-hidden="true" />
+                Los Angeles, California · Pacific Time
               </p>
             </CardContent>
           )}
