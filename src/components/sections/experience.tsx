@@ -52,7 +52,7 @@ const experience: Job[] = [
     role: 'R&D Software Engineer III',
     period: '2019 - 2021',
     summary:
-      'I automated research telescopes for classical and autonomous observing, owning projects from embedded dome and mirror-cover control up to the web interfaces operators use. This is where pyINDI began, and where I logged 150+ nights at the telescope.',
+      'I automated research telescopes for classical and autonomous observing, owning projects from embedded dome and mirror-cover control up to the web interfaces operators use. This is where pyINDI began.',
   },
 ]
 
