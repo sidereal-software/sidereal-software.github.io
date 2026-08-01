@@ -25,7 +25,7 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Start a project"
-          description="Tell me about your observatory, mission, or research software problem."
+          description="Tell me about your observatory, your mission, or the tool your team needs."
         />
         <Card className="bg-card/60 mx-auto max-w-xl backdrop-blur-sm">
           {state.succeeded ? (
@@ -121,6 +121,10 @@ export function Contact() {
                     Prefer email? Click to reveal the address.
                   </button>
                 )}
+              </p>
+              <p className="text-muted-foreground mt-3 flex items-center justify-center gap-2 text-sm">
+                <Clock className="size-4" aria-hidden="true" />
+                Typically responds within 1-2 business days
               </p>
             </CardContent>
           )}
