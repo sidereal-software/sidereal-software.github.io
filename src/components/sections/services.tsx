@@ -95,7 +95,7 @@ export function Services() {
     <section id="services" className="scroll-mt-16 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Full-stack astronomy software"
+          title="Full-stack scientific software"
           description="Deep domain expertise across the entire stack, from instrument hardware to the browser."
         />
         <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
