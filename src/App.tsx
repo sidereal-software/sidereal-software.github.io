@@ -1,3 +1,5 @@
+import { lazy, Suspense } from 'react'
+
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TrustStrip } from '@/components/trust-strip'
@@ -12,7 +14,23 @@ import { Projects } from '@/components/sections/projects'
 import { Services } from '@/components/sections/services'
 import { Testimonials } from '@/components/sections/testimonials'
 
+// PROTOTYPE - remove with src/prototype/redesign once a direction is chosen.
+const RedesignPrototype =
+  import.meta.env.DEV && import.meta.env.MODE !== 'test'
+    ? lazy(() => import('@/prototype/redesign'))
+    : null
+
 function App() {
+  const site = <LiveSite />
+  if (!RedesignPrototype) return site
+  return (
+    <Suspense>
+      <RedesignPrototype current={site} />
+    </Suspense>
+  )
+}
+
+function LiveSite() {
   return (
     <div className="relative">
       <SiteHeader />
