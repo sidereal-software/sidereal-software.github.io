@@ -65,6 +65,11 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
   preview, so regenerate it whenever the hero copy changes or it will advertise stale
   wording.
 
+## Agent skills
+
+- Tracker: none; specs, tickets, and the TODO list are local markdown in `.scratch/` (gitignored). See `docs/agents/issue-tracker.md`.
+- Domain docs: glossary at `GLOSSARY.md`, ADRs in `docs/adr/`. See `docs/agents/domain.md`.
+
 ## Agent rules
 
 - Never use the em dash. Use plain dash "-" instead.
