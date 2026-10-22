@@ -1,6 +1,7 @@
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
+import { creditedImages } from '@/content/images'
 import App from './App'
 
 describe('App', () => {
@@ -77,16 +78,81 @@ describe('App', () => {
     ).toBeInTheDocument()
   })
 
-  it('toggles and persists the theme', () => {
-    document.documentElement.classList.remove('dark')
-    localStorage.clear()
+  it('links the header to every section a visitor needs', () => {
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: 'Switch to dark mode' }))
-    expect(document.documentElement.classList.contains('dark')).toBe(true)
-    expect(localStorage.getItem('theme')).toBe('dark')
-    fireEvent.click(screen.getByRole('button', { name: 'Switch to light mode' }))
-    expect(document.documentElement.classList.contains('dark')).toBe(false)
-    expect(localStorage.getItem('theme')).toBe('light')
+    const nav = within(screen.getByRole('banner')).getByRole('navigation')
+    const links = within(nav)
+      .getAllByRole('link')
+      .map((link) => [link.textContent, link.getAttribute('href')])
+    expect(links).toEqual([
+      ['Services', '#services'],
+      ['Work', '#work'],
+      ['About', '#about'],
+      ['Process', '#process'],
+      ['Start a project', '#contact'],
+    ])
+  })
+
+  it('presses the header call to action down and lets it spring back', async () => {
+    render(<App />)
+    const cta = within(screen.getByRole('banner')).getByRole('link', {
+      name: 'Start a project',
+    })
+    fireEvent.pointerDown(cta)
+    await waitFor(() => expect(cta.style.transform).toBe('scale(0.97)'))
+    fireEvent.pointerUp(cta)
+    await waitFor(() => expect(cta.style.transform).toBe('none'))
+  })
+
+  it('opens a menu with every section including Contact', async () => {
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: 'Menu' }))
+    const menu = await screen.findByRole('dialog', { name: 'Menu' })
+    const links = within(menu)
+      .getAllByRole('link')
+      .map((link) => [link.textContent, link.getAttribute('href')])
+    expect(links).toEqual([
+      ['Services', '#services'],
+      ['Work', '#work'],
+      ['About', '#about'],
+      ['Process', '#process'],
+      ['Contact', '#contact'],
+    ])
+  })
+
+  it('closes the footer with the tagline and credits for every image', () => {
+    render(<App />)
+    // Testimonial attributions also use <footer>, so find the site footer by its own link.
+    const footer = screen.getByRole('link', { name: 'Back to top' }).closest('footer')!
+    expect(
+      within(footer).getByText('Sidereal Software · Los Angeles, California'),
+    ).toBeInTheDocument()
+    expect(
+      within(footer).getByText('Software that does the heavy lifting'),
+    ).toBeInTheDocument()
+    expect(within(footer).getByRole('link', { name: 'Back to top' })).toHaveAttribute(
+      'href',
+      '#home',
+    )
+    const credits = within(
+      within(footer).getByRole('list', { name: 'Image credits' }),
+    ).getAllByRole('listitem')
+    for (const image of creditedImages) {
+      const entry = credits.find((item) => item.textContent?.startsWith(image.name))
+      expect(entry, `missing credit for ${image.name}`).toBeDefined()
+      expect(entry).toHaveTextContent(image.credit)
+      expect(within(entry!).getByRole('link', { name: image.license })).toHaveAttribute(
+        'href',
+        image.licenseUrl,
+      )
+    }
+  })
+
+  it('offers no theme switch', () => {
+    render(<App />)
+    expect(
+      screen.queryByRole('button', { name: /theme|dark mode|light mode/i }),
+    ).toBeNull()
   })
 
   it('renders the labeled contact form with its spam honeypot', () => {

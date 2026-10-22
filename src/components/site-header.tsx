@@ -1,87 +1,117 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { animated } from '@react-spring/web'
 import { Menu } from 'lucide-react'
 
 import logo from '@/assets/logo.png'
-import { ThemeToggle } from '@/components/theme-toggle'
-import { Button } from '@/components/ui/button'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { usePress, useStaggerIn } from '@/lib/motion'
+import { cn } from '@/lib/utils'
 
-const navLinks = [
+const sections = [
   { href: '#services', label: 'Services' },
   { href: '#work', label: 'Work' },
-  { href: '#projects', label: 'Products' },
   { href: '#about', label: 'About' },
+  { href: '#process', label: 'Process' },
 ]
 
+const menuLinks = [...sections, { href: '#contact', label: 'Contact' }]
+
+function useScrolled(threshold = 24) {
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > threshold)
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [threshold])
+  return scrolled
+}
+
+function StartProjectLink() {
+  const { style, bind } = usePress()
+  return (
+    <animated.a
+      href="#contact"
+      style={style}
+      {...bind}
+      className="text-primary decoration-primary/40 hover:decoration-primary hidden text-sm font-medium underline underline-offset-[6px] transition-colors sm:inline-block">
+      Start a project
+    </animated.a>
+  )
+}
+
+function MenuLinks() {
+  const trail = useStaggerIn(menuLinks.length, true)
+  return (
+    <ul className="flex flex-col gap-1">
+      {trail.map((style, index) => (
+        <animated.li key={menuLinks[index].href} style={style}>
+          <SheetClose asChild>
+            <a
+              href={menuLinks[index].href}
+              className="font-display hover:text-primary block py-2 text-3xl font-bold tracking-tight uppercase transition-colors">
+              {menuLinks[index].label}
+            </a>
+          </SheetClose>
+        </animated.li>
+      ))}
+    </ul>
+  )
+}
+
 export function SiteHeader() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const scrolled = useScrolled()
 
   return (
-    <header className="bg-background/80 fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-40 border-b transition-colors duration-500',
+        scrolled ? 'border-border bg-background' : 'border-transparent',
+      )}>
+      <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <a href="#home" className="flex items-center gap-3">
-          <img src={logo} alt="" className="size-9 dark:invert" width={36} height={36} />
-          <span className="font-serif text-lg font-semibold tracking-tight">
+          <img src={logo} alt="" className="size-7 invert" width={28} height={28} />
+          <span className="font-display text-[0.8rem] font-semibold tracking-[0.18em] uppercase">
             Sidereal Software
           </span>
         </a>
-
-        <div className="flex items-center gap-1">
-          <div className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <Button key={link.href} variant="ghost" asChild>
+        <nav aria-label="Primary" className="flex items-center gap-8">
+          <ul className="hidden items-center gap-8 lg:flex">
+            {sections.map((item) => (
+              <li key={item.href}>
                 <a
-                  href={link.href}
-                  className="text-muted-foreground hover:text-foreground">
-                  {link.label}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+                  {item.label}
                 </a>
-              </Button>
+              </li>
             ))}
-          </div>
-          <ThemeToggle />
-          <Button size="sm" className="ml-1 hidden md:inline-flex" asChild>
-            <a href="#contact">Start a project</a>
-          </Button>
-
-          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="size-5" />
-              </Button>
+          </ul>
+          <StartProjectLink />
+          <Sheet>
+            <SheetTrigger className="flex items-center gap-2 text-sm lg:hidden">
+              <Menu className="size-5" strokeWidth={1.5} />
+              <span>Menu</span>
             </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle className="font-serif">Sidereal Software</SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col gap-1 px-4">
-                {navLinks.map((link) => (
-                  <Button
-                    key={link.href}
-                    variant="ghost"
-                    size="lg"
-                    className="justify-start"
-                    asChild>
-                    <a href={link.href} onClick={() => setMenuOpen(false)}>
-                      {link.label}
-                    </a>
-                  </Button>
-                ))}
-                <Button size="lg" className="mt-2" asChild>
-                  <a href="#contact" onClick={() => setMenuOpen(false)}>
-                    Start a project
-                  </a>
-                </Button>
-              </div>
+            <SheetContent
+              side="right"
+              aria-describedby={undefined}
+              className="border-border w-full px-6 pt-20 sm:max-w-md">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <MenuLinks />
+              <p className="text-muted-foreground mt-auto pb-8 text-sm">
+                Los Angeles, California
+              </p>
             </SheetContent>
           </Sheet>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   )
 }
