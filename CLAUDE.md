@@ -45,8 +45,8 @@ either.
   publications), Testimonials, About, Working together (`#process`: steps and FAQ),
   Contact
 - `src/components/sections/` - one file per section
-- `src/components/monument.tsx` - the giant section titles, fitted to their container
-  by `src/lib/fit-text.ts`; `caps.tsx` keeps mixed-case acronyms (APIs, pyINDI) intact
+- `src/components/monument.tsx` - the section titles and case-study names, each at a
+  fixed clamp size (76px at most); `caps.tsx` keeps mixed-case acronyms (APIs, pyINDI) intact
   inside uppercase text; `image-credit.tsx` captions photos
 - `src/content/` - site data: `career.ts` (career and case-study dates, best guesses),
   `images.ts` (every photo and its credit; also feeds the footer), `publications.ts`
@@ -58,7 +58,7 @@ either.
   `index.html` carries a static `dark` class and there is one token block. To retheme,
   edit the `:root` block only. It passes WCAG AA contrast (checked by axe in
   `e2e/full-page.spec.ts`); re-check contrast when changing tokens.
-- `DESIGN.md` - the design system as built: tokens, type, the Monument Fit Rule, the
+- `DESIGN.md` - the design system as built: tokens, type, the Monument Scale Rule, the
   Casing Rule, motion, and components. Read it before any UI change and keep it true.
 
 ## Content

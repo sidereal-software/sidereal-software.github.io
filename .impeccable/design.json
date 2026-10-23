@@ -142,8 +142,12 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Monument",
-        "purpose": "Fitted giant section titles and case-study names; fills the container, never crops."
+        "displayName": "Display",
+        "purpose": "Monument section titles at peer scale: clamp(2.5rem, 5.5vw, 4.75rem), 40px at 390 and 76px at 1440."
+      },
+      "display-name": {
+        "displayName": "Display name",
+        "purpose": "Case-study names over their photos, authored casing: clamp(2.25rem, 5vw, 4.25rem), 36px at 390 and 68px at 1440."
       },
       "headline": {
         "displayName": "Headline",
@@ -301,9 +305,9 @@
       "name": "Monument Title",
       "kind": "custom",
       "refersTo": "display",
-      "description": "Giant fitted section title; in production a fit-text hook sizes it to the container exactly. This snippet shows the CSS fallback.",
-      "html": "<div class=\"ds-monument-wrap\"><h2 class=\"ds-monument\"><span style=\"--len: 8\">Services</span></h2></div>",
-      "css": ".ds-monument-wrap { container-type: inline-size; } .ds-monument { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-weight: 700; line-height: 0.86; white-space: pre; text-transform: uppercase; color: var(--foreground, #edece7); } .ds-monument > span { display: inline-block; letter-spacing: 0.01em; font-size: min(20rem, calc(80cqi / var(--len, 8))); }"
+      "description": "Section title at a fixed clamp size, left aligned, wrapping only when the line runs out.",
+      "html": "<h2 class=\"ds-monument\"><span>Services</span></h2>",
+      "css": ".ds-monument { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.5rem, 5.5vw, 4.75rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; color: var(--foreground, #edece7); } .ds-monument > span { display: inline-block; padding-bottom: 0.12em; }"
     },
     {
       "name": "Image Credit",
@@ -319,7 +323,7 @@
     "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and giant upright type standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the oversized section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.",
     "keyCharacteristics": [
       "Dark-only ground with a single ice-cyan accent.",
-      "Monument titles that fill their container exactly, uppercase for generic words only.",
+      "Monument titles at peer scale (76px at most), uppercase for generic words only.",
       "Square everything: zero radius on every surface and control.",
       "Credited observatory photography as the only imagery.",
       "Hairline rules and space as the only separators.",
@@ -337,8 +341,8 @@
         "section": "colors"
       },
       {
-        "name": "The Monument Fit Rule",
-        "body": "A Monument title fills its container's inner width exactly at every width and never crops. Its size is measured, not guessed: the fit-text hook sets the font size from the rendered text width against the container, re-measures on resize and after web fonts load, and respects a per-use cap. Before measurement a CSS fallback (container query width divided by character count) errs small. No negative margins, no viewport-overflowing sizes, no horizontal translation. Authored newlines are the only line breaks.",
+        "name": "The Monument Scale Rule",
+        "body": "A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so \"Start a project\" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside a clipping photo band. No negative margins, no viewport-overflowing sizes, no horizontal translation.",
         "section": "typography"
       },
       {
@@ -360,7 +364,7 @@
     "dos": [
       "Do use ice cyan as the only accent, with dark ink on any cyan fill.",
       "Do separate sections with space and hairlines on the one night ground.",
-      "Do use the Monument component for a new section title so it fits its container; give it a cap and let it measure.",
+      "Do use the Monument component for a new section title so it takes the shared Display size; never size one by hand.",
       "Do author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.",
       "Do keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).",
       "Do credit every photo in a caption and in the footer credits list.",

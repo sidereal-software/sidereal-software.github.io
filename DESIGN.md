@@ -14,9 +14,15 @@ colors:
 typography:
   display:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
-    fontSize: 'fitted to container width, capped at 20rem (Work 24rem, case-study names 16rem)'
+    fontSize: 'clamp(2.5rem, 5.5vw, 4.75rem)'
     fontWeight: 700
-    lineHeight: 0.86
+    lineHeight: 1
+    letterSpacing: '0.01em'
+  display-name:
+    fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(2.25rem, 5vw, 4.25rem)'
+    fontWeight: 700
+    lineHeight: 1
     letterSpacing: '0.01em'
   headline:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
@@ -142,7 +148,7 @@ The theme is dark-only. There is no light mode and no theme switch, and every te
 **Key Characteristics:**
 
 - Dark-only ground with a single ice-cyan accent.
-- Monument titles that fill their container exactly, uppercase for generic words only.
+- Monument titles at peer scale (76px at most), uppercase for generic words only.
 - Square everything: zero radius on every surface and control.
 - Credited observatory photography as the only imagery.
 - Hairline rules and space as the only separators.
@@ -186,7 +192,8 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 ### Hierarchy
 
-- **Display** (Unbounded 700, fitted to the container, line-height 0.86, 0.01em tracking): Monument titles only - section titles (Services, Work, About, Process, Start a project) and the case-study names over their photos.
+- **Display** (Unbounded 700, clamp(2.5rem, 5.5vw, 4.75rem), line-height 1, 0.01em tracking): Monument section titles only (Services, Work, About, Process, Start a project), 40px at 390 and 76px at 1440.
+- **Display name** (Unbounded 700, clamp(2.25rem, 5vw, 4.25rem), 1, 0.01em, authored casing): the case-study names over their photos (GOATS, pyINDI), 36px at 390 and 68px at 1440.
 - **Headline** (Unbounded 600, clamp(1.75rem, 3.5vw, 3.25rem), 1.05, -0.02em, uppercase): the hero H1.
 - **Headline list** (Unbounded 600, clamp(1.6rem, 3.6vw, 3.25rem), 1.02, -0.03em, uppercase): the four service titles.
 - **Quote** (Unbounded 400, clamp(1.5rem, 3.8vw, 3.5rem), 1.14): testimonials, max 24-28ch with a hanging opening quote. The About pull quote uses the same face at 500 and clamp(1.5rem, 2.8vw, 2.5rem).
@@ -199,7 +206,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 ### Named Rules
 
-**The Monument Fit Rule.** A Monument title fills its container's inner width exactly at every width and never crops. Its size is measured, not guessed: the fit-text hook sets the font size from the rendered text width against the container, re-measures on resize and after web fonts load, and respects a per-use cap. Before measurement a CSS fallback (container query width divided by character count) errs small. No negative margins, no viewport-overflowing sizes, no horizontal translation. Authored newlines are the only line breaks.
+**The Monument Scale Rule.** A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so "Start a project" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside a clipping photo band. No negative margins, no viewport-overflowing sizes, no horizontal translation.
 
 **The Casing Rule.** Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles, testimonial attributions. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing ("PYTHON LIBRARIES & APIs"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.
 
@@ -269,7 +276,7 @@ Every photo carries a caption: name, location, credit, and a linked license, mid
 
 ### Monument (signature)
 
-The giant fitted title described in the Monument Fit Rule. It is an h2 by default (h3 for case-study names), uppercase unless marked as a proper name, multi-line only through authored newlines, and carries the scroll reveal.
+The section title described in the Monument Scale Rule. It is an h2 by default (h3 for case-study names, which take the Display name size), uppercase unless marked as a proper name, wraps only when the line runs out, and carries the scroll reveal.
 
 ### Motion
 
@@ -284,7 +291,7 @@ The giant fitted title described in the Monument Fit Rule. It is an h2 by defaul
 
 - **Do** use ice cyan as the only accent, with dark ink on any cyan fill.
 - **Do** separate sections with space and hairlines on the one night ground.
-- **Do** use the Monument component for a new section title so it fits its container; give it a cap and let it measure.
+- **Do** use the Monument component for a new section title so it takes the shared Display size; never size one by hand.
 - **Do** author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.
 - **Do** keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).
 - **Do** credit every photo in a caption and in the footer credits list.
