@@ -71,7 +71,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
   return (
     <article className="mt-24 first:mt-0 md:mt-40">
       <figure>
-        <div className="relative h-[clamp(20rem,72vh,46rem)] overflow-hidden">
+        <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
           <img
             src={lead.src}
             alt={altText(lead)}
@@ -159,7 +159,7 @@ function CareerItem({ entry }: { entry: CareerEntry }) {
           {entry.org}
         </p>
         <p className="text-muted-foreground mt-1">{entry.role}</p>
-        <p className="text-muted-foreground mt-4 max-w-[60ch] leading-relaxed">
+        <p className="text-muted-foreground mt-4 max-w-[60ch] leading-relaxed text-pretty">
           {entry.summary}
         </p>
         {entry.links && (
@@ -233,13 +233,16 @@ function Publications() {
       <div className="md:col-span-7">
         <ul className="flex flex-col gap-4">
           {featuredPublications.map((paper) => (
-            <li key={paper.link}>
+            <li key={paper.link} className="text-balance">
               <a
                 href={paper.link}
                 target="_blank"
                 rel="noreferrer"
-                className="font-display decoration-dim hover:decoration-primary text-lg leading-[1.45] font-medium tracking-[-0.01em] text-balance underline underline-offset-[6px] transition-colors md:text-xl">
-                {paper.label.slice(0, paper.label.lastIndexOf(' ') + 1)}
+                className="font-display decoration-dim hover:decoration-primary text-lg leading-[1.45] font-medium tracking-[-0.01em] underline underline-offset-[6px] transition-colors md:text-xl">
+                {/* A wrap never opens a line with the separator dash. */}
+                {paper.label
+                  .slice(0, paper.label.lastIndexOf(' ') + 1)
+                  .replace(' - ', ' - ')}
                 {/* The arrow rides with the last word so it never wraps onto a line alone. */}
                 <span className="whitespace-nowrap">
                   {paper.label.slice(paper.label.lastIndexOf(' ') + 1)}
@@ -289,7 +292,7 @@ function Publications() {
 
 function OpenSource() {
   return (
-    <p className="text-muted-foreground mt-14 text-lg text-pretty">
+    <p className="border-border text-muted-foreground mt-14 border-t pt-10 text-lg text-pretty">
       What I'm building next lives in the open.{' '}
       <a
         href="https://github.com/sidereal-software"

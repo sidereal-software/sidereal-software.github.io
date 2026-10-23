@@ -79,7 +79,7 @@ export function WorkingTogether() {
                 <span className="sr-only">Step {index + 1}: </span>
                 {step.title}
               </h3>
-              <p className="text-muted-foreground mt-3 max-w-[32ch] leading-relaxed">
+              <p className="text-muted-foreground mt-3 max-w-[32ch] leading-relaxed text-pretty">
                 {step.description}
               </p>
             </li>

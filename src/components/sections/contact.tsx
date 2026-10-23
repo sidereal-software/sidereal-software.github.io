@@ -34,7 +34,7 @@ export function Contact() {
 
         <div className="mt-16 grid gap-16 md:mt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <p className="text-muted-foreground max-w-[34ch] text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-[34ch] text-lg leading-relaxed text-pretty">
               Tell me about your observatory, your lab, your field work, or the tool your
               team needs.
             </p>
