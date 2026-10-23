@@ -100,6 +100,14 @@ describe('App', () => {
     ])
   })
 
+  it('loads the hero image first, sized for the screen', () => {
+    render(<App />)
+    const image = screen.getByRole('img', { name: /^The Dumbbell Nebula/ })
+    expect(image).toHaveAttribute('fetchpriority', 'high')
+    expect(image.getAttribute('srcset')).toMatch(/ 1200w, .+ 2400w$/)
+    expect(image).toHaveAttribute('sizes')
+  })
+
   it('names the institutions only in the hero, not in a separate strip', () => {
     render(<App />)
     expect(screen.queryByRole('region', { name: 'Institutions' })).toBeNull()

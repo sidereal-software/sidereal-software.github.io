@@ -23,6 +23,9 @@ export function Hero() {
         <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_60%,transparent)] md:inset-y-0 md:right-[-14%] md:left-auto md:w-[92%] md:[mask-image:linear-gradient(to_right,transparent,black_38%)]">
           <img
             src={heroImage.src}
+            srcSet={`${heroImage.smallSrc} 1200w, ${heroImage.src} 2400w`}
+            sizes="(min-width: 768px) 92vw, 100vw"
+            fetchPriority="high"
             alt="The Dumbbell Nebula, a glowing cloud of red and blue gas around a pale core, set in a dense star field"
             width={heroImage.width}
             height={heroImage.height}
