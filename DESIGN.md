@@ -143,7 +143,7 @@ components:
 
 A night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.
 
-Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption attached to it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
+Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
 
 The theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.
 
@@ -195,7 +195,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 ### Hierarchy
 
 - **Display** (Unbounded 700, clamp(2.5rem, 5.5vw, 4.75rem), line-height 1, 0.01em tracking): Monument section titles only (Services, Work, About, Process, Start a project), 40px at 390 and 76px at 1440.
-- **Display name** (Unbounded 700, clamp(2.25rem, 5vw, 4.25rem), 1, 0.01em, authored casing): the case-study names over their photos (GOATS, pyINDI), 36px at 390 and 68px at 1440.
+- **Display name** (Unbounded 700, clamp(2.25rem, 5vw, 4.25rem), 1, 0.01em, authored casing): the case-study names under their photos (GOATS, pyINDI), 36px at 390 and 68px at 1440.
 - **Headline** (Unbounded 600, clamp(1.75rem, 3.5vw, 3.25rem), 1.05, -0.02em, uppercase): the hero H1.
 - **Headline list** (Unbounded 600, clamp(1.6rem, 3.6vw, 3.25rem), 1.02, -0.03em, uppercase): the four service titles.
 - **Quote** (Unbounded 400, clamp(1.5rem, 3.8vw, 3.5rem), 1.14): testimonials, max 24-28ch with a hanging opening quote. The About pull quote uses the same face at 500 and clamp(1.5rem, 2.8vw, 2.5rem).
@@ -208,7 +208,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 ### Named Rules
 
-**The Monument Scale Rule.** A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so "Start a project" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside a clipping photo band. No negative margins, no viewport-overflowing sizes, no horizontal translation.
+**The Monument Scale Rule.** A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so "Start a project" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside any clipping parent. No negative margins, no viewport-overflowing sizes, no horizontal translation.
 
 **The Casing Rule.** Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles, testimonial attributions. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing ("PYTHON LIBRARIES & APIs"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.
 
@@ -222,7 +222,7 @@ Rhythm is generous and vertical on desktop and compact on phones: through the sh
 
 The hero fills the small viewport height. On desktop the nebula sits full-bleed to the right with a left fade mask and the text column takes the left 46%; on mobile the image takes the top 46% of the viewport with a bottom fade and the text follows. The institutions row is a hairline-topped strip pinned to the hero's bottom on desktop.
 
-Case studies break out of the column: a full-bleed photo band (26rem tall on mobile, clamp(20rem, 72vh, 46rem) on desktop) with the name as a Monument over a bottom gradient, then the detail grid back in the column. Each case study has that one photo only.
+Every photo outside the hero follows one pattern at every width, after the Giant Magellan Telescope site: the photo inside the page margin, its caption directly under it, then the content it belongs to. A case study opens with its one photo (16:10 on phones, 21:9 from 768px), the caption, the name as a Monument 32px below (48px from 768px), then the detail grid. Nothing is set over these photos.
 
 The header is fixed, 64px tall, transparent over the hero and night ground with a hairline once scrolled. Below 1024px the section links collapse into a "Menu" button that opens a full-height right sheet; "Start a project" stays in the header at every width, and below 640px the wordmark stacks onto two lines to make room for it.
 
@@ -230,7 +230,7 @@ Breakpoints are Tailwind's defaults: 640, 768, 1024px. Mobile is checked at 390p
 
 ## Elevation & Depth
 
-Flat. There are no shadows in the site's own components; field shadows from the vendored primitives are switched off at the call site. Depth comes from the photographs and from gradients toward the night ground: the hero's mask fades, a top scrim behind the header, and the bottom gradient that seats a case-study name on its photo. Overlapping text strips over an image use the night ground at 85% opacity, not blur.
+Flat. There are no shadows in the site's own components; field shadows from the vendored primitives are switched off at the call site. Depth comes from the photographs and from gradients toward the night ground: the hero's mask fades, a top scrim behind the header. Photos outside the hero carry no gradient or overlay. Overlapping text strips over an image use the night ground at 85% opacity, not blur.
 
 ### Named Rules
 
@@ -238,7 +238,7 @@ Flat. There are no shadows in the site's own components; field shadows from the 
 
 ## Shapes
 
-Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons, 48px square step buttons), images are plain rectangles cropped with object-fit (4:3 for career photos, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
+Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons, 48px square step buttons), images are plain rectangles cropped with object-fit (16:10 for career photos and case studies on phones, 21:9 for case studies from 768px, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
 
 ## Components
 
@@ -276,7 +276,7 @@ Numbered or dated rows divided by hairlines: services (cyan two-digit number, up
 
 Every photo carries a caption: name, location, credit, and a linked license, middle-dot separated, in 0.75rem dust grey. The footer repeats every credit with the source link.
 
-The caption always reads as part of its photo, never as the first line of the text below it, and every caption is one horizontal style at the photo's bottom edge. Career photos take it directly under the image. On a case-study band it sits on the photo's bottom fade: from 768px at the bottom right, level with the name; below 768px directly under the name. Both band photos are CC BY, which allows text on the image; a CC BY-SA photo always takes its caption under the image.
+The caption always reads as part of its photo, never as the first line of the text below it: it sits 16px directly under the image, left aligned, at every width, and any heading for that photo's content comes after it. The hero is the one exception, with its caption on the image.
 
 ### Monument (signature)
 
@@ -308,7 +308,7 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 - **Don't** add a light theme, theme switch, or second accent color.
 - **Don't** add eyebrow labels or kickers; the hero tagline is the single sanctioned kicker.
 - **Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.
-- **Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.
+- **Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for the M27 hero.
 - **Don't** round corners or add shadows.
 - **Don't** use card grids or background bands to group content.
 - **Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation.

@@ -11,6 +11,7 @@ import {
   type CaseStudy,
 } from '@/content/career'
 import { telescopes, type CreditedImage } from '@/content/images'
+import { cn } from '@/lib/utils'
 import {
   allPublications,
   featuredPublications,
@@ -36,9 +37,11 @@ function ExternalLink({ href, children }: { href: string; children: string }) {
 function CreditedPhoto({
   image,
   className,
+  imageClassName,
 }: {
   image: CreditedImage
   className?: string
+  imageClassName?: string
 }) {
   return (
     <figure className={className}>
@@ -48,14 +51,14 @@ function CreditedPhoto({
         width={image.width}
         height={image.height}
         loading="lazy"
-        className="aspect-[4/3] w-full object-cover"
+        className={cn('aspect-[16/10] w-full object-cover', imageClassName)}
       />
-      <ImageCredit image={image} className="pt-3" />
+      <ImageCredit image={image} className="pt-4" />
     </figure>
   )
 }
 
-function CaseStudyBand({ study }: { study: CaseStudy }) {
+function CaseStudyEntry({ study }: { study: CaseStudy }) {
   const lead = telescopes[study.telescope]
   const parts = [
     { label: 'Problem', text: study.problem, lead: false },
@@ -65,26 +68,15 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
 
   return (
     <article className="mt-16 first-of-type:mt-0 md:mt-40">
-      <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
-        {/* The figure stays unpositioned so the photo fills the full-bleed band while the name and caption keep the page gutter. */}
-        <figure className="page-gutter flex h-full flex-col justify-end gap-3 pb-5 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-0">
-          <img
-            src={lead.src}
-            alt={altText(lead)}
-            width={lead.width}
-            height={lead.height}
-            loading="lazy"
-            className="absolute inset-0 size-full object-cover"
-          />
-          <div className="from-background absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent" />
-          <Monument as="h3" properName className="relative">
-            {study.name}
-          </Monument>
-          <ImageCredit
-            image={lead}
-            className="relative md:max-w-[26rem] md:pb-4 md:text-right"
-          />
-        </figure>
+      <CreditedPhoto
+        image={lead}
+        className="page-gutter"
+        imageClassName="md:aspect-[21/9]"
+      />
+      <div className="page-gutter mt-8 md:mt-12">
+        <Monument as="h3" properName>
+          {study.name}
+        </Monument>
       </div>
 
       <div className="page-gutter mt-10 grid gap-10 md:mt-14 md:grid-cols-12 md:gap-8">
@@ -289,7 +281,7 @@ export function Work() {
         <Monument>Work</Monument>
       </div>
       {caseStudies.map((study) => (
-        <CaseStudyBand key={study.name} study={study} />
+        <CaseStudyEntry key={study.name} study={study} />
       ))}
       <div className="page-gutter mt-20 md:mt-48">
         <Career />
