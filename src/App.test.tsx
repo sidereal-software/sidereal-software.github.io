@@ -100,6 +100,32 @@ describe('App', () => {
     ])
   })
 
+  it('settles the hero copy and calls to action in fully visible', () => {
+    render(<App />)
+    const hero = screen.getByRole('region', { name: /^Production software/ })
+    for (const element of [
+      within(hero).getByText('Software that does the heavy lifting'),
+      within(hero).getByRole('heading', { level: 1 }),
+      within(hero).getByText(/^I build the systems/),
+      within(hero).getByRole('link', { name: 'Start a project' }).parentElement!,
+    ]) {
+      expect(element.style.opacity).toBe('1')
+      expect(element.style.transform).toBe('none')
+    }
+  })
+
+  it('presses both hero calls to action down and lets them spring back', async () => {
+    render(<App />)
+    const hero = screen.getByRole('region', { name: /^Production software/ })
+    for (const name of ['Start a project', 'See the work']) {
+      const cta = within(hero).getByRole('link', { name })
+      fireEvent.pointerDown(cta)
+      await waitFor(() => expect(cta.style.transform).toBe('scale(0.97)'))
+      fireEvent.pointerUp(cta)
+      await waitFor(() => expect(cta.style.transform).toBe('none'))
+    }
+  })
+
   it('loads the hero image first, sized for the screen', () => {
     render(<App />)
     const image = screen.getByRole('img', { name: /^The Dumbbell Nebula/ })

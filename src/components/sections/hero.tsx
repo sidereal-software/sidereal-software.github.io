@@ -1,7 +1,10 @@
+import type { ComponentProps } from 'react'
+import { animated } from '@react-spring/web'
 import { ArrowRight } from 'lucide-react'
 
 import { ImageCredit } from '@/components/image-credit'
 import { heroImage } from '@/content/images'
+import { usePress, useStaggerIn } from '@/lib/motion'
 
 const institutions = [
   'NSF NOIRLab',
@@ -13,7 +16,13 @@ const institutions = [
   'Northern Arizona University',
 ]
 
+function PressLink(props: ComponentProps<typeof animated.a>) {
+  const { style, bind } = usePress()
+  return <animated.a {...props} style={style} {...bind} />
+}
+
 export function Hero() {
+  const [kicker, title, lede, actions] = useStaggerIn(4, true)
   return (
     <section
       id="home"
@@ -41,20 +50,27 @@ export function Hero() {
 
       <div className="mx-auto flex w-full max-w-[90rem] flex-1 flex-col px-5 pt-8 pb-12 sm:px-8 md:justify-center md:pt-24 md:pb-36 lg:px-12">
         <div className="max-w-[40rem] md:max-w-[46%]">
-          <p className="text-primary mb-6 text-xs font-medium tracking-[0.32em] uppercase">
+          <animated.p
+            style={kicker}
+            className="text-primary mb-6 text-xs font-medium tracking-[0.32em] uppercase">
             Software that does the heavy lifting
-          </p>
-          <h1
+          </animated.p>
+          <animated.h1
             id="hero-title"
+            style={title}
             className="font-display text-[clamp(1.75rem,3.5vw,3.25rem)] leading-[1.05] font-semibold tracking-[-0.02em] text-balance uppercase">
             Production software for observatories, missions, and research teams.
-          </h1>
-          <p className="text-muted-foreground mt-7 max-w-[34rem] text-lg leading-relaxed">
+          </animated.h1>
+          <animated.p
+            style={lede}
+            className="text-muted-foreground mt-7 max-w-[34rem] text-lg leading-relaxed">
             I build the systems behind modern astronomy, from instrument control to
             real-time data platforms, and bring the same engineering to every science.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a
+          </animated.p>
+          <animated.div
+            style={actions}
+            className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <PressLink
               href="#contact"
               className="group bg-primary text-primary-foreground hover:bg-foreground inline-flex h-12 items-center gap-2 px-6 text-sm font-semibold tracking-wide transition-colors">
               Start a project
@@ -63,13 +79,13 @@ export function Hero() {
                 className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1"
                 strokeWidth={2}
               />
-            </a>
-            <a
+            </PressLink>
+            <PressLink
               href="#work"
-              className="decoration-dim hover:decoration-foreground text-sm font-medium underline underline-offset-[6px] transition-colors">
+              className="decoration-dim hover:decoration-foreground inline-block text-sm font-medium underline underline-offset-[6px] transition-colors">
               See the work
-            </a>
-          </div>
+            </PressLink>
+          </animated.div>
         </div>
       </div>
 
