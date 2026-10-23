@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Globals, useSpring, useTrail } from '@react-spring/web'
 
 // Damping ratios near 0.9: a soft settle with no visible bounce.
@@ -39,4 +40,16 @@ export function useStaggerIn(count: number, active: boolean) {
     to: active ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 },
     config: springs.settle,
   })
+}
+
+// Starts visible so the first render never waits on a spring.
+export function useSpringIn(key: unknown) {
+  const [style, api] = useSpring(() => ({ opacity: 1, y: 0, config: springs.settle }))
+  const previous = useRef(key)
+  useEffect(() => {
+    if (previous.current === key) return
+    previous.current = key
+    api.start({ from: { opacity: 0, y: 12 }, to: { opacity: 1, y: 0 } })
+  }, [api, key])
+  return style
 }
