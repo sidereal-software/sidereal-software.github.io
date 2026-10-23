@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Globals, useSpring, useTrail } from '@react-spring/web'
+import { Globals, useSpring, useSprings, useTrail } from '@react-spring/web'
 
 // Damping ratios near 0.9: a soft settle with no visible bounce.
 export const springs = {
@@ -52,4 +52,32 @@ export function useSpringIn(key: unknown) {
     api.start({ from: { opacity: 0, y: 12 }, to: { opacity: 1, y: 0 } })
   }, [api, key])
   return style
+}
+
+const risen = { opacity: 1, y: 0 }
+const lowered = { opacity: 0, y: 24 }
+
+// Starts visible and hides only once the row is known to be below the fold, so a spring that never runs never hides content.
+export function useStaggerOnEntry<T extends Element>(count: number) {
+  const ref = useRef<T>(null)
+  const [trail, api] = useSprings(count, () => ({ ...risen, config: springs.settle }))
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element || !('IntersectionObserver' in window)) return
+    let waiting = false
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting || Globals.skipAnimation) {
+        if (waiting) api.start((index) => ({ ...risen, delay: index * 90 }))
+        observer.disconnect()
+      } else if (!waiting) {
+        waiting = true
+        api.set(lowered)
+      }
+    })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [api])
+
+  return { ref, trail }
 }

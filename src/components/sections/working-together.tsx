@@ -1,3 +1,5 @@
+import { animated } from '@react-spring/web'
+
 import { Monument } from '@/components/monument'
 import {
   Accordion,
@@ -5,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { useStaggerOnEntry } from '@/lib/motion'
 
 const steps = [
   {
@@ -55,19 +58,23 @@ const faqs = [
 ]
 
 export function WorkingTogether() {
+  const { ref, trail } = useStaggerOnEntry<HTMLOListElement>(steps.length)
   return (
     <section id="process" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
       <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
         <Monument>Process</Monument>
 
-        <ol className="mt-16 grid gap-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-4 lg:gap-8">
+        <ol
+          ref={ref}
+          className="mt-16 grid gap-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => (
             <li key={step.title} className="border-border border-t pt-6">
-              <span
+              <animated.span
                 aria-hidden="true"
+                style={trail[index]}
                 className="font-display text-dim block text-[clamp(5rem,9vw,8.5rem)] leading-none font-bold tracking-[-0.04em] tabular-nums">
                 {index + 1}
-              </span>
+              </animated.span>
               <h3 className="font-display mt-6 text-lg font-semibold tracking-[0.04em] uppercase">
                 <span className="sr-only">Step {index + 1}: </span>
                 {step.title}
