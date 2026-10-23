@@ -210,7 +210,7 @@ The hero fills the small viewport height. On desktop the nebula sits full-bleed 
 
 Case studies break out of the column: a full-bleed photo band (26rem tall on mobile, clamp(20rem, 72vh, 46rem) on desktop) with the name as a Monument over a bottom gradient, then the detail grid back in the column.
 
-The header is fixed, 64px tall, transparent over the hero and night ground with a hairline once scrolled. Below 1024px the nav collapses into a "Menu" button that opens a full-height right sheet.
+The header is fixed, 64px tall, transparent over the hero and night ground with a hairline once scrolled. Below 1024px the section links collapse into a "Menu" button that opens a full-height right sheet; "Start a project" stays in the header at every width, and below 640px the wordmark stacks onto two lines to make room for it.
 
 Breakpoints are Tailwind's defaults: 640, 768, 1024px. Mobile is checked at 390px with no horizontal scroll.
 
@@ -252,7 +252,7 @@ Few, solid, and square.
 ### Navigation
 
 - **Desktop:** moon-grey 0.875rem links (Services, Work, About, Process) that turn ink on hover, then the cyan "Start a project" accent link. Logo mark inverted to white beside an Unbounded 600 uppercase wordmark at 0.8rem with 0.18em tracking.
-- **Mobile:** a "Menu" text button opens a full-height sheet on the night ground with Unbounded 700 uppercase links at 1.875rem, staggered in on a spring, and the location at the foot.
+- **Mobile:** the cyan "Start a project" link stays beside a "Menu" text button (both with 44px tall hit areas), which opens a full-height sheet on the night ground with Unbounded 700 uppercase links at 1.875rem, staggered in on a spring, and the location at the foot.
 
 ### Lists
 

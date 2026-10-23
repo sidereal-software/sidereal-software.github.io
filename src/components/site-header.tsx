@@ -40,7 +40,7 @@ function StartProjectLink() {
       href="#contact"
       style={style}
       {...bind}
-      className="text-primary decoration-primary/40 hover:decoration-primary hidden text-sm font-medium underline underline-offset-[6px] transition-colors sm:inline-block">
+      className="text-primary decoration-primary/40 hover:decoration-primary inline-block py-3 text-sm font-medium whitespace-nowrap underline underline-offset-[6px] transition-colors">
       Start a project
     </animated.a>
   )
@@ -77,11 +77,11 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="" className="size-7 invert" width={28} height={28} />
-          <span className="font-display text-[0.8rem] font-semibold tracking-[0.18em] uppercase">
+          <span className="font-display text-[0.8rem] leading-[1.15] font-semibold tracking-[0.18em] uppercase max-sm:w-min">
             Sidereal Software
           </span>
         </a>
-        <nav aria-label="Primary" className="flex items-center gap-8">
+        <nav aria-label="Primary" className="flex items-center gap-4 sm:gap-8">
           <ul className="hidden items-center gap-8 lg:flex">
             {sections.map((item) => (
               <li key={item.href}>
@@ -95,7 +95,7 @@ export function SiteHeader() {
           </ul>
           <StartProjectLink />
           <Sheet>
-            <SheetTrigger className="flex items-center gap-2 text-sm lg:hidden">
+            <SheetTrigger className="-mr-2.5 flex h-11 items-center gap-2 px-2.5 text-sm lg:hidden">
               <Menu className="size-5" strokeWidth={1.5} />
               <span>Menu</span>
             </SheetTrigger>
