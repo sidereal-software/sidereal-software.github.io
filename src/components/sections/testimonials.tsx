@@ -71,7 +71,7 @@ export function Testimonials() {
         <h2 id="testimonials-title" className="sr-only">
           Testimonials
         </h2>
-        <div className="grid">
+        <div className="grid grid-rows-[auto_auto_1fr] [--controls-h:6rem] md:[--controls-h:6.5rem]">
           {testimonials.map((testimonial, position) => (
             <animated.figure
               key={testimonial.name}
@@ -80,7 +80,7 @@ export function Testimonials() {
               className={
                 position === index
                   ? 'm-0 [grid-area:1/1]'
-                  : 'invisible m-0 [grid-area:1/1]'
+                  : 'invisible m-0 pb-(--controls-h) [grid-area:1/1/-1/2]'
               }>
               <blockquote className="font-display max-w-[24ch] indent-[-0.42em] text-[clamp(1.5rem,3.8vw,3.5rem)] leading-[1.14] font-normal tracking-[-0.02em] text-pretty sm:max-w-[28ch]">
                 &ldquo;{testimonial.quote}&rdquo;
@@ -93,25 +93,25 @@ export function Testimonials() {
               </figcaption>
             </animated.figure>
           ))}
-        </div>
-        <div className="mt-12 flex items-center gap-4 md:mt-14">
-          <StepButton aria-label="Previous testimonial" onClick={() => step(-1)}>
-            <ArrowLeft
-              aria-hidden
-              className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-0.5"
-              strokeWidth={1.75}
-            />
-          </StepButton>
-          <StepButton aria-label="Next testimonial" onClick={() => step(1)}>
-            <ArrowRight
-              aria-hidden
-              className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-0.5"
-              strokeWidth={1.75}
-            />
-          </StepButton>
-          <p aria-live="polite" className="text-dim ml-2 text-sm tabular-nums">
-            {index + 1} / {testimonials.length}
-          </p>
+          <div className="flex h-(--controls-h) items-center gap-4 pt-12 [grid-area:2/1] md:pt-14">
+            <StepButton aria-label="Previous testimonial" onClick={() => step(-1)}>
+              <ArrowLeft
+                aria-hidden
+                className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-0.5"
+                strokeWidth={1.75}
+              />
+            </StepButton>
+            <StepButton aria-label="Next testimonial" onClick={() => step(1)}>
+              <ArrowRight
+                aria-hidden
+                className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-0.5"
+                strokeWidth={1.75}
+              />
+            </StepButton>
+            <p aria-live="polite" className="text-dim ml-2 text-sm tabular-nums">
+              {index + 1} / {testimonials.length}
+            </p>
+          </div>
         </div>
       </div>
     </section>

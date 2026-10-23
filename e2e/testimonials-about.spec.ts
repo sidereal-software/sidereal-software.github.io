@@ -49,6 +49,32 @@ test('testimonials are labelled for screen readers without a visible eyebrow', a
   expect(box?.height ?? 0).toBeLessThanOrEqual(1)
 })
 
+for (const width of [390, 1440]) {
+  test(`controls sit under each attribution and the section never resizes at ${width}px`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openAt(page, width)
+    const section = page.locator('#testimonials')
+    const previous = page.getByRole('button', { name: 'Previous testimonial' })
+    const next = page.getByRole('button', { name: 'Next testimonial' })
+    const heights = new Set<number>()
+    for (let step = 0; step < 4; step++) {
+      const caption = section.locator('figure:not([aria-hidden="true"]) figcaption')
+      const captionBottom = await caption.evaluate(
+        (el) => el.getBoundingClientRect().bottom,
+      )
+      const controlsTop = await previous.evaluate((el) => el.getBoundingClientRect().top)
+      const gap = controlsTop - captionBottom
+      expect(gap, `gap under testimonial ${step + 1}`).toBeGreaterThanOrEqual(24)
+      expect(gap, `gap under testimonial ${step + 1}`).toBeLessThanOrEqual(64)
+      heights.add(await section.evaluate((el) => el.getBoundingClientRect().height))
+      await next.click()
+    }
+    expect([...heights]).toHaveLength(1)
+  })
+}
+
 test('the next testimonial appears at once under reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await openAt(page, 1440)
