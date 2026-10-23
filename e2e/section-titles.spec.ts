@@ -12,6 +12,9 @@ const expectedSize = {
   1440: { section: 76, caseStudy: 68 },
 } as const
 
+// 2rem on phones, 3rem from 768px: a heading that sits with its content.
+const expectedGap = { 390: 32, 768: 48, 1440: 48 } as const
+
 async function measure(title: Locator) {
   await title.scrollIntoViewIfNeeded()
   return title.evaluate((el) => {
@@ -61,6 +64,30 @@ for (const width of widths) {
     expect(serviceSizes.length).toBe(4)
     const { fontSize } = await measure(monument(page, 'Services'))
     expect(fontSize).toBeGreaterThan(Math.max(...serviceSizes))
+  })
+
+  test(`every section title sits the same distance above its content at ${width}px`, async ({
+    page,
+  }) => {
+    // The scroll reveal would shift titles mid-animation.
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openAt(page, width)
+    const gaps: Record<string, number> = {}
+    for (const name of sectionTitles) {
+      const title = monument(page, name)
+      await title.scrollIntoViewIfNeeded()
+      gaps[name] = await title.evaluate((el) => {
+        const bottom = el.getBoundingClientRect().bottom
+        const below = [...el.closest('section')!.querySelectorAll('*')]
+          .filter((other) => !el.contains(other) && !other.contains(el))
+          .map((other) => other.getBoundingClientRect())
+          .filter((box) => box.height > 0 && box.top >= bottom - 1)
+          .map((box) => box.top)
+        return Math.round(Math.min(...below) - bottom)
+      })
+    }
+    const gap = expectedGap[width]
+    expect(gaps).toEqual(Object.fromEntries(sectionTitles.map((name) => [name, gap])))
   })
 
   test(`the Process title outranks the step numerals at ${width}px`, async ({ page }) => {

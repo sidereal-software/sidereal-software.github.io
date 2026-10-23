@@ -64,9 +64,7 @@ export function WorkingTogether() {
       <div className="page-gutter">
         <Monument>Process</Monument>
 
-        <ol
-          ref={ref}
-          className="mt-16 grid gap-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-4 lg:gap-8">
+        <ol ref={ref} className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => (
             <li key={step.title} className="border-border border-t pt-6">
               <animated.span

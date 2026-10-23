@@ -19,10 +19,10 @@ export function Monument({
     <Tag
       className={cn(
         'font-display reveal leading-none font-bold tracking-[0.01em] text-balance',
-        // Case-study names sit one step under the section titles they belong to.
+        // Case-study names sit one step under the section titles they belong to, and sit on their photo with no gap.
         Tag === 'h3'
           ? 'text-[clamp(2.25rem,5vw,4.25rem)]'
-          : 'text-[clamp(2.5rem,5.5vw,4.75rem)]',
+          : 'mb-8 text-[clamp(2.5rem,5.5vw,4.75rem)] md:mb-12',
         !properName && 'uppercase',
         className,
       )}>

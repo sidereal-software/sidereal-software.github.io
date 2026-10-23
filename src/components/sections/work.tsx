@@ -67,7 +67,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
   ]
 
   return (
-    <article className="mt-24 first:mt-0 md:mt-40">
+    <article className="mt-24 first-of-type:mt-0 md:mt-40">
       <figure>
         <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
           <img
@@ -302,7 +302,7 @@ export function Work() {
   return (
     <section id="work" className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
       <div className="page-gutter">
-        <Monument className="mb-16 md:mb-24">Work</Monument>
+        <Monument>Work</Monument>
       </div>
       {caseStudies.map((study) => (
         <CaseStudyBand key={study.name} study={study} />

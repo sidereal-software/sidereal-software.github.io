@@ -18,7 +18,7 @@ export function About() {
       <div className="page-gutter">
         <Monument>About</Monument>
 
-        <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12 md:gap-8">
+        <div className="grid gap-14 md:grid-cols-12 md:gap-8">
           <figure className="m-0 md:col-span-5">
             <img
               src={portrait}

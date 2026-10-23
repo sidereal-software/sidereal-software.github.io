@@ -90,7 +90,7 @@ spacing:
   gutter-desktop: '48px'
   content-max: '1440px'
   header-height: '64px'
-  title-to-content: '96px'
+  title-to-content: '48px'
   section-top: '192px'
   section-bottom: '112px'
 components:
@@ -216,7 +216,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 One centered column, max 90rem (1440px) wide, with gutters of 20px, 32px from 640px, and 48px from 1024px (the `page-gutter` utility). Inside it, content sits on a 12-column grid from 768px or 1024px, typically a narrow left column (4-5 columns: labels, metadata, portraits) and a wide right column (6-7 columns: lists and prose). Mobile collapses to one column.
 
-Rhythm is generous and vertical: sections open with 128px of top space (192px from 768px) and close with 112px; a Monument title is followed by 64px (96px from 768px) before content. Lists are rows divided by hairlines with 40-56px of vertical padding per row.
+Rhythm is generous and vertical: sections open with 128px of top space (192px from 768px) and close with 112px; a section title is followed by 32px (48px from 768px) before its content, a gap the Monument component owns so call sites add none. Lists are rows divided by hairlines with 40-56px of vertical padding per row.
 
 The hero fills the small viewport height. On desktop the nebula sits full-bleed to the right with a left fade mask and the text column takes the left 46%; on mobile the image takes the top 46% of the viewport with a bottom fade and the text follows. The institutions row is a hairline-topped strip pinned to the hero's bottom on desktop.
 
@@ -276,7 +276,7 @@ Every photo carries a caption: name, location, credit, and a linked license, mid
 
 ### Monument (signature)
 
-The section title described in the Monument Scale Rule. It is an h2 by default (h3 for case-study names, which take the Display name size), uppercase unless marked as a proper name, wraps only when the line runs out, and carries the scroll reveal.
+The section title described in the Monument Scale Rule. It is an h2 by default (h3 for case-study names, which take the Display name size), uppercase unless marked as a proper name, wraps only when the line runs out, and carries the scroll reveal. As an h2 it brings its own 32px (48px from 768px) bottom margin; case-study names take none.
 
 ### Motion
 

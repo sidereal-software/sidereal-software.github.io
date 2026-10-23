@@ -54,7 +54,7 @@ export function Services() {
       <div className="page-gutter">
         <Monument>Services</Monument>
 
-        <ol className="border-border mt-16 border-t md:mt-24">
+        <ol className="border-border border-t">
           {services.map((service, index) => (
             <li
               key={service.title}
