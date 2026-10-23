@@ -16,9 +16,10 @@ const EMAIL_USER = 'hello'
 const EMAIL_DOMAIN = ['sidereal', 'software'].join('.')
 const FORMSPREE_ID = 'maqrzvzv'
 
-const labelClass = 'text-muted-foreground text-xs font-normal tracking-[0.2em] uppercase'
+const labelClass =
+  'text-muted-foreground group-focus-within:text-primary text-xs font-normal tracking-[0.2em] uppercase transition-colors'
 const fieldClass =
-  'h-auto rounded-none border-0 border-b bg-transparent px-0 py-3 text-lg shadow-none focus-visible:border-primary focus-visible:ring-0 md:text-lg dark:bg-transparent'
+  'h-auto rounded-none border-0 border-b bg-transparent px-0 py-3 text-lg shadow-none focus-visible:border-primary focus-visible:ring-0 focus-visible:border-b-2 focus-visible:pb-[11px] md:text-lg dark:bg-transparent'
 const errorClass = 'text-destructive text-sm'
 
 export function Contact() {
@@ -94,7 +95,7 @@ export function Contact() {
                   autoComplete="off"
                   aria-hidden="true"
                 />
-                <div className="grid content-start gap-1">
+                <div className="group grid content-start gap-1">
                   <Label htmlFor="contact-name" className={labelClass}>
                     Name
                   </Label>
@@ -112,7 +113,7 @@ export function Contact() {
                     className={cn(errorClass, 'mt-2')}
                   />
                 </div>
-                <div className="grid content-start gap-1">
+                <div className="group grid content-start gap-1">
                   <Label htmlFor="contact-email" className={labelClass}>
                     Email
                   </Label>
@@ -131,7 +132,7 @@ export function Contact() {
                     className={cn(errorClass, 'mt-2')}
                   />
                 </div>
-                <div className="grid content-start gap-1 sm:col-span-2">
+                <div className="group grid content-start gap-1 sm:col-span-2">
                   <Label htmlFor="contact-org" className={labelClass}>
                     Organization (optional)
                   </Label>
@@ -142,7 +143,7 @@ export function Contact() {
                     className={fieldClass}
                   />
                 </div>
-                <div className="grid content-start gap-1 sm:col-span-2">
+                <div className="group grid content-start gap-1 sm:col-span-2">
                   <Label htmlFor="contact-message" className={labelClass}>
                     What do you need help with?
                   </Label>

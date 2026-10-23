@@ -149,7 +149,7 @@ A near-black, slightly blue night with warm bone ink and one ice-cyan accent; gr
 
 ### Primary
 
-- **Ice Cyan** (`ice-cyan`): the one accent. Primary button fill, "Start a project" and external links, service numbers, the hero kicker, focus outlines, text selection, the availability square, and the hover state of controls and link underlines. Accent links use it at 40% for the underline at rest and full strength on hover.
+- **Ice Cyan** (`ice-cyan`): the one accent. Primary button fill, "Start a project" and external links, service numbers, the hero kicker, focus outlines and focused form fields, text selection, the availability square, and the hover state of controls and link underlines. Accent links use it at 40% for the underline at rest and full strength on hover.
 - **Ice Cyan Ink** (`ice-cyan-ink`): text on a cyan fill. Always dark on cyan, never white.
 
 ### Neutral
@@ -246,7 +246,7 @@ Few, solid, and square.
 ### Inputs / Fields
 
 - **Style:** underline only: transparent background, no box, a 1px field-line bottom border, 12px vertical padding, 1.125rem text. Labels sit above in tracked uppercase moon grey.
-- **Focus:** the underline turns ice cyan; no ring.
+- **Focus:** the underline thickens to 2px ice cyan (padding gives back the extra pixel, so nothing shifts) and the label above turns ice cyan; no ring.
 - **Error:** coral text below the field. The message field does not resize.
 
 ### Navigation

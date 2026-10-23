@@ -105,3 +105,30 @@ test('the message field grows with its text and shows no resize grabber', async 
   await message.fill(Array.from({ length: 12 }, (_, line) => `Line ${line}`).join('\n'))
   expect((await message.boundingBox())?.height ?? 0).toBeGreaterThan(before)
 })
+
+test('a focused field shows a heavier cyan underline and a cyan label without shifting', async ({
+  page,
+}) => {
+  await openAt(page, 1440)
+  const form = page.locator('#contact form')
+  const field = form.getByLabel('Name')
+  const label = form.locator('label[for="contact-name"]')
+  const look = async () => ({
+    underline: await field.evaluate((el) => getComputedStyle(el).borderBottomWidth),
+    line: await field.evaluate((el) => getComputedStyle(el).borderBottomColor),
+    label: await label.evaluate((el) => getComputedStyle(el).color),
+    height: (await field.boundingBox())?.height,
+  })
+  const cyan = 'rgb(155, 231, 255)'
+  const rest = await look()
+  expect(rest.underline).toBe('1px')
+  expect(rest.label).not.toBe(cyan)
+
+  await field.focus()
+  await expect.poll(look).toEqual({
+    underline: '2px',
+    line: cyan,
+    label: cyan,
+    height: rest.height,
+  })
+})
