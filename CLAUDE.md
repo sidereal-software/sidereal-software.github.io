@@ -6,8 +6,10 @@ Guidance for AI agents working in this repository.
 
 Marketing website for Sidereal Software (https://sidereal.software), an astronomy
 software consultancy founded by Dan Avner. Single-page React app deployed to GitHub
-Pages via GitHub Actions: `.github/workflows/deploy.yml` deploys `main` and fails
-loudly if the Pages settings drift; `ci.yml` runs the same checks on branches and PRs.
+Pages via GitHub Actions: `.github/workflows/deploy.yml` deploys `main` on push and
+weekly (Mondays), syncs publications from ORCID before building, and fails loudly if
+the Pages settings drift; `ci.yml` runs the same checks plus the Playwright e2e job on
+branches and PRs.
 The custom domain is configured in the repository's Pages settings (authoritative);
 `public/CNAME` is kept for reference but ignored by workflow deploys - never delete
 either.
@@ -18,9 +20,11 @@ either.
 - Tailwind CSS v4 (CSS-first config in `src/index.css`, no `tailwind.config`)
 - shadcn/ui components, vendored in `src/components/ui/` (the shadcn registry is not
   reachable from all dev environments; add new components by vendoring their source)
-- lucide-react icons, Fontsource fonts following the Solar Dusk theme: Merriweather
-  (serif) for large headings, Fira Code (mono) for badges and small labels, Oxanium
-  (sans) for body text and mid-size titles
+- lucide-react icons; Fontsource fonts: Unbounded (display) for headings and
+  Monument titles, Hanken Grotesk (body) for everything else
+- `@react-spring/web` for micro-motion; every spring config and hook lives in
+  `src/lib/motion.ts`
+- Playwright + axe for end-to-end checks in `e2e/`
 
 ## Commands
 
@@ -28,22 +32,33 @@ either.
 - `npm run build` - type-check and production build
 - `npm run lint` - oxlint
 - `npm test` - vitest component tests (jsdom + Testing Library)
+- `npm run test:e2e` - Playwright against a production preview; run
+  `npx playwright install chromium` once first, and set `E2E_PORT` to run two at once
+- `npm run sync:publications` - refresh `src/content/publications.generated.json`
+  from ORCID
 - `npm run format` / `npm run format:check` - Prettier
 
 ## Structure
 
 - `src/App.tsx` - assembles the page from section components; the order is the sales
-  narrative, and the alternating section background bands come from a
-  `main > section:nth-child(even)` rule in `src/index.css`, so reordering sections
-  keeps the banding correct automatically
+  narrative: Hero (with the institutions row), Services, Work (case studies, career,
+  publications), Testimonials, About, Working together (`#process`: steps and FAQ),
+  Contact
 - `src/components/sections/` - one file per section
+- `src/components/monument.tsx` - the giant section titles, fitted to their container
+  by `src/lib/fit-text.ts`; `caps.tsx` keeps mixed-case acronyms (APIs, pyINDI) intact
+  inside uppercase text; `image-credit.tsx` captions photos
+- `src/content/` - site data: `career.ts` (career and case-study dates, best guesses),
+  `images.ts` (every photo and its credit; also feeds the footer), `publications.ts`
+  (the hand-picked featured three and profile links)
 - `src/components/ui/` - vendored shadcn/ui primitives; keep these unmodified and style
   via className at call sites
-- `src/index.css` - Tailwind setup and all theme tokens. Light and dark are both
-  supported: an inline script in `index.html` applies the `dark` class before first
-  paint (stored preference, then system setting) and the header `ThemeToggle` switches
-  it. To retheme, edit the `:root` and `.dark` blocks only. Both themes pass WCAG AA
-  contrast (verified with axe); re-check contrast when changing tokens.
+- `src/index.css` - Tailwind setup and all theme tokens. The site is dark-only:
+  `index.html` carries a static `dark` class and there is one token block. To retheme,
+  edit the `:root` block only. It passes WCAG AA contrast (checked by axe in
+  `e2e/full-page.spec.ts`); re-check contrast when changing tokens.
+- `DESIGN.md` - the design system as built: tokens, type, the Monument Fit Rule, the
+  Casing Rule, motion, and components. Read it before any UI change and keep it true.
 
 ## Content
 
@@ -61,7 +76,15 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 - Analytics is GoatCounter, loaded from a script tag in `index.html`. It sets no
   cookies and collects no personal data, so the site needs no consent banner; keep it
   that way. `src/head.test.ts` guards that tag and the other easily-lost head tags.
-- `public/og.png` is a 1200x630 screenshot of the hero in dark mode. It is the social
+- Publications: the list comes from Dan's ORCID record through
+  `scripts/sync-publications.js` into `src/content/publications.generated.json`
+  (generated; never hand-edit). The deploy re-syncs it and keeps the committed snapshot
+  if ORCID fails. The featured three in `publications.ts` are curated by hand.
+  `src/lib/orcid.js` stays plain JavaScript so Node runs the script without a build.
+- Every photo needs a license that allows commercial use and an entry in
+  `src/content/images.ts`; captions give name, location, and credit only. CC BY-SA
+  photos are shown unaltered (cropping only).
+- `public/og.png` is a 1200x630 screenshot of the hero. It is the social
   preview, so regenerate it whenever the hero copy changes or it will advertise stale
   wording.
 
@@ -93,8 +116,8 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
 
 - Do not commit or push changes unless explicitly instructed.
 - Never use `git add .`; stage only the files relevant to the current task.
-- Before proposing a commit, run `npm run build`, `npm run lint`, `npm test`, and
-  `npm run format:check`.
+- Before proposing a commit, run `npm run build`, `npm run lint`, `npm test`,
+  `npm run test:e2e`, and `npm run format:check`.
 - Show `git status --short` and summarize the staged diff.
 - Use Conventional Commits messages (`type(scope): summary`). If a ticket ID appears in
   the branch name or conversation, use it as the scope.

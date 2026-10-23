@@ -40,7 +40,8 @@ facilities, open-source repos, papers, and recommendation letters before writing
 ## Capabilities and Constraints
 
 - One action: the contact form (Formspree), plus a reveal-on-click email.
-- No rates, availability, or capacity claims.
+- No rates or capacity claims. The only availability statement is Contact's
+  "Currently taking on new projects".
 - Single-page React site on GitHub Pages; see `CLAUDE.md` for the stack.
 
 ## Brand Commitments
@@ -49,6 +50,7 @@ facilities, open-source repos, papers, and recommendation letters before writing
   placement may change.
 - Voice: Dan in first person, as a solo consultancy. Plain, factual, modest -
   "buff without being too showy".
+- Tagline: "Software that does the heavy lifting".
 - Theme is dark-only (decided 2026-10-22).
 
 ## Evidence on Hand
@@ -56,7 +58,11 @@ facilities, open-source repos, papers, and recommendation letters before writing
 - Case studies: GOATS (led Jul 2023 - Dec 2025; Dan now leads GPP Resource) and
   pyINDI (MMT, Bok, Kuiper telescopes; SPIE 2022).
 - Publications: SPIE 2022 pyINDI paper, first-author SPIE 2026 GOATS paper,
-  ApJS 285, 67 (2026) SPHEREx pipeline paper.
+  ApJS 285, 67 (2026) SPHEREx pipeline paper. The ORCID record
+  https://orcid.org/0009-0006-3587-3380 is the source of the site's publication list
+  (it lacks 2024+ works and DOIs until Dan adds them); a Google Scholar profile is
+  linked beside it.
+- Image credits and licenses: `src/content/images.ts`.
 - Institutions: NSF NOIRLab, Gemini Observatory, Caltech/IPAC, NASA SPHEREx,
   Steward Observatory, Lowell Observatory, NAU. MS Applied Physics (NAU).
 - Testimonials: excerpts of recommendation letters, approved verbatim by Dan
