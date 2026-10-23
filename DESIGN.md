@@ -139,7 +139,7 @@ components:
 
 **Creative North Star: "The Monolith"**
 
-A night ground, one cold accent, and giant upright type standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the oversized section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.
+A night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.
 
 Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
 
