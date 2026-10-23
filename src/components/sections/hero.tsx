@@ -28,7 +28,7 @@ export function Hero() {
       id="home"
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-svh flex-col overflow-hidden">
-      <figure className="relative -z-10 m-0 h-[54svh] shrink-0 md:absolute md:inset-0 md:h-auto">
+      <figure className="relative -z-10 m-0 h-[46svh] shrink-0 md:absolute md:inset-0 md:h-auto">
         <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_60%,transparent)] md:inset-y-0 md:right-[-14%] md:left-auto md:w-[92%] md:[mask-image:linear-gradient(to_right,transparent,black_38%)]">
           <img
             src={heroImage.src}
@@ -44,15 +44,15 @@ export function Hero() {
         <div className="from-background/80 absolute inset-x-0 top-0 h-32 bg-linear-to-b to-transparent" />
         <ImageCredit
           image={heroImage}
-          className="absolute inset-x-5 bottom-0 sm:inset-x-8 md:inset-x-auto md:right-8 md:bottom-24 md:max-w-[24rem] md:bg-background/85 md:px-4 md:py-3 md:text-right lg:right-12"
+          className="absolute inset-x-5 bottom-0 sm:inset-x-8 md:inset-x-auto md:right-8 md:bottom-32 lg:bottom-24 md:max-w-[24rem] md:bg-background/85 md:px-4 md:py-3 md:text-right lg:right-12"
         />
       </figure>
 
-      <div className="mx-auto flex w-full max-w-[90rem] flex-1 flex-col px-5 pt-8 pb-12 sm:px-8 md:justify-center md:pt-24 md:pb-36 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[90rem] flex-1 flex-col px-5 pt-7 pb-12 sm:px-8 md:justify-center md:pt-24 md:pb-36 lg:px-12">
         <div className="max-w-[40rem] md:max-w-[46%]">
           <animated.p
             style={kicker}
-            className="text-primary mb-6 text-xs font-medium tracking-[0.32em] uppercase">
+            className="text-primary mb-5 text-[0.7rem] font-medium tracking-[0.2em] text-balance uppercase sm:mb-6 lg:text-xs lg:tracking-[0.32em]">
             Software that does the heavy lifting
           </animated.p>
           <animated.h1
@@ -63,13 +63,13 @@ export function Hero() {
           </animated.h1>
           <animated.p
             style={lede}
-            className="text-muted-foreground mt-7 max-w-[34rem] text-lg leading-relaxed">
+            className="text-muted-foreground mt-6 max-w-[34rem] text-base leading-relaxed sm:mt-7 sm:text-lg">
             I build the systems behind modern astronomy, from instrument control to
             real-time data platforms, and bring the same engineering to every science.
           </animated.p>
           <animated.div
             style={actions}
-            className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+            className="mt-8 flex flex-wrap sm:mt-9 items-center gap-x-8 gap-y-4">
             <PressLink
               href="#contact"
               className="group bg-primary text-primary-foreground hover:bg-foreground inline-flex h-12 items-center gap-2 px-6 text-sm font-semibold tracking-wide transition-colors">
