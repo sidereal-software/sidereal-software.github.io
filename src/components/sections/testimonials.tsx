@@ -2,7 +2,8 @@ import { useState, type ComponentProps } from 'react'
 import { animated } from '@react-spring/web'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-import { usePress, useSpringIn } from '@/lib/motion'
+import { PressButton } from '@/components/press'
+import { useSpringIn } from '@/lib/motion'
 
 interface Testimonial {
   quote: string
@@ -42,14 +43,10 @@ const testimonials: Testimonial[] = [
   },
 ]
 
-function StepButton(props: ComponentProps<typeof animated.button>) {
-  const { style, bind } = usePress()
+function StepButton(props: ComponentProps<typeof PressButton>) {
   return (
-    <animated.button
-      type="button"
+    <PressButton
       {...props}
-      style={style}
-      {...bind}
       className="group border-border hover:border-primary hover:text-primary grid size-12 place-items-center border transition-colors"
     />
   )

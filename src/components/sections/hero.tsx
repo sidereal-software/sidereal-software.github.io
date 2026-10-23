@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react'
 import { animated } from '@react-spring/web'
 import { ArrowRight } from 'lucide-react'
 
 import { ImageCredit } from '@/components/image-credit'
+import { PressLink } from '@/components/press'
 import { heroImage } from '@/content/images'
-import { usePress, useStaggerIn } from '@/lib/motion'
+import { useStaggerIn } from '@/lib/motion'
 
 const institutions = [
   'NSF NOIRLab',
@@ -15,11 +15,6 @@ const institutions = [
   'Lowell Observatory',
   'Northern Arizona University',
 ]
-
-function PressLink(props: ComponentProps<typeof animated.a>) {
-  const { style, bind } = usePress()
-  return <animated.a {...props} style={style} {...bind} />
-}
 
 export function Hero() {
   const [kicker, title, lede, actions] = useStaggerIn(4, true)

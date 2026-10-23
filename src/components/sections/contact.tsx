@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import { animated } from '@react-spring/web'
 import { ArrowRight } from 'lucide-react'
 
 import { Monument } from '@/components/monument'
+import { PressButton } from '@/components/press'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { usePress } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 // Assembled at render time so the address never appears as a contiguous
@@ -25,7 +24,6 @@ const errorClass = 'text-destructive text-sm'
 export function Contact() {
   const [state, handleSubmit] = useForm(FORMSPREE_ID)
   const [emailRevealed, setEmailRevealed] = useState(false)
-  const { style: pressStyle, bind: pressBind } = usePress()
   const email = `${EMAIL_USER}@${EMAIL_DOMAIN}`
 
   return (
@@ -162,11 +160,9 @@ export function Contact() {
                   />
                 </div>
                 <div className="flex flex-wrap items-center gap-6 sm:col-span-2">
-                  <animated.button
+                  <PressButton
                     type="submit"
                     disabled={state.submitting}
-                    style={pressStyle}
-                    {...pressBind}
                     className="group bg-primary text-primary-foreground hover:bg-foreground inline-flex h-12 cursor-pointer items-center gap-2 px-7 text-sm font-semibold tracking-wide transition-colors disabled:cursor-wait disabled:opacity-70">
                     {state.submitting ? 'Sending...' : 'Send inquiry'}
                     <ArrowRight
@@ -174,7 +170,7 @@ export function Contact() {
                       className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1"
                       strokeWidth={2}
                     />
-                  </animated.button>
+                  </PressButton>
                   <ValidationError errors={state.errors} className={errorClass} />
                 </div>
               </form>

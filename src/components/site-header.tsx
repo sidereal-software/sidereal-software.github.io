@@ -3,6 +3,7 @@ import { animated } from '@react-spring/web'
 import { Menu } from 'lucide-react'
 
 import logo from '@/assets/logo.png'
+import { PressLink } from '@/components/press'
 import {
   Sheet,
   SheetClose,
@@ -10,7 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { usePress, useStaggerIn } from '@/lib/motion'
+import { useStaggerIn } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const sections = [
@@ -34,15 +35,12 @@ function useScrolled(threshold = 24) {
 }
 
 function StartProjectLink() {
-  const { style, bind } = usePress()
   return (
-    <animated.a
+    <PressLink
       href="#contact"
-      style={style}
-      {...bind}
       className="text-primary decoration-primary/40 hover:decoration-primary inline-block py-3 text-sm font-medium whitespace-nowrap underline underline-offset-[6px] transition-colors">
       Start a project
-    </animated.a>
+    </PressLink>
   )
 }
 
