@@ -32,8 +32,8 @@ describe('App', () => {
       '^Work$',
       'Testimonials',
       'About',
-      'How I work',
-      'Common questions',
+      'Process',
+      'Questions',
       'Start a project',
     ]) {
       expect(
@@ -165,6 +165,29 @@ describe('App', () => {
       ['GitHub', 'https://github.com/davner'],
       ['LinkedIn', 'https://www.linkedin.com/in/danavner'],
     ])
+  })
+
+  it('walks through the four process steps and answers questions on demand', () => {
+    render(<App />)
+    const section = screen
+      .getByRole('heading', { level: 2, name: 'Process' })
+      .closest('section')!
+    expect(
+      within(within(section).getAllByRole('list')[0])
+        .getAllByRole('heading', { level: 3 })
+        .map((heading) => heading.textContent),
+    ).toEqual([
+      'Step 1: Intro call',
+      'Step 2: Scoped proposal',
+      'Step 3: Build',
+      'Step 4: Handover',
+    ])
+    const question = within(section).getByRole('button', {
+      name: 'What kinds of projects are a good fit?',
+    })
+    expect(within(section).queryByText(/^Observatory control systems/)).toBeNull()
+    fireEvent.click(question)
+    expect(within(section).getByText(/^Observatory control systems/)).toBeVisible()
   })
 
   it('reveals the contact email on click', () => {

@@ -2,12 +2,11 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { About } from '@/components/sections/about'
 import { Contact } from '@/components/sections/contact'
-import { Faq } from '@/components/sections/faq'
 import { Hero } from '@/components/sections/hero'
-import { Process } from '@/components/sections/process'
 import { Services } from '@/components/sections/services'
 import { Testimonials } from '@/components/sections/testimonials'
 import { Work } from '@/components/sections/work'
+import { WorkingTogether } from '@/components/sections/working-together'
 
 function App() {
   return (
@@ -19,8 +18,7 @@ function App() {
         <Work />
         <Testimonials />
         <About />
-        <Process />
-        <Faq />
+        <WorkingTogether />
         <Contact />
       </main>
       <SiteFooter />
