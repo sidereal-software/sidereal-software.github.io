@@ -16,6 +16,25 @@ test('Work has no accessibility violations', async ({ page }) => {
   expect(violations).toEqual([])
 })
 
+for (const width of widths) {
+  test(`the expanded publication list is accessible and fits at ${width}px`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await openAt(page, width)
+    const publications = page.getByRole('region', { name: 'Publications' })
+    await publications.getByRole('button', { name: /all publications/i }).click()
+    await expect(
+      publications.getByRole('list', { name: /all publications/i }),
+    ).toBeVisible()
+    const { violations } = await new AxeBuilder({ page })
+      .include('section[aria-labelledby="publications"]')
+      .analyze()
+    expect(violations).toEqual([])
+    await expectNoHorizontalScroll(page)
+  })
+}
+
 test('case-study names keep their authored casing', async ({ page }) => {
   await openAt(page, 1440)
   for (const name of ['GOATS', 'pyINDI']) {

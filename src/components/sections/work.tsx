@@ -1,4 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ChevronDown } from 'lucide-react'
+import { useId, useState } from 'react'
 
 import { ImageCredit } from '@/components/image-credit'
 import { Monument } from '@/components/monument'
@@ -10,6 +11,12 @@ import {
   type CaseStudy,
 } from '@/content/career'
 import { telescopes, type CreditedImage } from '@/content/images'
+import {
+  allPublications,
+  featuredPublications,
+  publicationProfiles,
+  type Work as Publication,
+} from '@/content/publications'
 
 const gutter = 'mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12'
 
@@ -187,6 +194,99 @@ function Career() {
   )
 }
 
+function PublicationEntry({ work }: { work: Publication }) {
+  return (
+    <li className="border-border grid gap-1 border-t py-5 sm:grid-cols-[5rem_1fr] sm:gap-6">
+      <p className="text-dim text-sm tabular-nums sm:pt-0.5">{work.year}</p>
+      <div>
+        <p className="leading-snug text-pretty">
+          {work.link ? (
+            <a
+              href={work.link}
+              target="_blank"
+              rel="noreferrer"
+              className="decoration-dim hover:decoration-primary underline underline-offset-[5px] transition-colors">
+              {work.title}
+            </a>
+          ) : (
+            work.title
+          )}
+        </p>
+        {work.venue && <p className="text-muted-foreground mt-1 text-sm">{work.venue}</p>}
+      </div>
+    </li>
+  )
+}
+
+function Publications() {
+  const [expanded, setExpanded] = useState(false)
+  const listId = useId()
+  return (
+    <section
+      aria-labelledby="publications"
+      className="mt-16 grid gap-8 md:mt-24 md:grid-cols-12">
+      <h3
+        id="publications"
+        className="text-dim text-xs font-medium tracking-[0.32em] uppercase md:col-span-5 md:pt-2">
+        Publications
+      </h3>
+      <div className="md:col-span-7">
+        <ul className="flex flex-col gap-4">
+          {featuredPublications.map((paper) => (
+            <li key={paper.link}>
+              <a
+                href={paper.link}
+                target="_blank"
+                rel="noreferrer"
+                className="font-display decoration-dim hover:decoration-primary text-lg leading-[1.45] font-medium tracking-[-0.01em] text-balance underline underline-offset-[6px] transition-colors md:text-xl">
+                {paper.label.slice(0, paper.label.lastIndexOf(' ') + 1)}
+                {/* The arrow rides with the last word so it never wraps onto a line alone. */}
+                <span className="whitespace-nowrap">
+                  {paper.label.slice(paper.label.lastIndexOf(' ') + 1)}
+                  <ArrowUpRight
+                    aria-hidden
+                    className="text-primary ml-2 inline size-4 align-[-0.05em]"
+                    strokeWidth={2}
+                  />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+          {publicationProfiles.map((profile) => (
+            <li key={profile.href}>
+              <ExternalLink href={profile.href}>{profile.label}</ExternalLink>
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          aria-expanded={expanded}
+          aria-controls={listId}
+          onClick={() => setExpanded((open) => !open)}
+          className="text-muted-foreground hover:text-foreground mt-10 inline-flex cursor-pointer items-center gap-2 text-sm transition-colors">
+          All publications ({allPublications.length})
+          <ChevronDown
+            aria-hidden
+            className={`size-4 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+            strokeWidth={2}
+          />
+        </button>
+        <ol
+          id={listId}
+          aria-label="All publications"
+          hidden={!expanded}
+          className="border-border mt-6 border-b">
+          {allPublications.map((work) => (
+            <PublicationEntry key={work.title} work={work} />
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
 function OpenSource() {
   return (
     <p className="text-muted-foreground mt-14 text-lg text-pretty">
@@ -215,6 +315,7 @@ export function Work() {
       ))}
       <div className={`mt-32 md:mt-48 ${gutter}`}>
         <Career />
+        <Publications />
         <OpenSource />
       </div>
     </section>
