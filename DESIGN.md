@@ -38,8 +38,8 @@ typography:
     letterSpacing: '-0.03em'
   quote:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
-    fontSize: 'clamp(1.5rem, 3.8vw, 3.5rem)'
-    fontWeight: 400
+    fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)'
+    fontWeight: 500
     lineHeight: 1.14
     letterSpacing: '-0.02em'
   numeral:
@@ -112,12 +112,6 @@ components:
   link-quiet:
     textColor: '{colors.bone-ink}'
     typography: '{typography.body-small}'
-  step-button:
-    textColor: '{colors.bone-ink}'
-    rounded: '{rounded.none}'
-    size: '48px'
-  step-button-hover:
-    textColor: '{colors.ice-cyan}'
   input-underline:
     backgroundColor: 'transparent'
     textColor: '{colors.bone-ink}'
@@ -171,7 +165,7 @@ A near-black, slightly blue night with warm bone ink and one ice-cyan accent; gr
 - **Bone Ink** (`bone-ink`): headings, Monument titles, primary text, and the primary button's hover fill.
 - **Moon Grey** (`moon-grey`): body copy, ledes, descriptions, nav links at rest, and form labels (8.6:1 on the ground).
 - **Dust Grey** (`dust-grey`): tertiary text: periods, years, counters, captions, small section labels, and the large process numerals (6.0:1 on the ground).
-- **Hairline** (`hairline`): every rule and border: list dividers, section-block tops, the scrolled header's bottom edge, the testimonial step buttons.
+- **Hairline** (`hairline`): every rule and border: list dividers, section-block tops, and the scrolled header's bottom edge.
 - **Field Line** (`field-line`): the underline of form fields at rest (3:1, the control contrast floor).
 - **Coral Alert** (`coral-alert`): form validation errors only.
 
@@ -198,7 +192,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 - **Display name** (Unbounded 700, clamp(2.25rem, 5vw, 4.25rem), 1, 0.01em, authored casing): the case-study names under their photos (GOATS, pyINDI), 36px at 390 and 68px at 1440.
 - **Headline** (Unbounded 600, clamp(1.75rem, 3.5vw, 3.25rem), 1.05, -0.02em, uppercase): the hero H1.
 - **Headline list** (Unbounded 600, clamp(1.6rem, 3.6vw, 3.25rem), 1.02, -0.03em, uppercase): the four service titles.
-- **Quote** (Unbounded 400, clamp(1.5rem, 3.8vw, 3.5rem), 1.14): testimonials, max 24-28ch with a hanging opening quote. The About pull quote uses the same face at 500 and clamp(1.5rem, 2.8vw, 2.5rem).
+- **Quote** (Unbounded 500, clamp(1.5rem, 2.8vw, 2.5rem), 1.14, -0.02em): the About pull quote.
 - **Numeral** (Unbounded 700, clamp(2rem, 5vw, 4.5rem), 1, tabular, dust grey): process step numbers, always smaller than the Process title above them. Career years use Unbounded 600 at clamp(1.75rem, 3vw, 2.5rem).
 - **Title** (Unbounded 600, 1.125rem, -0.01em): roles, organizations, names. Outcome statements and featured publications sit between title and headline in Unbounded 500 (1.125-1.5rem).
 - **Body** (Hanken Grotesk 400, 1.125rem, 1.625): paragraphs, 34-62ch measures. 1rem in dense lists.
@@ -210,7 +204,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 **The Monument Scale Rule.** A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so "Start a project" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside any clipping parent. No negative margins, no viewport-overflowing sizes, no horizontal translation.
 
-**The Casing Rule.** Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles, testimonial attributions. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing ("PYTHON LIBRARIES & APIs"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.
+**The Casing Rule.** Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing ("PYTHON LIBRARIES & APIs"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.
 
 **The One Kicker Rule.** The hero line "Software that does the heavy lifting" is the site's only kicker: a tracked uppercase ice-cyan line above the H1 (0.7rem at 0.2em on mobile, 0.75rem at 0.32em on desktop). This is Dan's deliberate override of impeccable's eyebrow ban, decided after the finish review, because the tagline is the brand line and its pun lands through the M27 caption. No other eyebrow labels are allowed anywhere: a small tracked label may be the heading of its own block, but never a tag stacked above another heading.
 
@@ -238,7 +232,7 @@ Flat. There are no shadows in the site's own components; field shadows from the 
 
 ## Shapes
 
-Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons, 48px square step buttons), images are plain rectangles cropped with object-fit (16:10 for career photos and case studies on phones, 21:9 for case studies from 768px, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
+Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons), images are plain rectangles cropped with object-fit (16:10 for career photos and case studies on phones, 21:9 for case studies from 768px, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
 
 ## Components
 
@@ -249,7 +243,6 @@ Few, solid, and square.
 - **Shape:** square corners (0px), 48px tall.
 - **Primary:** ice-cyan fill, dark ink, Hanken Grotesk 600 at 0.875rem with slight tracking, 24-28px side padding, trailing arrow icon. Used for "Start a project" in the hero and "Send inquiry".
 - **Hover / Focus:** fill shifts to bone ink; the arrow nudges 4px right (only when motion is allowed). Focus is a 2px ice-cyan outline offset 4px. Press scales to 0.97 on a spring through the shared press component (`PressButton`, `PressLink`).
-- **Step button:** 48px square with a hairline border and a 1.75-stroke arrow; hover turns border and arrow ice cyan, and it presses like the primary. Used for testimonial previous and next.
 - **Disabled / sending:** 70% opacity and a wait cursor.
 
 ### Links
@@ -286,7 +279,7 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 
 - **Hero zoom:** the nebula scales slowly from 1.04 to 1.12 with a slight drift, 60 s ease-in-out, alternating forever. The only looping motion on the site.
 - **Scroll reveal:** Monument titles rise 1.5rem from 15% opacity as they enter the viewport, driven by the CSS scroll timeline where supported, ending fully visible. Where scroll timelines are unsupported, titles simply show.
-- **Springs** (react-spring, one shared motion module): a settle spring (tension 280, friction 30) and a press spring (tension 520, friction 40), both damped near 0.9 so they settle without visible bounce. Used in five places only: the hero entrance stagger (kicker, H1, lede, actions rising 12px, already visible, with no fade), the 0.97 press on buttons and CTA links (one shared press component, never a per-call-site spring), the incoming testimonial quote, the process numerals rising 24px in a 90 ms sequence the first time the row scrolls into view, and the mobile menu link stagger.
+- **Springs** (react-spring, one shared motion module): a settle spring (tension 280, friction 30) and a press spring (tension 520, friction 40), both damped near 0.9 so they settle without visible bounce. Used in four places only: the hero entrance stagger (kicker, H1, lede, actions rising 12px, already visible, with no fade), the 0.97 press on buttons and CTA links (one shared press component, never a per-call-site spring), the process numerals rising 24px in a 90 ms sequence the first time the row scrolls into view, and the mobile menu link stagger.
 - **Reduced motion:** under prefers-reduced-motion the hero zoom, scroll reveal, smooth in-page scrolling, and the menu sheet and FAQ open animations are not applied and every spring skips straight to its end state, following live changes to the setting. Hover nudges are gated to motion-safe. Entrance springs (hero, menu links) only move content that is already visible, and the process numerals hide only once they are known to be off-screen, so content is never left invisible if a spring never runs.
 
 ## Do's and Don'ts

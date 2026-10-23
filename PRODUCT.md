@@ -35,7 +35,7 @@ by peer-reviewed publications.
 ## Operating Context
 
 Visitors evaluate on desktop at work and on phones from links. They check named
-facilities, open-source repos, papers, and recommendation letters before writing.
+facilities, open-source repos, and papers before writing.
 
 ## Capabilities and Constraints
 
@@ -65,12 +65,12 @@ facilities, open-source repos, papers, and recommendation letters before writing
 - Image credits and licenses: `src/content/images.ts`.
 - Institutions: NSF NOIRLab, Gemini Observatory, Caltech/IPAC, NASA SPHEREx,
   Steward Observatory, Lowell Observatory, NAU. MS Applied Physics (NAU).
-- Testimonials: excerpts of recommendation letters, approved verbatim by Dan
-  (`src/components/sections/testimonials.tsx`).
+- Letters of recommendation exist but were written as private letters; never quote
+  them on the site.
 - Portrait: `src/assets/me.jpg`. Open source: https://github.com/sidereal-software
 - Source of truth for career facts: `~/github/davner/career-ops/cv.md`.
 - Absent, never to be invented: client logos beyond named institutions, metrics,
-  pricing, new testimonials.
+  pricing, testimonials.
 
 ## Product Principles
 

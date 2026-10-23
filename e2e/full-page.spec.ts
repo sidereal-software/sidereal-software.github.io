@@ -74,7 +74,7 @@ test('under reduced motion all content is visible, the hero is still, and spring
       .evaluate((img) => img.getAnimations().length),
   ).toBe(0)
 
-  for (const id of ['services', 'work', 'testimonials', 'about', 'process', 'contact']) {
+  for (const id of ['services', 'work', 'about', 'process', 'contact']) {
     const section = page.locator(`#${id}`)
     await section.evaluate((el) => el.scrollIntoView({ behavior: 'instant' }))
     expect(await unsettledElements(page), `#${id}`).toEqual([])

@@ -42,8 +42,7 @@ either.
 
 - `src/App.tsx` - assembles the page from section components; the order is the sales
   narrative: Hero (with the institutions row), Services, Work (case studies, career,
-  publications), Testimonials, About, Working together (`#process`: steps and FAQ),
-  Contact
+  publications), About, Working together (`#process`: steps and FAQ), Contact
 - `src/components/sections/` - one file per section
 - `src/components/monument.tsx` - the section titles and case-study names, each at a
   fixed clamp size (76px at most); `caps.tsx` keeps mixed-case acronyms (APIs, pyINDI) intact
@@ -71,9 +70,8 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
   constant lives in `src/components/sections/contact.tsx`. Preserve the `_gotcha`
   honeypot field and the reveal-on-click email (the address is assembled at runtime so
   scrapers never see it).
-- The testimonials section (`src/components/sections/testimonials.tsx`) quotes
-  letters of recommendation; the excerpts were approved for public use by Dan.
-  Get his approval again before altering a quote or adding a new one.
+- The site has no testimonials. Dan's letters of recommendation were written as
+  private letters, so never quote them anywhere on the site.
 - Analytics is GoatCounter, loaded from a script tag in `index.html`. It sets no
   cookies and collects no personal data, so the site needs no consent banner; keep it
   that way. `src/head.test.ts` guards that tag and the other easily-lost head tags.

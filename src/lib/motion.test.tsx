@@ -2,12 +2,7 @@ import { animated, Globals } from '@react-spring/web'
 import { act, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import {
-  followReducedMotion,
-  useSpringIn,
-  useStaggerIn,
-  useStaggerOnEntry,
-} from '@/lib/motion'
+import { followReducedMotion, useStaggerIn, useStaggerOnEntry } from '@/lib/motion'
 
 function mediaQuery(matches: boolean) {
   const listeners = new Set<(event: { matches: boolean }) => void>()
@@ -36,11 +31,6 @@ function Items() {
       ))}
     </ul>
   )
-}
-
-function Incoming({ index }: { index: number }) {
-  const style = useSpringIn(index)
-  return <animated.p style={style}>quote {index}</animated.p>
 }
 
 let report: (isIntersecting: boolean) => void
@@ -179,28 +169,5 @@ describe('motion', () => {
     stop()
     query.change(false)
     expect(Globals.skipAnimation).toBe(true)
-  })
-
-  it('springs the incoming content in from a small drop each time its key changes', async () => {
-    const stop = followReducedMotion(() => mediaQuery(false) as unknown as MediaQueryList)
-    const { rerender } = render(<Incoming index={0} />)
-    const quote = () => screen.getByText(/^quote/)
-    expect(quote().style.opacity).toBe('1')
-    rerender(<Incoming index={1} />)
-    await waitFor(() => expect(Number(quote().style.opacity)).toBeLessThan(0.5))
-    expect(quote().style.transform).toMatch(/^translate3d\(0,\s?[1-9][\d.]*px,\s?0\)$/)
-    await waitFor(() => expect(quote().style.opacity).toBe('1'), { timeout: 3000 })
-    expect(quote().style.transform).toBe('none')
-    stop()
-  })
-
-  it('shows the incoming content at once under reduced motion', () => {
-    const stop = followReducedMotion(() => mediaQuery(true) as unknown as MediaQueryList)
-    const { rerender } = render(<Incoming index={0} />)
-    rerender(<Incoming index={1} />)
-    const quote = screen.getByText('quote 1')
-    expect(quote.style.opacity).toBe('1')
-    expect(quote.style.transform).toBe('none')
-    stop()
   })
 })

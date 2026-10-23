@@ -159,7 +159,7 @@
       },
       "quote": {
         "displayName": "Quote",
-        "purpose": "Testimonial quotes."
+        "purpose": "The About pull quote."
       },
       "numeral": {
         "displayName": "Numeral",
@@ -195,12 +195,12 @@
       {
         "name": "spring-settle",
         "value": "react-spring { tension: 280, friction: 30 }",
-        "purpose": "Entrances: hero stagger, testimonial swap, process numerals, menu links. Soft settle, no visible bounce."
+        "purpose": "Entrances: hero stagger, process numerals, menu links. Soft settle, no visible bounce."
       },
       {
         "name": "spring-press",
         "value": "react-spring { tension: 520, friction: 40 }, scale 0.97",
-        "purpose": "Press feedback on buttons, step buttons and CTA links, always through the shared PressButton / PressLink components."
+        "purpose": "Press feedback on buttons and CTA links, always through the shared PressButton / PressLink components."
       },
       {
         "name": "stagger-in",
@@ -278,14 +278,6 @@
       "css": ".ds-link-quiet { color: var(--foreground, #edece7); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: underline; text-decoration-color: var(--dim, #8a8a94); text-underline-offset: 6px; transition: text-decoration-color 150ms; } .ds-link-quiet:hover { text-decoration-color: var(--foreground, #edece7); } .ds-link-quiet:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     },
     {
-      "name": "Step Button",
-      "kind": "button",
-      "refersTo": "step-button",
-      "description": "48px square hairline button for testimonial previous and next; presses through the shared press component.",
-      "html": "<button class=\"ds-step\" type=\"button\" aria-label=\"Next testimonial\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
-      "css": ".ds-step { display: grid; place-items: center; width: 48px; height: 48px; background: transparent; color: var(--foreground, #edece7); border: 1px solid var(--border, #26272d); border-radius: 0; cursor: pointer; transition: color 150ms, border-color 150ms, transform 150ms; } .ds-step:hover { color: var(--primary, #9be7ff); border-color: var(--primary, #9be7ff); } .ds-step:active { transform: scale(0.97); } .ds-step:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
-    },
-    {
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-underline",
@@ -347,7 +339,7 @@
       },
       {
         "name": "The Casing Rule",
-        "body": "Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles, testimonial attributions. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing (\"PYTHON LIBRARIES & APIs\"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.",
+        "body": "Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing (\"PYTHON LIBRARIES & APIs\"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.",
         "section": "typography"
       },
       {

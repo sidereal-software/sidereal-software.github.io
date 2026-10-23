@@ -43,18 +43,6 @@ export function useStaggerIn(count: number, active: boolean) {
   })
 }
 
-// Starts visible so the first render never waits on a spring.
-export function useSpringIn(key: unknown) {
-  const [style, api] = useSpring(() => ({ opacity: 1, y: 0, config: springs.settle }))
-  const previous = useRef(key)
-  useEffect(() => {
-    if (previous.current === key) return
-    previous.current = key
-    api.start({ from: { opacity: 0, y: 12 }, to: { opacity: 1, y: 0 } })
-  }, [api, key])
-  return style
-}
-
 const risen = { opacity: 1, y: 0 }
 const lowered = { opacity: 0, y: 24 }
 

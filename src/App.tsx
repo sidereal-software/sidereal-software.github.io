@@ -4,7 +4,6 @@ import { About } from '@/components/sections/about'
 import { Contact } from '@/components/sections/contact'
 import { Hero } from '@/components/sections/hero'
 import { Services } from '@/components/sections/services'
-import { Testimonials } from '@/components/sections/testimonials'
 import { Work } from '@/components/sections/work'
 import { WorkingTogether } from '@/components/sections/working-together'
 
@@ -16,7 +15,6 @@ function App() {
         <Hero />
         <Services />
         <Work />
-        <Testimonials />
         <About />
         <WorkingTogether />
         <Contact />
