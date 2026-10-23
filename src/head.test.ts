@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 // index.html is outside the React tree, so component tests never touch it. These
 // assertions guard the tags that are easy to drop by accident and silent when lost.
 import html from '../index.html?raw'
+import { heroImage } from '@/content/images'
 
 const doc = new DOMParser().parseFromString(html, 'text/html')
 
@@ -50,5 +51,14 @@ describe('index.html', () => {
     expect(doc.querySelector('meta[property="og:image"]')?.getAttribute('content')).toBe(
       'https://sidereal.software/og.png',
     )
+  })
+
+  it('preloads the hero image with the same candidates and sizes as the img', () => {
+    const preload = doc.querySelector('link[rel="preload"][as="image"]')
+    expect(preload?.getAttribute('fetchpriority')).toBe('high')
+    expect(preload?.getAttribute('imagesrcset')).toBe(
+      '/src/assets/images/m27-1200.jpg 1200w, /src/assets/images/m27.jpg 2400w',
+    )
+    expect(preload?.getAttribute('imagesizes')).toBe(heroImage.sizes)
   })
 })

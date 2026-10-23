@@ -26,3 +26,23 @@ test('the hero lede never ends on a lone word, from phone to desktop', async ({
   }
   expect(orphans).toEqual([])
 })
+
+test('the built page preloads the hero image the img will use', async ({ page }) => {
+  const html = await (await page.request.get('/')).text()
+  const preload = new RegExp('<link[^>]*rel="preload"[^>]*>').exec(html)?.[0] ?? ''
+  const attribute = (name: string) =>
+    new RegExp(`${name}="([^"]*)"`).exec(preload)?.[1] ?? null
+
+  await openAt(page, 390)
+  const image = page.getByRole('img', { name: /^The Dumbbell Nebula/ })
+  expect(attribute('imagesrcset')).toBe(await image.getAttribute('srcset'))
+  expect(attribute('imagesizes')).toBe(await image.getAttribute('sizes'))
+  const candidates = (attribute('imagesrcset') ?? '')
+    .split(', ')
+    .map((c) => c.split(' ')[0])
+  expect(candidates).toHaveLength(2)
+  for (const url of candidates) {
+    expect(url).toMatch(/^\/assets\/m27[-\w]*\.jpg$/)
+    expect((await page.request.get(url)).status()).toBe(200)
+  }
+})

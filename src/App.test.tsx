@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor, within } from '@testing-library/rea
 import { describe, expect, it } from 'vitest'
 
 import { career, formatPeriod } from '@/content/career'
-import { creditedImages } from '@/content/images'
+import { creditedImages, heroImage } from '@/content/images'
 import App from './App'
 
 describe('App', () => {
@@ -138,7 +138,7 @@ describe('App', () => {
     const image = screen.getByRole('img', { name: /^The Dumbbell Nebula/ })
     expect(image).toHaveAttribute('fetchpriority', 'high')
     expect(image.getAttribute('srcset')).toMatch(/ 1200w, .+ 2400w$/)
-    expect(image).toHaveAttribute('sizes')
+    expect(image).toHaveAttribute('sizes', heroImage.sizes)
   })
 
   it('names the institutions only in the hero, not in a separate strip', () => {

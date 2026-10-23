@@ -74,7 +74,7 @@ export function Hero() {
           <img
             src={heroImage.src}
             srcSet={`${heroImage.smallSrc} 1200w, ${heroImage.src} 2400w`}
-            sizes="(min-width: 768px) 92vw, 100vw"
+            sizes={heroImage.sizes}
             fetchPriority="high"
             alt="The Dumbbell Nebula, a glowing cloud of red and blue gas around a pale core, set in a dense star field"
             width={heroImage.width}

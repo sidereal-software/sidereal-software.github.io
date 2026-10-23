@@ -21,9 +21,11 @@ export interface CreditedImage {
 }
 
 // Captions name the subject, place, and credit only; licenses must allow commercial use.
-export const heroImage: CreditedImage & { smallSrc: string } = {
+// index.html preloads the same candidates and sizes; src/head.test.ts keeps the two in step.
+export const heroImage: CreditedImage & { smallSrc: string; sizes: string } = {
   src: m27,
   smallSrc: m27Small,
+  sizes: '(min-width: 768px) 92vw, 100vw',
   name: 'M27, the Dumbbell Nebula',
   location: 'Mayall 4-m Telescope, Kitt Peak, Arizona',
   credit:
