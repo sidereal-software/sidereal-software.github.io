@@ -56,10 +56,7 @@ function CreditedPhoto({
 }
 
 function CaseStudyBand({ study }: { study: CaseStudy }) {
-  // The widest photo carries the full-bleed band; the rest sit beside the details.
-  const [lead, ...rest] = study.telescopes
-    .map((key) => telescopes[key])
-    .sort((a, b) => b.width / b.height - a.width / a.height)
+  const lead = telescopes[study.telescope]
   const parts = [
     { label: 'Problem', text: study.problem, lead: false },
     { label: 'Approach', text: study.approach, lead: false },
@@ -106,13 +103,6 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
               </li>
             ))}
           </ul>
-          {rest.map((image) => (
-            <CreditedPhoto
-              key={image.name}
-              image={image}
-              className="mt-12 max-md:hidden"
-            />
-          ))}
         </div>
         <dl className="flex flex-col gap-10 md:col-span-7 md:col-start-6">
           {parts.map(({ label, text, lead }) => (
@@ -133,9 +123,6 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
             </div>
           ))}
         </dl>
-        {rest.map((image) => (
-          <CreditedPhoto key={image.name} image={image} className="md:hidden" />
-        ))}
       </div>
     </article>
   )

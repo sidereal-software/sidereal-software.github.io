@@ -1,10 +1,8 @@
 import bok from '@/assets/images/bok.jpg'
 import geminiNorth from '@/assets/images/gemini-north.jpg'
-import geminiSouth from '@/assets/images/gemini-south.jpg'
 import ldt from '@/assets/images/ldt.jpg'
 import m27Small from '@/assets/images/m27-1200.jpg'
 import m27 from '@/assets/images/m27.jpg'
-import mmt from '@/assets/images/mmt.jpg'
 import spherex from '@/assets/images/spherex.jpg'
 import vatt from '@/assets/images/vatt.jpg'
 
@@ -49,17 +47,6 @@ export const telescopes = {
     width: 1800,
     height: 1200,
   },
-  'gemini-south': {
-    src: geminiSouth,
-    name: 'Gemini South',
-    location: 'Cerro Pachón, Chile',
-    credit: 'International Gemini Observatory/NOIRLab/NSF/AURA/B. Tafreshi',
-    license: 'CC BY 4.0',
-    licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
-    sourceUrl: 'https://noirlab.edu/public/images/iotw2015a/',
-    width: 1800,
-    height: 1350,
-  },
   bok: {
     src: bok,
     name: 'Bok 90"',
@@ -70,17 +57,6 @@ export const telescopes = {
     sourceUrl: 'https://noirlab.edu/public/images/6V6A9200-CC/',
     width: 1800,
     height: 1200,
-  },
-  mmt: {
-    src: mmt,
-    name: 'MMT',
-    location: 'Mt. Hopkins, Arizona',
-    credit: 'Pyronordicman, via Wikimedia Commons',
-    license: 'CC BY-SA 4.0',
-    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:MMT_Observatory.jpg',
-    width: 1638,
-    height: 1800,
   },
   vatt: {
     src: vatt,

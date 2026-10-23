@@ -220,7 +220,7 @@ Rhythm is generous and vertical: sections open with 128px of top space (192px fr
 
 The hero fills the small viewport height. On desktop the nebula sits full-bleed to the right with a left fade mask and the text column takes the left 46%; on mobile the image takes the top 46% of the viewport with a bottom fade and the text follows. The institutions row is a hairline-topped strip pinned to the hero's bottom on desktop.
 
-Case studies break out of the column: a full-bleed photo band (26rem tall on mobile, clamp(20rem, 72vh, 46rem) on desktop) with the name as a Monument over a bottom gradient, then the detail grid back in the column.
+Case studies break out of the column: a full-bleed photo band (26rem tall on mobile, clamp(20rem, 72vh, 46rem) on desktop) with the name as a Monument over a bottom gradient, then the detail grid back in the column. Each case study has that one photo only.
 
 The header is fixed, 64px tall, transparent over the hero and night ground with a hairline once scrolled. Below 1024px the section links collapse into a "Menu" button that opens a full-height right sheet; "Start a project" stays in the header at every width, and below 640px the wordmark stacks onto two lines to make room for it.
 
@@ -236,7 +236,7 @@ Flat. There are no shadows in the site's own components; field shadows from the 
 
 ## Shapes
 
-Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons, 48px square step buttons), images are plain rectangles cropped with object-fit (4:3 for secondary photos, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
+Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons, 48px square step buttons), images are plain rectangles cropped with object-fit (4:3 for career photos, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
 
 ## Components
 
@@ -274,7 +274,7 @@ Numbered or dated rows divided by hairlines: services (cyan two-digit number, up
 
 Every photo carries a caption: name, location, credit, and a linked license, middle-dot separated, in 0.75rem dust grey. The footer repeats every credit with the source link.
 
-The caption always reads as part of its photo, never as the first line of the text below it, and every caption is one horizontal style at the photo's bottom edge. Secondary photos take it directly under the image. On a case-study band it sits on the photo's bottom fade: from 768px at the bottom right, level with the name; below 768px directly under the name. Both band photos are CC BY, which allows text on the image; a CC BY-SA photo always takes its caption under the image.
+The caption always reads as part of its photo, never as the first line of the text below it, and every caption is one horizontal style at the photo's bottom edge. Career photos take it directly under the image. On a case-study band it sits on the photo's bottom fade: from 768px at the bottom right, level with the name; below 768px directly under the name. Both band photos are CC BY, which allows text on the image; a CC BY-SA photo always takes its caption under the image.
 
 ### Monument (signature)
 
@@ -306,7 +306,7 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 - **Don't** add a light theme, theme switch, or second accent color.
 - **Don't** add eyebrow labels or kickers; the hero tagline is the single sanctioned kicker.
 - **Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.
-- **Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (MMT, VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.
+- **Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.
 - **Don't** round corners or add shadows.
 - **Don't** use card grids or background bands to group content.
 - **Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation.

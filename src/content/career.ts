@@ -22,7 +22,7 @@ export interface CaseStudy {
   problem: string
   approach: string
   outcome: string
-  telescopes: TelescopeKey[]
+  telescope: TelescopeKey
   links: { label: string; href: string }[]
 }
 
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
       'I architected an end-to-end web platform on Django, TOM Toolkit, and WebSockets: target ingestion, target-of-opportunity triggering, automated data retrieval, and real-time reduction in one application.',
     outcome:
       'Astronomers go from an incoming alert to calibrated Gemini data inside a single browser tab.',
-    telescopes: ['gemini-north', 'gemini-south'],
+    telescope: 'gemini-north',
     links: [
       { label: 'GitHub: GOATS', href: 'https://github.com/gemini-hlsw/goats' },
       { label: 'SPIE 2026 paper', href: 'https://doi.org/10.1117/12.3104316' },
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
       'I co-developed a pure-Python implementation of the INDI protocol on asyncio and led the frontend: web tooling that auto-generates responsive control GUIs straight from INDI device properties. Presented at SPIE 2022.',
     outcome:
       'Faster driver development and browser control panels that work from a phone, in service at the MMT, Bok, and Kuiper telescopes.',
-    telescopes: ['bok', 'mmt'],
+    telescope: 'bok',
     links: [
       { label: 'GitHub: pyINDI', href: 'https://github.com/MMTObservatory/pyINDI' },
       { label: 'SPIE 2022 paper', href: 'https://doi.org/10.1117/12.2630471' },
