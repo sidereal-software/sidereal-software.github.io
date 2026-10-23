@@ -10,6 +10,19 @@ test('Services has no accessibility violations', async ({ page }) => {
   expect(violations).toEqual([])
 })
 
+test('service titles read as one uppercase set', async ({ page }) => {
+  await openAt(page, 1440)
+  const titles = page.locator('#services ol h3')
+  expect(
+    await titles.evaluateAll((els) => els.map((el) => (el as HTMLElement).innerText)),
+  ).toEqual([
+    'OBSERVATORY & INSTRUMENT CONTROL',
+    'DATA PIPELINES & BACKENDS',
+    'SCIENTIFIC WEB PLATFORMS',
+    'PYTHON LIBRARIES & APIs',
+  ])
+})
+
 for (const width of widths) {
   test(`Services monument fits at ${width}px with no horizontal scroll`, async ({
     page,

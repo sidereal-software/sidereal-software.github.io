@@ -1,10 +1,9 @@
+import { Caps } from '@/components/caps'
 import { Monument } from '@/components/monument'
-import { cn } from '@/lib/utils'
 
 interface Service {
   title: string
   description: string
-  properName?: boolean
 }
 
 const services: Service[] = [
@@ -27,7 +26,6 @@ const services: Service[] = [
     title: 'Python libraries & APIs',
     description:
       'Typed SDKs, REST and GraphQL clients, and packages released to PyPI and conda-forge.',
-    properName: true,
   },
 ]
 
@@ -64,12 +62,8 @@ export function Services() {
               <span className="font-display text-primary text-sm tabular-nums lg:col-span-1 lg:pt-3">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3
-                className={cn(
-                  'font-display text-[clamp(1.6rem,3.6vw,3.25rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance lg:col-span-7',
-                  !service.properName && 'uppercase',
-                )}>
-                {service.title}
+              <h3 className="font-display text-[clamp(1.6rem,3.6vw,3.25rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance uppercase lg:col-span-7">
+                <Caps>{service.title}</Caps>
               </h3>
               <p className="text-muted-foreground max-w-[52ch] text-base lg:max-w-[36ch] leading-relaxed lg:col-span-4 lg:pt-2">
                 {service.description}

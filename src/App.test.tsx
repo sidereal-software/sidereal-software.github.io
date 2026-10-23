@@ -185,6 +185,15 @@ describe('App', () => {
     expect(within(services).getByText('TOM Toolkit')).toBeInTheDocument()
   })
 
+  it('keeps the mixed-case acronym in the uppercase Python service title', () => {
+    render(<App />)
+    const title = screen.getByRole('heading', {
+      level: 3,
+      name: 'Python libraries & APIs',
+    })
+    expect(within(title).getByText('APIs')).toHaveStyle({ textTransform: 'none' })
+  })
+
   it('speaks to non-software clients', () => {
     render(<App />)
     expect(
