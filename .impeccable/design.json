@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T01:52:45+00:00",
+  "title": "Design System: Sidereal Software",
+  "extensions": {
+    "colorMeta": {
+      "night-ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "#050507",
+        "tonalRamp": [
+          "oklch(15% 0.006 285)",
+          "oklch(25% 0.006 285)",
+          "oklch(35% 0.006 285)",
+          "oklch(45% 0.006 285)",
+          "oklch(55% 0.006 285)",
+          "oklch(65% 0.006 285)",
+          "oklch(80% 0.006 285)",
+          "oklch(95% 0.006 285)"
+        ]
+      },
+      "bone-ink": {
+        "role": "neutral",
+        "displayName": "Bone Ink",
+        "canonical": "#edece7",
+        "tonalRamp": [
+          "oklch(15% 0.007 95)",
+          "oklch(25% 0.007 95)",
+          "oklch(35% 0.007 95)",
+          "oklch(45% 0.007 95)",
+          "oklch(55% 0.007 95)",
+          "oklch(65% 0.007 95)",
+          "oklch(80% 0.007 95)",
+          "oklch(95% 0.007 95)"
+        ]
+      },
+      "ice-cyan": {
+        "role": "primary",
+        "displayName": "Ice Cyan",
+        "canonical": "#9be7ff",
+        "tonalRamp": [
+          "oklch(15% 0.09 215)",
+          "oklch(25% 0.09 215)",
+          "oklch(35% 0.09 215)",
+          "oklch(45% 0.09 215)",
+          "oklch(55% 0.09 215)",
+          "oklch(65% 0.09 215)",
+          "oklch(80% 0.09 215)",
+          "oklch(95% 0.09 215)"
+        ]
+      },
+      "ice-cyan-ink": {
+        "role": "primary",
+        "displayName": "Ice Cyan Ink",
+        "canonical": "#050507",
+        "tonalRamp": [
+          "oklch(15% 0.006 285)",
+          "oklch(25% 0.006 285)",
+          "oklch(35% 0.006 285)",
+          "oklch(45% 0.006 285)",
+          "oklch(55% 0.006 285)",
+          "oklch(65% 0.006 285)",
+          "oklch(80% 0.006 285)",
+          "oklch(95% 0.006 285)"
+        ]
+      },
+      "moon-grey": {
+        "role": "neutral",
+        "displayName": "Moon Grey",
+        "canonical": "#a8a8b0",
+        "tonalRamp": [
+          "oklch(15% 0.01 285)",
+          "oklch(25% 0.01 285)",
+          "oklch(35% 0.01 285)",
+          "oklch(45% 0.01 285)",
+          "oklch(55% 0.01 285)",
+          "oklch(65% 0.01 285)",
+          "oklch(80% 0.01 285)",
+          "oklch(95% 0.01 285)"
+        ]
+      },
+      "dust-grey": {
+        "role": "neutral",
+        "displayName": "Dust Grey",
+        "canonical": "#8a8a94",
+        "tonalRamp": [
+          "oklch(15% 0.013 285)",
+          "oklch(25% 0.013 285)",
+          "oklch(35% 0.013 285)",
+          "oklch(45% 0.013 285)",
+          "oklch(55% 0.013 285)",
+          "oklch(65% 0.013 285)",
+          "oklch(80% 0.013 285)",
+          "oklch(95% 0.013 285)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#26272d",
+        "tonalRamp": [
+          "oklch(15% 0.01 280)",
+          "oklch(25% 0.01 280)",
+          "oklch(35% 0.01 280)",
+          "oklch(45% 0.01 280)",
+          "oklch(55% 0.01 280)",
+          "oklch(65% 0.01 280)",
+          "oklch(80% 0.01 280)",
+          "oklch(95% 0.01 280)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Line",
+        "canonical": "#5a5b63",
+        "tonalRamp": [
+          "oklch(15% 0.012 280)",
+          "oklch(25% 0.012 280)",
+          "oklch(35% 0.012 280)",
+          "oklch(45% 0.012 280)",
+          "oklch(55% 0.012 280)",
+          "oklch(65% 0.012 280)",
+          "oklch(80% 0.012 280)",
+          "oklch(95% 0.012 280)"
+        ]
+      },
+      "coral-alert": {
+        "role": "error",
+        "displayName": "Coral Alert",
+        "canonical": "#ff8a80",
+        "tonalRamp": [
+          "oklch(15% 0.15 25)",
+          "oklch(25% 0.15 25)",
+          "oklch(35% 0.15 25)",
+          "oklch(45% 0.15 25)",
+          "oklch(55% 0.15 25)",
+          "oklch(65% 0.15 25)",
+          "oklch(80% 0.15 25)",
+          "oklch(95% 0.15 25)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Monument",
+        "purpose": "Fitted giant section titles and case-study names; fills the container, never crops."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The hero H1, uppercase."
+      },
+      "headline-list": {
+        "displayName": "Headline list",
+        "purpose": "Service titles, uppercase via Caps."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Testimonial quotes."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Process step numbers in dust grey."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Roles, organizations, names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs and ledes."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Nav, buttons, links, metadata."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Small tracked uppercase headings that name their own block, and term labels."
+      },
+      "kicker": {
+        "displayName": "Hero kicker",
+        "purpose": "One instance only: 'Software that does the heavy lifting' above the hero H1, ice cyan. Dan's deliberate override of the eyebrow ban; no other kickers or eyebrows."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Image credits."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "spring-settle",
+        "value": "react-spring { tension: 280, friction: 30 }",
+        "purpose": "Entrances: hero stagger, testimonial swap, process numerals, menu links. Soft settle, no visible bounce."
+      },
+      {
+        "name": "spring-press",
+        "value": "react-spring { tension: 520, friction: 40 }, scale 0.97",
+        "purpose": "Press feedback on buttons and CTA links."
+      },
+      {
+        "name": "stagger-step",
+        "value": "90ms",
+        "purpose": "Delay between process numerals rising on first entry."
+      },
+      {
+        "name": "hero-zoom",
+        "value": "60s ease-in-out infinite alternate, scale 1.04 to 1.12",
+        "purpose": "Slow zoom of the hero nebula; the only loop."
+      },
+      {
+        "name": "scroll-reveal",
+        "value": "animation-timeline: view(); range entry 0% to entry 60%; opacity 0.15 to 1, translateY 1.5rem to 0",
+        "purpose": "Monument titles entering the viewport, where supported."
+      },
+      {
+        "name": "hover-transition",
+        "value": "color 150ms; icon nudge 300ms ease-out",
+        "purpose": "Link, button and icon hover states."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Hero zoom and scroll reveal not applied; springs skip to end state (react-spring Globals.skipAnimation, live); hover nudges motion-safe only."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "mobile-check",
+        "value": "390px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid square ice-cyan call to action with a trailing arrow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start a project <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; background: var(--primary, #9be7ff); color: var(--primary-foreground, #050507); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em; text-decoration: none; border-radius: 0; transition: background-color 150ms, transform 150ms; } .ds-btn-primary svg { transition: transform 300ms ease-out; } .ds-btn-primary:hover { background: var(--foreground, #edece7); } .ds-btn-primary:hover svg { transform: translateX(4px); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Accent Link",
+      "kind": "custom",
+      "refersTo": "link-accent",
+      "description": "Ice-cyan underlined link for the header CTA, repos, papers and the GitHub line.",
+      "html": "<a class=\"ds-link-accent\" href=\"#\">SPIE 2022 paper <svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-link-accent { display: inline-flex; align-items: center; gap: 8px; color: var(--primary, #9be7ff); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; text-decoration: underline; text-decoration-color: rgb(155 231 255 / 0.4); text-underline-offset: 6px; transition: text-decoration-color 150ms; } .ds-link-accent:hover { text-decoration-color: var(--primary, #9be7ff); } .ds-link-accent:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Quiet Link",
+      "kind": "custom",
+      "refersTo": "link-quiet",
+      "description": "Ink text with a dust-grey underline; secondary actions and profile links.",
+      "html": "<a class=\"ds-link-quiet\" href=\"#\">See the work</a>",
+      "css": ".ds-link-quiet { color: var(--foreground, #edece7); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: underline; text-decoration-color: var(--dim, #8a8a94); text-underline-offset: 6px; transition: text-decoration-color 150ms; } .ds-link-quiet:hover { text-decoration-color: var(--foreground, #edece7); } .ds-link-quiet:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Step Button",
+      "kind": "button",
+      "refersTo": "step-button",
+      "description": "48px square hairline button for testimonial previous and next.",
+      "html": "<button class=\"ds-step\" type=\"button\" aria-label=\"Next testimonial\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-step { display: grid; place-items: center; width: 48px; height: 48px; background: transparent; color: var(--foreground, #edece7); border: 1px solid var(--border, #26272d); border-radius: 0; cursor: pointer; transition: color 150ms, border-color 150ms, transform 150ms; } .ds-step:hover { color: var(--primary, #9be7ff); border-color: var(--primary, #9be7ff); } .ds-step:active { transform: scale(0.97); } .ds-step:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Boxless form field with a tracked uppercase label and a cyan focus underline.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input class=\"ds-field-input\" type=\"email\" /></label>",
+      "css": ".ds-field { display: grid; gap: 4px; } .ds-field-label { color: var(--muted-foreground, #a8a8b0); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; } .ds-field-input { background: transparent; color: var(--foreground, #edece7); border: 0; border-bottom: 1px solid var(--input, #5a5b63); border-radius: 0; padding: 12px 0; font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.125rem; outline: none; transition: border-color 150ms; } .ds-field-input:focus-visible { border-bottom-color: var(--primary, #9be7ff); }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Inverted logo, tracked Unbounded wordmark, grey nav links, cyan CTA.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">Sidereal Software</span><ul><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Process</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Start a project</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 64px; padding: 0 48px; background: var(--background, #050507); border-bottom: 1px solid var(--border, #26272d); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; } .ds-nav-mark { font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foreground, #edece7); } .ds-nav ul { display: flex; gap: 32px; list-style: none; margin: 0 0 0 auto; padding: 0; } .ds-nav ul a { color: var(--muted-foreground, #a8a8b0); font-size: 0.875rem; text-decoration: none; transition: color 150ms; } .ds-nav ul a:hover { color: var(--foreground, #edece7); } .ds-nav-cta { color: var(--primary, #9be7ff); font-size: 0.875rem; font-weight: 500; text-decoration: underline; text-decoration-color: rgb(155 231 255 / 0.4); text-underline-offset: 6px; } .ds-nav-cta:hover { text-decoration-color: var(--primary, #9be7ff); } .ds-nav a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Monument Title",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Giant fitted section title; in production a fit-text hook sizes it to the container exactly. This snippet shows the CSS fallback.",
+      "html": "<div class=\"ds-monument-wrap\"><h2 class=\"ds-monument\"><span style=\"--len: 8\">Services</span></h2></div>",
+      "css": ".ds-monument-wrap { container-type: inline-size; } .ds-monument { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-weight: 700; line-height: 0.86; white-space: pre; text-transform: uppercase; color: var(--foreground, #edece7); } .ds-monument > span { display: inline-block; letter-spacing: 0.01em; font-size: min(20rem, calc(80cqi / var(--len, 8))); }"
+    },
+    {
+      "name": "Image Credit",
+      "kind": "custom",
+      "refersTo": "caption",
+      "description": "Caption under every photo: name, location, credit, linked license.",
+      "html": "<figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">MMT</span> · Mt. Hopkins, Arizona · Credit · <a href=\"#\">CC BY-SA 4.0</a></figcaption>",
+      "css": ".ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Monolith",
+    "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and giant upright type standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the oversized section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.",
+    "keyCharacteristics": [
+      "Dark-only ground with a single ice-cyan accent.",
+      "Monument titles that fill their container exactly, uppercase for generic words only.",
+      "Square everything: zero radius on every surface and control.",
+      "Credited observatory photography as the only imagery.",
+      "Hairline rules and space as the only separators.",
+      "Soft spring micro-motion, fully disabled under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The One Cold Light Rule",
+        "body": "Ice cyan is the only chromatic color in the interface. Color in the page beyond it comes from the photographs.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Bands Rule",
+        "body": "Sections never get their own background color. They separate by space and a hairline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Monument Fit Rule",
+        "body": "A Monument title fills its container's inner width exactly at every width and never crops. Its size is measured, not guessed: the fit-text hook sets the font size from the rendered text width against the container, re-measures on resize and after web fonts load, and respects a per-use cap. Before measurement a CSS fallback (container query width divided by character count) errs small. No negative margins, no viewport-overflowing sizes, no horizontal translation. Authored newlines are the only line breaks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Casing Rule",
+        "body": "Uppercase is applied by CSS and only to generic words: Monument section titles, the H1, service titles, process step titles, labels, menu links. Anything containing a proper name keeps its authored casing: institutions, case-study names (pyINDI, never PYINDI), organizations, publication titles, testimonial attributions. When uppercase text contains a mixed-case acronym, the text stays uppercase and only the acronym keeps its casing (\"PYTHON LIBRARIES & APIs\"); route such text through Caps. Generic titles are authored in sentence case in source and transformed; proper-name Monuments are not transformed.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Kicker Rule",
+        "body": "The hero line \"Software that does the heavy lifting\" is the site's only kicker: a tracked uppercase ice-cyan line above the H1 (0.7rem at 0.2em on mobile, 0.75rem at 0.32em on desktop). This is Dan's deliberate override of impeccable's eyebrow ban, decided after the finish review, because the tagline is the brand line and its pun lands through the M27 caption. No other eyebrow labels are allowed anywhere: a small tracked label may be the heading of its own block, but never a tag stacked above another heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Night Rule",
+        "body": "Nothing floats. Separation is space, a hairline, or a fade to the ground.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use ice cyan as the only accent, with dark ink on any cyan fill.",
+      "Do separate sections with space and hairlines on the one night ground.",
+      "Do use the Monument component for a new section title so it fits its container; give it a cap and let it measure.",
+      "Do author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.",
+      "Do keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).",
+      "Do credit every photo in a caption and in the footer credits list.",
+      "Do show CC BY-SA photos unaltered: CSS cropping (object-fit, aspect ratio, overflow) only.",
+      "Do keep every new animation behind the shared motion module or a reduced-motion query, and start content visible.",
+      "Do keep every text color at WCAG AA on the night ground and every control boundary at 3:1."
+    ],
+    "donts": [
+      "Don't add a light theme, theme switch, or second accent color.",
+      "Don't add eyebrow labels or kickers; the hero tagline is the single sanctioned kicker.",
+      "Don't uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.",
+      "Don't retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (MMT, VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.",
+      "Don't round corners or add shadows.",
+      "Don't use card grids or background bands to group content.",
+      "Don't add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation."
+    ]
+  }
+}
