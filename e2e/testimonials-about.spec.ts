@@ -38,6 +38,17 @@ test('the next testimonial springs in and settles fully visible', async ({ page 
   await expect(page.getByText('2 / 4')).toBeVisible()
 })
 
+test('testimonials are labelled for screen readers without a visible eyebrow', async ({
+  page,
+}) => {
+  await openAt(page, 1440)
+  const section = page.getByRole('region', { name: 'Testimonials' })
+  await expect(section).toHaveCount(1)
+  const box = await section.getByRole('heading', { name: 'Testimonials' }).boundingBox()
+  expect(box?.width ?? 0).toBeLessThanOrEqual(1)
+  expect(box?.height ?? 0).toBeLessThanOrEqual(1)
+})
+
 test('the next testimonial appears at once under reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await openAt(page, 1440)
