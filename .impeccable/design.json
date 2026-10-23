@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T09:38:17+00:00",
+  "generatedAt": "2026-10-23T09:50:41+00:00",
   "title": "Design System: Sidereal Software",
   "extensions": {
     "colorMeta": {
@@ -313,17 +313,17 @@
       "name": "Image Credit",
       "kind": "custom",
       "refersTo": "caption",
-      "description": "Caption directly under a secondary photo: name, location, credit, linked license. It reads as part of the photo, never as the first line of the text below.",
-      "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-img\"></div><figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">MMT</span> · Mt. Hopkins, Arizona · Pyronordicman, via Wikimedia Commons · <a href=\"#\">CC BY-SA 4.0</a></figcaption></figure>",
+      "description": "Caption directly under a career photo: name, location, credit, linked license. It reads as part of the photo, never as the first line of the text below.",
+      "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-img\"></div><figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">VATT</span> · Mt. Graham, Arizona · Vatican Observatory (photo: Jjstott), via Wikimedia Commons · <a href=\"#\">CC BY-SA 3.0</a></figcaption></figure>",
       "css": ".ds-photo { margin: 0; max-width: 320px; } .ds-photo-img { aspect-ratio: 4 / 3; background: linear-gradient(160deg, #2a3a4a, #0c0d10); } .ds-photo .ds-credit { padding-top: 12px; } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     },
     {
       "name": "Band Caption",
       "kind": "custom",
       "refersTo": "caption",
-      "description": "Caption on a full-bleed case-study photo (CC BY only). From 768px it sits at the band's bottom right, level with the name; below 768px it runs up the right edge, bottom to top, on an 85% night-ground strip.",
+      "description": "Caption on a full-bleed case-study photo's bottom fade (CC BY only), in the same horizontal style as every caption. From 768px it sits at the bottom right, level with the name; below 768px directly under the name.",
       "html": "<div class=\"ds-band\"><h3 class=\"ds-band-name\">GOATS</h3><figcaption class=\"ds-credit ds-band-credit\"><span class=\"ds-credit-name\">Gemini North</span> · Maunakea, Hawai'i · International Gemini Observatory/NOIRLab/NSF/AURA/J. Warner · <a href=\"#\">CC BY 4.0</a></figcaption></div>",
-      "css": ".ds-band { position: relative; height: 26rem; display: flex; align-items: flex-end; padding: 0 20px 24px; background: linear-gradient(to top, #050507 0%, transparent 60%), linear-gradient(170deg, #3a5a4a, #1a2230 60%, #0c0d10); overflow: hidden; } .ds-band-name { position: relative; margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.25rem, 5vw, 4.25rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; color: var(--foreground, #edece7); } .ds-band-credit { position: absolute; right: 0; bottom: 0; max-height: 100%; padding: 12px 4px; line-height: 1.375; writing-mode: vertical-rl; transform: rotate(180deg); background: rgb(5 5 7 / 0.85); } @media (min-width: 768px) { .ds-band { justify-content: space-between; gap: 48px; padding: 0 48px; } .ds-band-credit { position: relative; max-width: 26rem; padding: 0 0 16px; line-height: 1.625; writing-mode: horizontal-tb; transform: none; text-align: right; background: none; } } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+      "css": ".ds-band { position: relative; height: 26rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 0 20px 20px; background: linear-gradient(to top, #050507 0%, transparent 60%), linear-gradient(170deg, #3a5a4a, #1a2230 60%, #0c0d10); overflow: hidden; } .ds-band-name { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.25rem, 5vw, 4.25rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; color: var(--foreground, #edece7); } @media (min-width: 768px) { .ds-band { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; padding: 0 48px; } .ds-band-credit { max-width: 26rem; padding-bottom: 16px; text-align: right; } } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     }
   ],
   "narrative": {
@@ -384,7 +384,7 @@
       "**Don't** add a light theme, theme switch, or second accent color.",
       "**Don't** add eyebrow labels or kickers; the hero tagline is the single sanctioned kicker.",
       "**Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.",
-      "**Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (MMT, VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.",
+      "**Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.",
       "**Don't** round corners or add shadows.",
       "**Don't** use card grids or background bands to group content.",
       "**Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation."
