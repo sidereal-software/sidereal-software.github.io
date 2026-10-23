@@ -124,6 +124,15 @@ describe('App', () => {
     }
   })
 
+  it('reaches the hero image license only after both calls to action', () => {
+    render(<App />)
+    const hero = screen.getByRole('region', { name: /^Production software/ })
+    const links = within(hero)
+      .getAllByRole('link')
+      .map((link) => link.textContent)
+    expect(links).toEqual(['Start a project', 'See the work', 'CC BY 4.0'])
+  })
+
   it('loads the hero image first, sized for the screen', () => {
     render(<App />)
     const image = screen.getByRole('img', { name: /^The Dumbbell Nebula/ })

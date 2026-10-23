@@ -28,26 +28,6 @@ export function Hero() {
       id="home"
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-svh flex-col overflow-hidden">
-      <figure className="relative -z-10 m-0 h-[46svh] shrink-0 md:absolute md:inset-0 md:h-auto">
-        <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_60%,transparent)] md:inset-y-0 md:right-[-14%] md:left-auto md:w-[92%] md:[mask-image:linear-gradient(to_right,transparent,black_38%)]">
-          <img
-            src={heroImage.src}
-            srcSet={`${heroImage.smallSrc} 1200w, ${heroImage.src} 2400w`}
-            sizes="(min-width: 768px) 92vw, 100vw"
-            fetchPriority="high"
-            alt="The Dumbbell Nebula, a glowing cloud of red and blue gas around a pale core, set in a dense star field"
-            width={heroImage.width}
-            height={heroImage.height}
-            className="hero-image size-full object-cover object-[50%_40%] md:brightness-[0.85]"
-          />
-        </div>
-        <div className="from-background/80 absolute inset-x-0 top-0 h-32 bg-linear-to-b to-transparent" />
-        <ImageCredit
-          image={heroImage}
-          className="absolute inset-x-5 bottom-0 sm:inset-x-8 md:inset-x-auto md:right-8 md:bottom-32 lg:bottom-24 md:max-w-[24rem] md:bg-background/85 md:px-4 md:py-3 md:text-right lg:right-12"
-        />
-      </figure>
-
       <div className="mx-auto flex w-full max-w-[90rem] flex-1 flex-col px-5 pt-7 pb-12 sm:px-8 md:justify-center md:pt-24 md:pb-36 lg:px-12">
         <div className="max-w-[40rem] md:max-w-[46%]">
           <animated.p
@@ -88,6 +68,26 @@ export function Hero() {
           </animated.div>
         </div>
       </div>
+
+      <figure className="relative -z-10 m-0 max-md:order-first h-[46svh] shrink-0 md:absolute md:inset-0 md:h-auto">
+        <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_60%,transparent)] md:inset-y-0 md:right-[-14%] md:left-auto md:w-[92%] md:[mask-image:linear-gradient(to_right,transparent,black_38%)]">
+          <img
+            src={heroImage.src}
+            srcSet={`${heroImage.smallSrc} 1200w, ${heroImage.src} 2400w`}
+            sizes="(min-width: 768px) 92vw, 100vw"
+            fetchPriority="high"
+            alt="The Dumbbell Nebula, a glowing cloud of red and blue gas around a pale core, set in a dense star field"
+            width={heroImage.width}
+            height={heroImage.height}
+            className="hero-image size-full object-cover object-[50%_40%] md:brightness-[0.85]"
+          />
+        </div>
+        <div className="from-background/80 absolute inset-x-0 top-0 h-32 bg-linear-to-b to-transparent" />
+        <ImageCredit
+          image={heroImage}
+          className="absolute inset-x-5 bottom-0 sm:inset-x-8 md:inset-x-auto md:right-8 md:bottom-32 lg:bottom-24 md:max-w-[24rem] md:bg-background/85 md:px-4 md:py-3 md:text-right lg:right-12"
+        />
+      </figure>
 
       <div className="border-border border-t md:absolute md:inset-x-0 md:bottom-0 md:bg-background/85">
         <ul
