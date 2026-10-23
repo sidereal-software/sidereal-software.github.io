@@ -80,8 +80,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
           />
           <div className="from-background absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent" />
           <div className="page-gutter absolute inset-x-0 bottom-0">
-            {/* Padding in the span's own em keeps descenders such as pyINDI's inside the photo. */}
-            <Monument as="h3" properName cap={16} className="[&>span]:pb-[0.2em]">
+            <Monument as="h3" properName>
               {study.name}
             </Monument>
           </div>
@@ -303,9 +302,7 @@ export function Work() {
   return (
     <section id="work" className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
       <div className="page-gutter">
-        <Monument cap={24} className="mb-16 md:mb-24">
-          Work
-        </Monument>
+        <Monument className="mb-16 md:mb-24">Work</Monument>
       </div>
       {caseStudies.map((study) => (
         <CaseStudyBand key={study.name} study={study} />

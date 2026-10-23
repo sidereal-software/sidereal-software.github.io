@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
-import { expect, test, type Page } from '@playwright/test'
+import { expect, test, type Locator, type Page } from '@playwright/test'
 
-import { expectMonumentFits, expectNoHorizontalScroll, openAt, widths } from './page'
+import { monument, openAt } from './page'
 
 function multipartFields(body: string) {
   const fields: Record<string, string> = {}
@@ -76,22 +76,33 @@ test('Contact has no accessibility violations', async ({ page }) => {
   expect(violations).toEqual([])
 })
 
-for (const width of widths) {
-  test(`Start a project monument fits on two lines at ${width}px`, async ({ page }) => {
+// Groups the title's words by the line they render on, since soft wraps never reach innerText.
+function renderedLines(title: Locator) {
+  return title.evaluate((el) => {
+    const text = document.createTreeWalker(el, NodeFilter.SHOW_TEXT).nextNode()!
+    const lines = new Map<number, string[]>()
+    for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+      const range = document.createRange()
+      range.setStart(text, match.index)
+      range.setEnd(text, match.index + match[0].length)
+      const top = Math.round(range.getBoundingClientRect().top)
+      lines.set(top, [...(lines.get(top) ?? []), match[0]])
+    }
+    return [...lines.values()].map((words) => words.join(' '))
+  })
+}
+
+for (const [width, lines] of [
+  [390, ['Start a', 'project']],
+  [1440, ['Start a project']],
+] as const) {
+  test(`Start a project takes ${lines.length} line(s) at ${width}px`, async ({
+    page,
+  }) => {
     await openAt(page, width)
-    await expectMonumentFits(page, 'Start a project')
-    const lines = await page
-      .locator('#contact [data-monument] > span[aria-hidden]')
-      .evaluate((el) =>
-        Math.round(
-          el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight),
-        ),
-      )
-    expect(lines).toBe(2)
-    await expect(
-      page.getByRole('heading', { level: 2, name: 'Start a project', exact: true }),
-    ).toBeVisible()
-    await expectNoHorizontalScroll(page)
+    const title = monument(page, 'Start a project')
+    await expect(title).toBeVisible()
+    expect(await renderedLines(title)).toEqual(lines)
   })
 }
 

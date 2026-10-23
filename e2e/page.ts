@@ -17,28 +17,5 @@ export async function expectNoHorizontalScroll(page: Page) {
 }
 
 export function monument(page: Page, name: string) {
-  return page.locator('[data-monument]').filter({ hasText: name })
-}
-
-// Pass fills: false for a monument whose per-use cap stops it short of the edge.
-export async function expectMonumentFits(
-  page: Page,
-  name: string,
-  { fills = true }: { fills?: boolean } = {},
-) {
-  const title = monument(page, name)
-  await expect(title).toHaveCount(1)
-  await title.scrollIntoViewIfNeeded()
-  await expect(title).toHaveAttribute('data-monument', 'fitted')
-  const { text, container } = await title.evaluate((el) => {
-    const style = getComputedStyle(el)
-    const inner =
-      el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)
-    const span = el.firstElementChild as HTMLElement
-    return { text: span.getBoundingClientRect().width, container: inner }
-  })
-  expect(text, `${name} overflows its container`).toBeLessThanOrEqual(container + 0.5)
-  if (fills) {
-    expect(text, `${name} falls short of its container`).toBeGreaterThan(container * 0.98)
-  }
+  return page.getByRole('heading', { name, exact: true })
 }

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-import { expectMonumentFits, expectNoHorizontalScroll, openAt, widths } from './page'
+import { openAt } from './page'
 
 test('Services has no accessibility violations', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
@@ -22,13 +22,3 @@ test('service titles read as one uppercase set', async ({ page }) => {
     'PYTHON LIBRARIES & APIs',
   ])
 })
-
-for (const width of widths) {
-  test(`Services monument fits at ${width}px with no horizontal scroll`, async ({
-    page,
-  }) => {
-    await openAt(page, width)
-    await expectMonumentFits(page, 'Services')
-    await expectNoHorizontalScroll(page)
-  })
-}

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test, type Page } from '@playwright/test'
 
-import { expectMonumentFits, expectNoHorizontalScroll, openAt, widths } from './page'
+import { openAt } from './page'
 
 function numerals(page: Page) {
   return page.locator('#process ol > li > span[aria-hidden]')
@@ -68,13 +68,3 @@ test('opening a question reveals its answer', async ({ page }) => {
   await expect(page.getByText(/^You do\. I hand over/)).toBeVisible()
   await expect(question).toHaveAttribute('aria-expanded', 'true')
 })
-
-for (const width of widths) {
-  test(`Process monument fits at ${width}px with no horizontal scroll`, async ({
-    page,
-  }) => {
-    await openAt(page, width)
-    await expectMonumentFits(page, 'Process')
-    await expectNoHorizontalScroll(page)
-  })
-}

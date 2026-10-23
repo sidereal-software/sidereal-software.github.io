@@ -30,7 +30,7 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
       <div className="page-gutter">
-        <Monument>{'Start a\nproject'}</Monument>
+        <Monument>Start a project</Monument>
 
         <div className="mt-16 grid gap-16 md:mt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">

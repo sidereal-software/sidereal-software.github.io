@@ -13,26 +13,9 @@ async function scrollThrough(page: Page) {
 }
 
 for (const width of widths) {
-  test(`every monument fits its container at ${width}px with no horizontal scroll`, async ({
-    page,
-  }) => {
+  test(`the whole page has no horizontal scroll at ${width}px`, async ({ page }) => {
     await openAt(page, width)
     await scrollThrough(page)
-    const titles = page.locator('[data-monument]')
-    expect(await titles.count()).toBeGreaterThanOrEqual(7)
-    for (const title of await titles.all()) {
-      await expect(title).toHaveAttribute('data-monument', 'fitted')
-    }
-    const overflows = await titles.evaluateAll((els) =>
-      els.flatMap((el) => {
-        const style = getComputedStyle(el)
-        const inner =
-          el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)
-        const text = (el.firstElementChild as HTMLElement).getBoundingClientRect().width
-        return text > inner + 0.5 ? [`${el.textContent}: ${text} > ${inner}`] : []
-      }),
-    )
-    expect(overflows).toEqual([])
     await expectNoHorizontalScroll(page)
   })
 

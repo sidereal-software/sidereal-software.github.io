@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test, type Page } from '@playwright/test'
 
-import { expectMonumentFits, expectNoHorizontalScroll, openAt, widths } from './page'
+import { openAt } from './page'
 
 for (const section of ['#testimonials', '#about']) {
   test(`${section} has no accessibility violations`, async ({ page }) => {
@@ -9,16 +9,6 @@ for (const section of ['#testimonials', '#about']) {
     await openAt(page, 1440)
     const { violations } = await new AxeBuilder({ page }).include(section).analyze()
     expect(violations).toEqual([])
-  })
-}
-
-for (const width of widths) {
-  test(`About monument fits at ${width}px with no horizontal scroll`, async ({
-    page,
-  }) => {
-    await openAt(page, width)
-    await expectMonumentFits(page, 'About')
-    await expectNoHorizontalScroll(page)
   })
 }
 
