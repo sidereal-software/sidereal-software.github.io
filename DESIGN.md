@@ -38,9 +38,9 @@ typography:
     letterSpacing: '-0.03em'
   quote:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
-    fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)'
+    fontSize: 'clamp(1.75rem, 3.6vw, 3.25rem)'
     fontWeight: 500
-    lineHeight: 1.14
+    lineHeight: 1.1
     letterSpacing: '-0.02em'
   numeral:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
@@ -192,7 +192,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 - **Display name** (Unbounded 700, clamp(2.25rem, 5vw, 4.25rem), 1, 0.01em, authored casing): the case-study names under their photos (GOATS, pyINDI), 36px at 390 and 68px at 1440.
 - **Headline** (Unbounded 600, clamp(1.75rem, 3.5vw, 3.25rem), 1.05, -0.02em, uppercase): the hero H1.
 - **Headline list** (Unbounded 600, clamp(1.6rem, 3.6vw, 3.25rem), 1.02, -0.03em, uppercase): the four service titles.
-- **Quote** (Unbounded 500, clamp(1.5rem, 2.8vw, 2.5rem), 1.14, -0.02em): the About pull quote.
+- **Quote** (Unbounded 500, clamp(1.75rem, 3.6vw, 3.25rem), 1.1, -0.02em): the About pull quote, full width under the title at max 22ch.
 - **Numeral** (Unbounded 700, clamp(2rem, 5vw, 4.5rem), 1, tabular, dust grey): process step numbers, always smaller than the Process title above them. Career years use Unbounded 600 at clamp(1.75rem, 3vw, 2.5rem).
 - **Title** (Unbounded 600, 1.125rem, -0.01em): roles, organizations, names. Outcome statements and featured publications sit between title and headline in Unbounded 500 (1.125-1.5rem).
 - **Body** (Hanken Grotesk 400, 1.125rem, 1.625): paragraphs, 34-62ch measures. 1rem in dense lists.
@@ -232,7 +232,7 @@ Flat. There are no shadows in the site's own components; field shadows from the 
 
 ## Shapes
 
-Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons), images are plain rectangles cropped with object-fit (16:10 for career photos and case studies on phones, 21:9 for case studies from 768px, 3:4 to 2:3 for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
+Square. The radius token is 0 and every Tailwind radius step maps to it, so vendored primitives render square too. Controls are rectangles (48px tall buttons), images are plain rectangles cropped with object-fit (16:10 for career photos and case studies on phones, 21:9 for case studies from 768px, square for the portrait), and the only ornamental form is the small cyan square beside the availability line. Borders are 1px hairlines.
 
 ## Components
 
@@ -264,6 +264,10 @@ Few, solid, and square.
 ### Lists
 
 Numbered or dated rows divided by hairlines: services (cyan two-digit number, uppercase title, description), career (big years, organization in authored casing, role, summary, optional credited photo), publications (year column, title, venue), process (big dust-grey numerals over a hairline). The FAQ is a square accordion with Unbounded questions that turn cyan on hover.
+
+### About Byline
+
+The About section opens on the pull quote, then a byline: a square crop of Dan's portrait (96px beside his name and title on phones, 192-208px above them from 768px) with the profile links under it in the left four columns, and the two paragraphs from column five. The portrait is small on purpose: the work above it carries the credibility, and the face only puts a name to it. It is Dan's own photo, so it carries no credit caption.
 
 ### Image Credit
 
