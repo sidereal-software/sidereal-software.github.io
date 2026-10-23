@@ -198,7 +198,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 - **Body** (Hanken Grotesk 400, 1.125rem, 1.625): paragraphs, 34-62ch measures. 1rem in dense lists.
 - **Body small** (Hanken Grotesk 400, 0.875rem): nav, buttons, links, metadata.
 - **Label** (Hanken Grotesk 500, 0.75rem, 0.32em tracking, uppercase, dust grey): small headings that name their own block (Career, Publications, Questions, Image credits; the `label-heading` utility) and term labels (Problem, Approach, Outcome; form labels at 0.2em in moon grey).
-- **Caption** (Hanken Grotesk 400, 0.75rem, 1.625, dust grey with the image name in moon grey): image credits, separated by middle dots.
+- **Caption** (Hanken Grotesk 400, 0.75rem, 1.625, dust grey with the image name in moon grey): photo captions (name and place) and the footer's image credits, separated by middle dots.
 
 ### Named Rules
 
@@ -248,7 +248,7 @@ Few, solid, and square.
 ### Links
 
 - **Accent link** (the `link-accent` utility): ice-cyan text, underline offset 6px at 40% cyan, full cyan on hover. Used for "Start a project" in the header, repository and paper links (with an up-right arrow), the GitHub organization line, and the revealed email.
-- **Quiet link:** ink or moon-grey text with a dust-grey underline that turns ink or cyan on hover. Used for "See the work", profile links, publication titles, "Back to top", and caption license links.
+- **Quiet link:** ink or moon-grey text with a dust-grey underline that turns ink or cyan on hover. Used for "See the work", profile links, publication titles, "Back to top", and the footer's credit and license links.
 
 ### Inputs / Fields
 
@@ -269,9 +269,9 @@ Numbered or dated rows divided by hairlines: services (cyan two-digit number, up
 
 The About section opens on the pull quote, then a byline: a square crop of Dan's portrait (96px beside his name and title on phones, 192-208px above them from 768px) with the profile links under it in the left four columns, and the two paragraphs from column five. The portrait is small on purpose: the work above it carries the credibility, and the face only puts a name to it. It is Dan's own photo, so it carries no credit caption.
 
-### Image Credit
+### Image Caption
 
-Every photo carries a caption: name, location, credit, and a linked license, middle-dot separated, in 0.75rem dust grey. The footer repeats every credit with the source link.
+Every photo carries a caption: its name in moon grey and its location, middle-dot separated, in 0.75rem dust grey. The credit, the linked license, and the source link appear once, in the footer's Image credits list, so a caption never repeats them.
 
 The caption always reads as part of its photo, never as the first line of the text below it: it sits 16px directly under the image, left aligned, at every width, and any heading for that photo's content comes after it. The hero is the one exception, with its caption on the image.
 
@@ -295,7 +295,7 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 - **Do** use the Monument component for a new section title so it takes the shared Display size; never size one by hand.
 - **Do** author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.
 - **Do** keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).
-- **Do** credit every photo in a caption and in the footer credits list.
+- **Do** caption every photo with its name and place, and credit it once, in the footer credits list.
 - **Do** show CC BY-SA photos unaltered: CSS cropping (object-fit, aspect ratio, overflow) only.
 - **Do** keep every new animation behind the shared motion module or a reduced-motion query, and start content visible.
 - **Do** keep every text color at WCAG AA on both grounds and every control boundary at 3:1.

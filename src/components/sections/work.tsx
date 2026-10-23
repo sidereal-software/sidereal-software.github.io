@@ -1,7 +1,7 @@
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
 import { useId, useState } from 'react'
 
-import { ImageCredit } from '@/components/image-credit'
+import { ImageCaption } from '@/components/image-caption'
 import { Monument } from '@/components/monument'
 import {
   career,
@@ -53,7 +53,7 @@ function CreditedPhoto({
         loading="lazy"
         className={cn('aspect-[16/10] w-full object-cover', imageClassName)}
       />
-      <ImageCredit image={image} className="pt-4" />
+      <ImageCaption image={image} className="pt-4" />
     </figure>
   )
 }

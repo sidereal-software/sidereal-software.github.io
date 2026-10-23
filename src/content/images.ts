@@ -18,7 +18,7 @@ export interface CreditedImage {
   height: number
 }
 
-// Captions name the subject, place, and credit only; licenses must allow commercial use.
+// Captions name the subject and place only, so each credit appears once, in the footer; licenses must allow commercial use.
 // index.html preloads the same candidates and sizes; src/head.test.ts keeps the two in step.
 export const heroImage: CreditedImage & { smallSrc: string; sizes: string } = {
   src: m27,

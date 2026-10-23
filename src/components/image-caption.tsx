@@ -1,7 +1,7 @@
 import type { CreditedImage } from '@/content/images'
 import { cn } from '@/lib/utils'
 
-export function ImageCredit({
+export function ImageCaption({
   image,
   className,
 }: {
@@ -13,16 +13,6 @@ export function ImageCredit({
       <span className="text-muted-foreground">{image.name}</span>
       <span aria-hidden> · </span>
       {image.location}
-      <span aria-hidden> · </span>
-      {image.credit}
-      <span aria-hidden> · </span>
-      <a
-        href={image.licenseUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="decoration-border hover:text-foreground whitespace-nowrap hover:decoration-primary underline underline-offset-4 transition-colors">
-        {image.license}
-      </a>
     </figcaption>
   )
 }

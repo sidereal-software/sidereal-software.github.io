@@ -202,7 +202,7 @@
       },
       "caption": {
         "displayName": "Caption",
-        "purpose": "Image credits, 16px directly under their photo."
+        "purpose": "Photo captions (name and place), 16px directly under their photo, and the footer's image credits."
       }
     },
     "shadows": [],
@@ -317,11 +317,11 @@
       "css": ".ds-monument { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.5rem, 5.5vw, 4.75rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; color: var(--foreground, #edece7); } .ds-monument > span { display: inline-block; padding-bottom: 0.12em; }"
     },
     {
-      "name": "Image Credit",
+      "name": "Image Caption",
       "kind": "custom",
       "refersTo": "caption",
-      "description": "Caption 16px directly under every photo outside the hero: name, location, credit, linked license. Any heading for the photo's content follows it.",
-      "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-img\"></div><figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">VATT</span> · Mt. Graham, Arizona · Vatican Observatory (photo: Jjstott), via Wikimedia Commons · <a href=\"#\">CC BY-SA 3.0</a></figcaption></figure>",
+      "description": "Caption 16px directly under every photo outside the hero: name and location only; the credit and license appear once, in the footer's Image credits list. Any heading for the photo's content follows it.",
+      "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-img\"></div><figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">VATT</span> · Mt. Graham, Arizona</figcaption></figure>",
       "css": ".ds-photo { margin: 0; max-width: 320px; } .ds-photo-img { aspect-ratio: 16 / 10; background: linear-gradient(160deg, #2a3a4a, #0c0d10); } .ds-photo .ds-credit { padding-top: 16px; } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     }
   ],
@@ -374,7 +374,7 @@
       "**Do** use the Monument component for a new section title so it takes the shared Display size; never size one by hand.",
       "**Do** author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.",
       "**Do** keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).",
-      "**Do** credit every photo in a caption and in the footer credits list.",
+      "**Do** caption every photo with its name and place, and credit it once, in the footer credits list.",
       "**Do** show CC BY-SA photos unaltered: CSS cropping (object-fit, aspect ratio, overflow) only.",
       "**Do** keep every new animation behind the shared motion module or a reduced-motion query, and start content visible.",
       "**Do** keep every text color at WCAG AA on both grounds and every control boundary at 3:1."

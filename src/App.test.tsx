@@ -69,18 +69,17 @@ describe('App', () => {
     ).toBeInTheDocument()
   })
 
-  it('credits the hero image and lists every institution as authored', () => {
+  it('names the hero image and lists every institution as authored', () => {
     render(<App />)
     const hero = screen.getByRole('region', { name: /^Production software/ })
     const caption = within(hero)
       .getByText('M27, the Dumbbell Nebula')
       .closest('figcaption')!
-    expect(caption).toHaveTextContent('Mayall 4-m Telescope, Kitt Peak, Arizona')
-    expect(caption).toHaveTextContent('T.A. Rector (University of Alaska Anchorage)')
-    expect(within(caption).getByRole('link', { name: 'CC BY 4.0' })).toHaveAttribute(
-      'href',
-      'https://creativecommons.org/licenses/by/4.0/',
+    expect(caption).toHaveTextContent(
+      'M27, the Dumbbell Nebula · Mayall 4-m Telescope, Kitt Peak, Arizona',
     )
+    expect(caption).not.toHaveTextContent('T.A. Rector')
+    expect(within(caption).queryByRole('link')).toBeNull()
     const institutions = within(
       within(hero).getByRole('list', { name: 'Institutions I have worked with' }),
     )
@@ -123,13 +122,13 @@ describe('App', () => {
     }
   })
 
-  it('reaches the hero image license only after both calls to action', () => {
+  it('offers only the two calls to action as hero links', () => {
     render(<App />)
     const hero = screen.getByRole('region', { name: /^Production software/ })
     const links = within(hero)
       .getAllByRole('link')
       .map((link) => link.textContent)
-    expect(links).toEqual(['Start a project', 'See the work', 'CC BY 4.0'])
+    expect(links).toEqual(['Start a project', 'See the work'])
   })
 
   it('loads the hero image first, sized for the screen', () => {
@@ -369,7 +368,7 @@ describe('App', () => {
     expect(entries[0]).toContain('2023 - present')
   })
 
-  it('captions every Work photo and credits it in the footer', () => {
+  it('captions every Work photo by name and place and credits it only in the footer', () => {
     render(<App />)
     const work = screen
       .getByRole('heading', { level: 2, name: 'Work' })
@@ -384,7 +383,9 @@ describe('App', () => {
         (entry) => entry.src === photo.getAttribute('src'),
       )
       expect(image, `no credit data for ${photo.getAttribute('src')}`).toBeDefined()
-      expect(photo.closest('figure')).toHaveTextContent(image!.credit)
+      const figure = photo.closest('figure')!
+      expect(figure).toHaveTextContent(`${image!.name} · ${image!.location}`)
+      expect(figure).not.toHaveTextContent(image!.credit)
       expect(within(footer).getByRole('link', { name: image!.name })).toBeInTheDocument()
     }
   })

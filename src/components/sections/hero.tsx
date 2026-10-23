@@ -1,7 +1,7 @@
 import { animated } from '@react-spring/web'
 import { ArrowRight } from 'lucide-react'
 
-import { ImageCredit } from '@/components/image-credit'
+import { ImageCaption } from '@/components/image-caption'
 import { PressLink } from '@/components/press'
 import { heroImage } from '@/content/images'
 import { institutions } from '@/content/institutions'
@@ -69,7 +69,7 @@ export function Hero() {
           />
         </div>
         <div className="from-background/80 absolute inset-x-0 top-0 h-32 bg-linear-to-b to-transparent" />
-        <ImageCredit
+        <ImageCaption
           image={heroImage}
           className="absolute inset-x-5 bottom-0 sm:inset-x-8 md:inset-x-auto md:right-8 md:bottom-32 lg:bottom-24 md:max-w-[24rem] md:bg-background/85 md:px-4 md:py-3 md:text-right lg:right-12"
         />

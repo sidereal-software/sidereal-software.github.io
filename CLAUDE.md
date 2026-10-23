@@ -46,7 +46,7 @@ either.
 - `src/components/sections/` - one file per section
 - `src/components/monument.tsx` - the section titles and case-study names, each at a
   fixed clamp size (76px at most); `caps.tsx` keeps mixed-case acronyms (APIs, pyINDI) intact
-  inside uppercase text; `image-credit.tsx` captions photos
+  inside uppercase text; `image-caption.tsx` captions photos
 - `src/content/` - site data: `career.ts` (career and case-study dates, best guesses),
   `images.ts` (every photo and its credit; also feeds the footer), `publications.ts`
   (the hand-picked featured three and profile links)
@@ -81,7 +81,7 @@ credentials, statistics, or testimonials. Sources of truth: Dan's personal site
   if ORCID fails. The featured three in `publications.ts` are curated by hand.
   `src/lib/orcid.js` stays plain JavaScript so Node runs the script without a build.
 - Every photo needs a license that allows commercial use and an entry in
-  `src/content/images.ts`; captions give name, location, and credit only. CC BY-SA
+  `src/content/images.ts`; captions give name and location only; each credit, license, and source link appears once, in the footer's Image credits list. CC BY-SA
   photos are shown unaltered (cropping only).
 - `public/og.png` is a 1200x630 screenshot of the hero. It is the social
   preview, so regenerate it whenever the hero copy changes or it will advertise stale
