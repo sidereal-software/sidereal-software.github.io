@@ -4,17 +4,8 @@ import { ArrowRight } from 'lucide-react'
 import { ImageCredit } from '@/components/image-credit'
 import { PressLink } from '@/components/press'
 import { heroImage } from '@/content/images'
+import { institutions } from '@/content/institutions'
 import { useStaggerIn } from '@/lib/motion'
-
-const institutions = [
-  'NSF NOIRLab',
-  'Gemini Observatory',
-  'Caltech / IPAC',
-  'NASA SPHEREx',
-  'Steward Observatory',
-  'Lowell Observatory',
-  'Northern Arizona University',
-]
 
 export function Hero() {
   const [kicker, title, lede, actions] = useStaggerIn(4, true)
