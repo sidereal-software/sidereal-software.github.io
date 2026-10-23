@@ -20,7 +20,7 @@ export function ImageCredit({
         href={image.licenseUrl}
         target="_blank"
         rel="noreferrer"
-        className="decoration-border hover:text-foreground hover:decoration-primary underline underline-offset-4 transition-colors">
+        className="decoration-border hover:text-foreground whitespace-nowrap hover:decoration-primary underline underline-offset-4 transition-colors">
         {image.license}
       </a>
     </figcaption>

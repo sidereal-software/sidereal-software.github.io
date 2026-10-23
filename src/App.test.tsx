@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
+import { career, formatPeriod } from '@/content/career'
 import { creditedImages } from '@/content/images'
 import App from './App'
 
@@ -28,9 +29,7 @@ describe('App', () => {
     render(<App />)
     for (const heading of [
       'Production software for observatories, missions, and research teams',
-      'From problem to production',
-      'What Sidereal is building',
-      'A career across observatories and missions',
+      '^Work$',
       'Testimonials',
       'About',
       'How I work',
@@ -175,12 +174,6 @@ describe('App', () => {
     expect(
       document.querySelector('a[href="mailto:hello@sidereal.software"]'),
     ).not.toBeNull()
-  })
-
-  it('features both Sidereal projects', () => {
-    render(<App />)
-    expect(screen.getByText('INDINexus')).toBeInTheDocument()
-    expect(screen.getByText('ARK - Animal Record Keeper')).toBeInTheDocument()
   })
 
   it('lists the four services under a Services title with the stack', () => {
@@ -386,6 +379,63 @@ describe('App', () => {
     }
   })
 
+  it('dates GOATS, keeps pyINDI in its casing, and drops INDINexus', () => {
+    render(<App />)
+    const work = screen
+      .getByRole('heading', { level: 2, name: 'Work' })
+      .closest('section')!
+    const goats = within(work).getByRole('heading', { level: 3, name: 'GOATS' })
+    expect(goats.closest('article')).toHaveTextContent('Jul 2023 - Dec 2025')
+    const pyindi = within(work).getByRole('heading', { level: 3, name: 'pyINDI' })
+    expect(pyindi).not.toHaveClass('uppercase')
+    expect(document.body).not.toHaveTextContent('INDINexus')
+  })
+
+  it('lists every career entry with its organization and period', () => {
+    render(<App />)
+    const list = screen.getByRole('list', { name: 'Career' })
+    const entries = within(list)
+      .getAllByRole('listitem')
+      .filter((item) => item.parentElement === list)
+      .map((item) => item.textContent)
+    expect(entries).toHaveLength(career.length)
+    career.forEach((entry, index) => {
+      expect(entries[index]).toContain(entry.org)
+      expect(entries[index]).toContain(formatPeriod(entry.period))
+    })
+    expect(entries[0]).toContain('2023 - present')
+  })
+
+  it('captions every Work photo and credits it in the footer', () => {
+    render(<App />)
+    const work = screen
+      .getByRole('heading', { level: 2, name: 'Work' })
+      .closest('section')!
+    const footer = within(
+      screen.getByRole('link', { name: 'Back to top' }).closest('footer')!,
+    ).getByRole('list', { name: 'Image credits' })
+    const photos = within(work).getAllByRole('img')
+    expect(photos.length).toBeGreaterThan(0)
+    for (const photo of photos) {
+      const image = creditedImages.find(
+        (entry) => entry.src === photo.getAttribute('src'),
+      )
+      expect(image, `no credit data for ${photo.getAttribute('src')}`).toBeDefined()
+      expect(photo.closest('figure')).toHaveTextContent(image!.credit)
+      expect(within(footer).getByRole('link', { name: image!.name })).toBeInTheDocument()
+    }
+  })
+
+  it('points to the Sidereal GitHub organization for current work', () => {
+    render(<App />)
+    const work = screen
+      .getByRole('heading', { level: 2, name: 'Work' })
+      .closest('section')!
+    expect(
+      within(work).getByRole('link', { name: /github\.com\/sidereal-software/ }),
+    ).toHaveAttribute('href', 'https://github.com/sidereal-software')
+  })
+
   it('links every featured repository', () => {
     render(<App />)
     for (const href of [
@@ -393,7 +443,7 @@ describe('App', () => {
       'https://github.com/gemini-hlsw/gpp-client',
       'https://github.com/GeminiDRSoftware/DRAGONS',
       'https://github.com/MMTObservatory/pyINDI',
-      'https://github.com/sidereal-software/indi-nexus',
+      'https://github.com/sidereal-software',
     ]) {
       const links = document.querySelectorAll(`a[href="${href}"]`)
       expect(links.length, `missing link to ${href}`).toBeGreaterThan(0)
