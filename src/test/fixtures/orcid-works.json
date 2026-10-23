@@ -1,0 +1,750 @@
+{
+  "last-modified-date": { "value": 1715187216089 },
+  "group": [
+    {
+      "last-modified-date": { "value": 1715187216071 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225954,
+          "created-date": { "value": 1715187216071 },
+          "last-modified-date": { "value": 1715187216071 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Rapid and painless development of python INDI drivers to elegant and responsive web GUIs"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2022" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Software and Cyberinfrastructure for Astronomy VII"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225954",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215907 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225951,
+          "created-date": { "value": 1715187215907 },
+          "last-modified-date": { "value": 1715187215907 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "A satellite orbit drift in binary near-Earth asteroids (66391) 1999 KW4 and (88710) 2001 SL9—Indication of the BYORP effect"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2021" }, "month": null, "day": null },
+          "journal-title": { "value": "Icarus" },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225951",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215888 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225947,
+          "created-date": { "value": 1715187215888 },
+          "last-modified-date": { "value": 1715187215888 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "A common origin for dynamically associated near-Earth asteroid pairs"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2019" }, "month": null, "day": null },
+          "journal-title": { "value": "Icarus" },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225947",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215871 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225941,
+          "created-date": { "value": 1715187215871 },
+          "last-modified-date": { "value": 1715187215871 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Chimera: A High-Speed Three-Color Photometer for Satellite Characterization"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2018" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "The Advanced Maui Optical and Space Surveillance Technologies Conference"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225941",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187216068 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225953,
+          "created-date": { "value": 1715187216068 },
+          "last-modified-date": { "value": 1715187216068 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Chimera: a high-speed three-color photometer for space surveillance and astronomy"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2018" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Ground-based and Airborne Instrumentation for Astronomy VII"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225953",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187216089 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225955,
+          "created-date": { "value": 1715187216089 },
+          "last-modified-date": { "value": 1715187216089 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": { "value": "Pomenis: A Small Portable Astrograph for Synoptic SSA" },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2018" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "The Advanced Maui Optical and Space Surveillance Technologies Conference"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225955",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215867 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225940,
+          "created-date": { "value": 1715187215867 },
+          "last-modified-date": { "value": 1715187215867 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": { "value": "Pomenis: A small portable astrograph for SSA" },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2018" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Proc. Advanced Maui Optical and Space Technologies Conference"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225940",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215875 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225943,
+          "created-date": { "value": 1715187215875 },
+          "last-modified-date": { "value": 1715187215875 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The first super-Earth detection from the high cadence and high radial velocity precision Dharma Planet Survey"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2018" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Monthly Notices of the Royal Astronomical Society"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225943",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215907 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225950,
+          "created-date": { "value": 1715187215907 },
+          "last-modified-date": { "value": 1715187215907 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": { "value": "FRoST: Flagstaff Robotic Survey Telescope" },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2017" }, "month": null, "day": null },
+          "journal-title": { "value": "Masters Thesis" },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225950",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215899 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225949,
+          "created-date": { "value": 1715187215899 },
+          "last-modified-date": { "value": 1715187215899 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The Dharma Planet Survey of Low-mass and Habitable Rocky Planets around Nearby Solar-type Stars"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2017" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "American Astronomical Society Meeting Abstracts# 229"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225949",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215858 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225938,
+          "created-date": { "value": 1715187215858 },
+          "last-modified-date": { "value": 1715187215858 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "VizieR Online Data Catalog: Mission Accessible Near-Earth Objects Survey (Thirouin+, 2016)"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2017" }, "month": null, "day": null },
+          "journal-title": { "value": "VizieR Online Data Catalog" },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225938",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215885 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225946,
+          "created-date": { "value": 1715187215885 },
+          "last-modified-date": { "value": 1715187215885 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Flagstaff Robotic Survey Telescope (FRoST): Rapid Response for NEOs"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2016" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "AAS/Division for Planetary Sciences Meeting Abstracts# 48"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225946",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215876 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225944,
+          "created-date": { "value": 1715187215876 },
+          "last-modified-date": { "value": 1715187215876 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "On-sky Doppler performance of TOU optical very high-resolution spectrograph for detecting low-mass planets"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2016" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Ground-based and Airborne Instrumentation for Astronomy VI"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225944",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215856 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225937,
+          "created-date": { "value": 1715187215856 },
+          "last-modified-date": { "value": 1715187215856 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The Mission Accessible Near-Earth Objects Survey (MANOS): photometric results"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2016" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "AAS/Division for Planetary Sciences Meeting Abstracts# 48"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225937",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187216038 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225952,
+          "created-date": { "value": 1715187216038 },
+          "last-modified-date": { "value": 1715187216038 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The mission accessible near-earth objects survey (MANOS): first photometric results"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "journal-article",
+          "publication-date": { "year": { "value": "2016" }, "month": null, "day": null },
+          "journal-title": { "value": "The Astronomical Journal" },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225952",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215873 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225942,
+          "created-date": { "value": 1715187215873 },
+          "last-modified-date": { "value": 1715187215873 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Early Science Results from Dharma Planet Survey (DPS), a Robotic, High Cadence and High Doppler Precision Survey of Close-in Super-Earths"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2015" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "American Astronomical Society Meeting Abstracts# 225"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225942",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215859 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225939,
+          "created-date": { "value": 1715187215859 },
+          "last-modified-date": { "value": 1715187215859 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The Mission Accessible Near-Earth Object Survey (MANOS)—First Results"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2015" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "AAS/Division for Planetary Sciences Meeting Abstracts# 47"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225939",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215882 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225945,
+          "created-date": { "value": 1715187215882 },
+          "last-modified-date": { "value": 1715187215882 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "A robotic, compact, and extremely high resolution optical spectrograph for a close-in super-Earth survey"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2014" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Ground-based and Airborne Instrumentation for Astronomy V"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225945",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": { "value": 1715187215888 },
+      "external-ids": { "external-id": [] },
+      "work-summary": [
+        {
+          "put-code": 159225948,
+          "created-date": { "value": 1715187215888 },
+          "last-modified-date": { "value": 1715187215888 },
+          "source": {
+            "source-orcid": {
+              "uri": "https://orcid.org/0009-0006-3587-3380",
+              "path": "0009-0006-3587-3380",
+              "host": "orcid.org"
+            },
+            "source-client-id": null,
+            "source-name": { "value": "Louis Avner" },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "On-sky performance of a high resolution silicon immersion grating spectrometer"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": { "external-id": [] },
+          "url": null,
+          "type": "conference-paper",
+          "publication-date": { "year": { "value": "2014" }, "month": null, "day": null },
+          "journal-title": {
+            "value": "Ground-based and Airborne Instrumentation for Astronomy V"
+          },
+          "visibility": "public",
+          "path": "/0009-0006-3587-3380/work/159225948",
+          "display-index": "1"
+        }
+      ]
+    }
+  ],
+  "path": "/0009-0006-3587-3380/works"
+}
