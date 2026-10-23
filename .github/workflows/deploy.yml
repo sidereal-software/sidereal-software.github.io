@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Weekly, so works added on ORCID reach the site without a push.
+  schedule:
+    - cron: '23 14 * * 1'
 
 permissions:
   contents: read
@@ -27,6 +30,9 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm test
+      # Tests run on the committed snapshot; an ORCID outage must not block a deploy.
+      - name: Sync publications from ORCID
+        run: npm run sync:publications || echo "::warning::ORCID sync failed; building with the committed publication snapshot."
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
