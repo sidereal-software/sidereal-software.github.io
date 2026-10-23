@@ -43,7 +43,7 @@ export function Hero() {
           </animated.h1>
           <animated.p
             style={lede}
-            className="text-muted-foreground mt-6 max-w-[34rem] text-base leading-relaxed sm:mt-7 sm:text-lg">
+            className="text-muted-foreground mt-6 max-w-[34rem] text-base leading-relaxed text-pretty sm:mt-7 sm:text-lg">
             I build the systems behind modern astronomy, from instrument control to
             real-time data platforms, and bring the same engineering to every science.
           </animated.p>
