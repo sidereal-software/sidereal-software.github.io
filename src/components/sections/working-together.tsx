@@ -60,11 +60,11 @@ const faqs = [
 export function WorkingTogether() {
   const { ref, trail } = useStaggerOnEntry<HTMLOListElement>(steps.length)
   return (
-    <section id="process" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
+    <section id="process" className="section-y scroll-mt-16">
       <div className="page-gutter">
         <Monument>Process</Monument>
 
-        <ol ref={ref} className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <ol ref={ref} className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => (
             <li key={step.title} className="border-border border-t pt-6">
               <animated.span
@@ -84,7 +84,7 @@ export function WorkingTogether() {
           ))}
         </ol>
 
-        <div className="mt-28 grid gap-10 md:mt-40 md:grid-cols-12 md:gap-8">
+        <div className="mt-16 grid gap-10 md:mt-40 md:grid-cols-12 md:gap-8">
           <h3 className="label-heading md:col-span-4 md:pt-7">Questions</h3>
           <Accordion type="single" collapsible className="md:col-span-8">
             {faqs.map((faq) => (

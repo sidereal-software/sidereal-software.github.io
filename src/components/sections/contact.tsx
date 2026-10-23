@@ -28,11 +28,11 @@ export function Contact() {
   const email = `${EMAIL_USER}@${EMAIL_DOMAIN}`
 
   return (
-    <section id="contact" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
+    <section id="contact" className="section-y scroll-mt-16">
       <div className="page-gutter">
         <Monument>Start a project</Monument>
 
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <p className="text-muted-foreground max-w-[34ch] text-lg leading-relaxed text-pretty">
               Tell me about your observatory, your lab, your field work, or the tool your

@@ -64,7 +64,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
   ]
 
   return (
-    <article className="mt-24 first-of-type:mt-0 md:mt-40">
+    <article className="mt-16 first-of-type:mt-0 md:mt-40">
       <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
         {/* The figure stays unpositioned so the photo fills the full-bleed band while the name and caption keep the page gutter. */}
         <figure className="page-gutter flex h-full flex-col justify-end gap-3 pb-5 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-0">
@@ -87,7 +87,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
         </figure>
       </div>
 
-      <div className="page-gutter mt-14 grid gap-14 md:grid-cols-12 md:gap-8">
+      <div className="page-gutter mt-10 grid gap-10 md:mt-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-4">
           <p className="font-display text-lg font-semibold tracking-[-0.01em]">
             {study.role}
@@ -104,7 +104,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
             ))}
           </ul>
         </div>
-        <dl className="flex flex-col gap-10 md:col-span-7 md:col-start-6">
+        <dl className="flex flex-col gap-8 md:col-span-7 md:col-start-6 md:gap-10">
           {parts.map(({ label, text, lead }) => (
             <div
               key={label}
@@ -131,7 +131,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
 function CareerItem({ entry }: { entry: CareerEntry }) {
   const image = entry.telescope && telescopes[entry.telescope]
   return (
-    <li className="border-border grid gap-6 border-b py-10 md:grid-cols-12 md:gap-8 md:py-14">
+    <li className="border-border grid gap-6 border-b py-8 md:grid-cols-12 md:gap-8 md:py-14">
       <p className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-none font-semibold tracking-[-0.03em] tabular-nums md:col-span-12 lg:col-span-4">
         {formatPeriod(entry.period)}
       </p>
@@ -284,14 +284,14 @@ function OpenSource() {
 
 export function Work() {
   return (
-    <section id="work" className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
+    <section id="work" className="section-y scroll-mt-16 overflow-x-clip">
       <div className="page-gutter">
         <Monument>Work</Monument>
       </div>
       {caseStudies.map((study) => (
         <CaseStudyBand key={study.name} study={study} />
       ))}
-      <div className="page-gutter mt-32 md:mt-48">
+      <div className="page-gutter mt-20 md:mt-48">
         <Career />
         <Publications />
         <OpenSource />

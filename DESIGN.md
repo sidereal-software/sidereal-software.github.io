@@ -91,6 +91,8 @@ spacing:
   content-max: '1440px'
   header-height: '64px'
   title-to-content: '48px'
+  section-top-mobile: '80px'
+  section-bottom-mobile: '64px'
   section-top: '192px'
   section-bottom: '112px'
 components:
@@ -216,7 +218,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 One centered column, max 90rem (1440px) wide, with gutters of 20px, 32px from 640px, and 48px from 1024px (the `page-gutter` utility). Inside it, content sits on a 12-column grid from 768px or 1024px, typically a narrow left column (4-5 columns: labels, metadata, portraits) and a wide right column (6-7 columns: lists and prose). Mobile collapses to one column.
 
-Rhythm is generous and vertical: sections open with 128px of top space (192px from 768px) and close with 112px; a section title is followed by 32px (48px from 768px) before its content, a gap the Monument component owns so call sites add none. Lists are rows divided by hairlines with 40-56px of vertical padding per row.
+Rhythm is generous and vertical on desktop and compact on phones: through the shared `section-y` utility, sections open with 80px of top space and close with 64px below 768px, and with 192px and 112px from 768px. A section title is followed by 32px (48px from 768px) before its content, a gap the Monument component owns so call sites add none. Lists are rows divided by hairlines with 32px of vertical padding per row on phones and 56px from 768px. Blocks inside a section sit 40-80px apart on phones, never more.
 
 The hero fills the small viewport height. On desktop the nebula sits full-bleed to the right with a left fade mask and the text column takes the left 46%; on mobile the image takes the top 46% of the viewport with a bottom fade and the text follows. The institutions row is a hairline-topped strip pinned to the hero's bottom on desktop.
 

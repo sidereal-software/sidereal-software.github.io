@@ -50,7 +50,7 @@ const stack = [
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
+    <section id="services" className="section-y scroll-mt-16">
       <div className="page-gutter">
         <Monument>Services</Monument>
 
@@ -58,7 +58,7 @@ export function Services() {
           {services.map((service, index) => (
             <li
               key={service.title}
-              className="border-border grid gap-4 border-b py-10 md:py-14 lg:grid-cols-12 lg:gap-8">
+              className="border-border grid gap-4 border-b py-8 md:py-14 lg:grid-cols-12 lg:gap-8">
               <span className="font-display text-primary text-sm tabular-nums lg:col-span-1 lg:pt-3">
                 {String(index + 1).padStart(2, '0')}
               </span>
@@ -72,7 +72,7 @@ export function Services() {
           ))}
         </ol>
 
-        <div className="mt-24 grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-12 lg:gap-8">
           <h3 className="font-display text-2xl leading-tight font-semibold tracking-[-0.02em] text-balance md:text-3xl lg:col-span-5">
             Don't write software? That's the point.
           </h3>
@@ -85,7 +85,7 @@ export function Services() {
 
         <ul
           aria-label="Technology stack"
-          className="text-muted-foreground mt-20 flex flex-wrap text-sm leading-loose">
+          className="text-muted-foreground mt-12 flex flex-wrap text-sm leading-loose md:mt-20">
           {stack.map((item, index) => (
             <li key={item} className="whitespace-nowrap">
               {item}

@@ -54,7 +54,7 @@ either.
 - `src/components/ui/` - vendored shadcn/ui primitives; keep these unmodified and style
   via className at call sites
 - `src/index.css` - Tailwind setup, all theme tokens, and the shared `page-gutter`,
-  `label-heading`, and `link-accent` utilities. The site is dark-only:
+  `section-y`, `label-heading`, and `link-accent` utilities. The site is dark-only:
   `index.html` carries a static `dark` class and there is one token block. To retheme,
   edit the `:root` block only. It passes WCAG AA contrast (checked by axe in
   `e2e/full-page.spec.ts`); re-check contrast when changing tokens.

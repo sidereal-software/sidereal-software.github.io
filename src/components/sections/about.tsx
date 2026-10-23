@@ -14,11 +14,11 @@ export function About() {
     <section
       id="about"
       aria-label="About"
-      className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
+      className="section-y scroll-mt-16 overflow-x-clip">
       <div className="page-gutter">
         <Monument>About</Monument>
 
-        <div className="grid gap-14 md:grid-cols-12 md:gap-8">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <figure className="m-0 md:col-span-5">
             <img
               src={portrait}
