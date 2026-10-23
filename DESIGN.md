@@ -44,7 +44,7 @@ typography:
     letterSpacing: '-0.02em'
   numeral:
     fontFamily: 'Unbounded Variable, ui-sans-serif, system-ui, sans-serif'
-    fontSize: 'clamp(5rem, 9vw, 8.5rem)'
+    fontSize: 'clamp(2rem, 5vw, 4.5rem)'
     fontWeight: 700
     lineHeight: 1
     letterSpacing: '-0.04em'
@@ -197,7 +197,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 - **Headline** (Unbounded 600, clamp(1.75rem, 3.5vw, 3.25rem), 1.05, -0.02em, uppercase): the hero H1.
 - **Headline list** (Unbounded 600, clamp(1.6rem, 3.6vw, 3.25rem), 1.02, -0.03em, uppercase): the four service titles.
 - **Quote** (Unbounded 400, clamp(1.5rem, 3.8vw, 3.5rem), 1.14): testimonials, max 24-28ch with a hanging opening quote. The About pull quote uses the same face at 500 and clamp(1.5rem, 2.8vw, 2.5rem).
-- **Numeral** (Unbounded 700, clamp(5rem, 9vw, 8.5rem), 1, tabular, dust grey): process step numbers. Career years use Unbounded 600 at clamp(1.75rem, 3vw, 2.5rem).
+- **Numeral** (Unbounded 700, clamp(2rem, 5vw, 4.5rem), 1, tabular, dust grey): process step numbers, always smaller than the Process title above them. Career years use Unbounded 600 at clamp(1.75rem, 3vw, 2.5rem).
 - **Title** (Unbounded 600, 1.125rem, -0.01em): roles, organizations, names. Outcome statements and featured publications sit between title and headline in Unbounded 500 (1.125-1.5rem).
 - **Body** (Hanken Grotesk 400, 1.125rem, 1.625): paragraphs, 34-62ch measures. 1rem in dense lists.
 - **Body small** (Hanken Grotesk 400, 0.875rem): nav, buttons, links, metadata.

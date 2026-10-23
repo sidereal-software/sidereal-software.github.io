@@ -72,7 +72,7 @@ export function WorkingTogether() {
               <animated.span
                 aria-hidden="true"
                 style={trail[index]}
-                className="font-display text-dim block text-[clamp(5rem,9vw,8.5rem)] leading-none font-bold tracking-[-0.04em] tabular-nums">
+                className="font-display text-dim block text-[clamp(2rem,5vw,4.5rem)] leading-none font-bold tracking-[-0.04em] tabular-nums">
                 {index + 1}
               </animated.span>
               <h3 className="font-display mt-6 text-lg font-semibold tracking-[0.04em] uppercase">

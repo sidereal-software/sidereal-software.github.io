@@ -62,4 +62,14 @@ for (const width of widths) {
     const { fontSize } = await measure(monument(page, 'Services'))
     expect(fontSize).toBeGreaterThan(Math.max(...serviceSizes))
   })
+
+  test(`the Process title outranks the step numerals at ${width}px`, async ({ page }) => {
+    await openAt(page, width)
+    const numeralSizes = await page
+      .locator('#process ol > li > span[aria-hidden]')
+      .evaluateAll((els) => els.map((el) => parseFloat(getComputedStyle(el).fontSize)))
+    expect(numeralSizes.length).toBe(4)
+    const { fontSize } = await measure(monument(page, 'Process'))
+    expect(fontSize).toBeGreaterThan(Math.max(...numeralSizes))
+  })
 }
