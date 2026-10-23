@@ -64,7 +64,7 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply scroll-smooth;
+    @apply motion-safe:scroll-smooth;
   }
   body {
     @apply bg-background text-foreground antialiased;
@@ -113,6 +113,13 @@
         animation-range: entry 0% entry 60%;
       }
     }
+  }
+}
+
+/* Unlayered so it outranks the overlay's animation utilities, which the vendored Sheet exposes no prop to override. */
+@media (prefers-reduced-motion: reduce) {
+  [data-slot='sheet-overlay'] {
+    animation: none;
   }
 }
 

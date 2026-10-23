@@ -102,7 +102,7 @@ export function SiteHeader() {
             <SheetContent
               side="right"
               aria-describedby={undefined}
-              className="border-border w-full px-6 pt-20 sm:max-w-md">
+              className="border-border w-full px-6 pt-20 motion-reduce:animate-none! sm:max-w-md">
               <SheetTitle className="sr-only">Menu</SheetTitle>
               <MenuLinks />
               <p className="text-muted-foreground mt-auto pb-8 text-sm">

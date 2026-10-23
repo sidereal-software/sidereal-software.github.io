@@ -95,7 +95,7 @@ export function WorkingTogether() {
               <AccordionItem
                 key={faq.question}
                 value={faq.question}
-                className="border-border first:border-t">
+                className="border-border first:border-t motion-reduce:[&>[data-slot=accordion-content]]:animate-none!">
                 <AccordionTrigger className="font-display hover:text-primary rounded-none py-6 text-base font-medium tracking-tight hover:no-underline md:text-xl [&>svg]:size-5">
                   {faq.question}
                 </AccordionTrigger>
