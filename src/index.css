@@ -103,7 +103,7 @@
   /* Fallback until useFitText measures; errs small so nothing ever crops. */
   .monument > span {
     display: inline-block;
-    /* Set here, not on the heading, so em resolves against the giant size; any tighter and Unbounded's capitals fuse. */
+    /* The least tracking that keeps Unbounded's capitals apart, in the span's own em so it scales with the fit. */
     letter-spacing: 0.01em;
     font-size: min(var(--monument-cap, 20rem), calc(80cqi / var(--monument-len, 8)));
   }

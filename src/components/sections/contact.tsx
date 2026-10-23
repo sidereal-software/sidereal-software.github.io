@@ -17,6 +17,7 @@ const FORMSPREE_ID = 'maqrzvzv'
 
 const labelClass =
   'text-muted-foreground group-focus-within:text-primary text-xs font-normal tracking-[0.2em] uppercase transition-colors'
+// dark:bg-transparent is not redundant: plain bg-transparent leaves the primitives' dark-mode fill in place.
 const fieldClass =
   'h-auto rounded-none border-0 border-b bg-transparent px-0 py-3 text-lg shadow-none focus-visible:border-primary focus-visible:ring-0 focus-visible:border-b-2 focus-visible:pb-[11px] md:text-lg dark:bg-transparent'
 const errorClass = 'text-destructive text-sm'

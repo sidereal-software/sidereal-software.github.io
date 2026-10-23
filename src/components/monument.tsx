@@ -10,7 +10,7 @@ interface MonumentProps {
   as?: 'h2' | 'h3' | 'p'
   /** Keeps authored casing for a proper-name title; mixed-case acronyms survive uppercase anyway. */
   properName?: boolean
-  /** Upper bound on the font size, in rem. */
+  /** In rem; stops a short title from swelling to fill a wide container. */
   cap?: number
   className?: string
 }
