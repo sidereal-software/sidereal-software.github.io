@@ -189,7 +189,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 - **Title** (Unbounded 600, 1.125rem, -0.01em): roles, organizations, names. Outcome statements and featured publications sit between title and headline in Unbounded 500 (1.125-1.5rem).
 - **Body** (Hanken Grotesk 400, 1.125rem, 1.625): paragraphs, 34-62ch measures. 1rem in dense lists.
 - **Body small** (Hanken Grotesk 400, 0.875rem): nav, buttons, links, metadata.
-- **Label** (Hanken Grotesk 500, 0.75rem, 0.32em tracking, uppercase, dust grey): small headings that name their own block (Career, Publications, Questions, Image credits) and term labels (Problem, Approach, Outcome; form labels at 0.2em in moon grey).
+- **Label** (Hanken Grotesk 500, 0.75rem, 0.32em tracking, uppercase, dust grey): small headings that name their own block (Career, Publications, Questions, Image credits; the `label-heading` utility) and term labels (Problem, Approach, Outcome; form labels at 0.2em in moon grey).
 - **Caption** (Hanken Grotesk 400, 0.75rem, 1.625, dust grey with the image name in moon grey): image credits, separated by middle dots.
 
 ### Named Rules
@@ -202,7 +202,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 ## Layout
 
-One centered column, max 90rem (1440px) wide, with gutters of 20px, 32px from 640px, and 48px from 1024px. Inside it, content sits on a 12-column grid from 768px or 1024px, typically a narrow left column (4-5 columns: labels, metadata, portraits) and a wide right column (6-7 columns: lists and prose). Mobile collapses to one column.
+One centered column, max 90rem (1440px) wide, with gutters of 20px, 32px from 640px, and 48px from 1024px (the `page-gutter` utility). Inside it, content sits on a 12-column grid from 768px or 1024px, typically a narrow left column (4-5 columns: labels, metadata, portraits) and a wide right column (6-7 columns: lists and prose). Mobile collapses to one column.
 
 Rhythm is generous and vertical: sections open with 128px of top space (192px from 768px) and close with 112px; a Monument title is followed by 64px (96px from 768px) before content. Lists are rows divided by hairlines with 40-56px of vertical padding per row.
 
@@ -240,7 +240,7 @@ Few, solid, and square.
 
 ### Links
 
-- **Accent link:** ice-cyan text, underline offset 6px at 40% cyan, full cyan on hover. Used for "Start a project" in the header, repository and paper links (with an up-right arrow), the GitHub organization line, and the revealed email.
+- **Accent link** (the `link-accent` utility): ice-cyan text, underline offset 6px at 40% cyan, full cyan on hover. Used for "Start a project" in the header, repository and paper links (with an up-right arrow), the GitHub organization line, and the revealed email.
 - **Quiet link:** ink or moon-grey text with a dust-grey underline that turns ink or cyan on hover. Used for "See the work", profile links, publication titles, "Back to top", and caption license links.
 
 ### Inputs / Fields

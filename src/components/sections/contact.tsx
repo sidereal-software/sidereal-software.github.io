@@ -28,7 +28,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
-      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter">
         <Monument>{'Start a\nproject'}</Monument>
 
         <div className="mt-16 grid gap-16 md:mt-24 lg:grid-cols-12 lg:gap-8">
@@ -52,9 +52,7 @@ export function Contact() {
             </p>
             <p className="mt-8 text-sm">
               {emailRevealed ? (
-                <a
-                  href={`mailto:${email}`}
-                  className="text-primary decoration-primary/40 hover:decoration-primary underline underline-offset-[6px]">
+                <a href={`mailto:${email}`} className="link-accent">
                   {email}
                 </a>
               ) : (

@@ -15,7 +15,7 @@ export function About() {
       id="about"
       aria-label="About"
       className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
-      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter">
         <Monument>About</Monument>
 
         <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12 md:gap-8">

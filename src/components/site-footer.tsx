@@ -7,7 +7,7 @@ const linkClass =
 export function SiteFooter() {
   return (
     <footer className="border-border border-t">
-      <div className="mx-auto max-w-[90rem] px-5 py-16 sm:px-8 lg:px-12">
+      <div className="page-gutter py-16">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-4">
             <img src={logo} alt="" className="size-10 invert" width={40} height={40} />
@@ -25,9 +25,7 @@ export function SiteFooter() {
           </a>
         </div>
         <div className="border-border mt-14 border-t pt-8">
-          <h2
-            id="image-credits"
-            className="text-dim text-xs font-medium tracking-[0.32em] uppercase">
+          <h2 id="image-credits" className="label-heading">
             Image credits
           </h2>
           <ul

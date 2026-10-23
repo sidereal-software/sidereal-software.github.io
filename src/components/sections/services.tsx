@@ -51,7 +51,7 @@ const stack = [
 export function Services() {
   return (
     <section id="services" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
-      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter">
         <Monument>Services</Monument>
 
         <ol className="border-border mt-16 border-t md:mt-24">

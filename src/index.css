@@ -59,6 +59,18 @@
   --ring: #9be7ff;
 }
 
+@utility page-gutter {
+  @apply mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12;
+}
+
+@utility label-heading {
+  @apply text-dim text-xs font-medium tracking-[0.32em] uppercase;
+}
+
+@utility link-accent {
+  @apply text-primary decoration-primary/40 hover:decoration-primary underline underline-offset-[6px] transition-colors;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

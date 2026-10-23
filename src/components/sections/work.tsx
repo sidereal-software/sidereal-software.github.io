@@ -18,8 +18,6 @@ import {
   type Work as Publication,
 } from '@/content/publications'
 
-const gutter = 'mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12'
-
 const altText = (image: CreditedImage) => `${image.name}, ${image.location}`
 
 function ExternalLink({ href, children }: { href: string; children: string }) {
@@ -28,7 +26,7 @@ function ExternalLink({ href, children }: { href: string; children: string }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="text-primary decoration-primary/40 hover:decoration-primary inline-flex items-center gap-2 text-sm underline underline-offset-[6px] transition-colors">
+      className="link-accent inline-flex items-center gap-2 text-sm">
       {children}
       <ArrowUpRight aria-hidden className="size-3.5 shrink-0" strokeWidth={2} />
     </a>
@@ -81,14 +79,14 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
             className="size-full object-cover"
           />
           <div className="from-background absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent" />
-          <div className={`absolute inset-x-0 bottom-0 ${gutter}`}>
+          <div className="page-gutter absolute inset-x-0 bottom-0">
             {/* Padding in the span's own em keeps descenders such as pyINDI's inside the photo. */}
             <Monument as="h3" properName cap={16} className="[&>span]:pb-[0.2em]">
               {study.name}
             </Monument>
           </div>
         </div>
-        <div className={gutter}>
+        <div className="page-gutter">
           <ImageCredit
             image={lead}
             className="pt-6 md:ml-auto md:max-w-[42rem] md:text-right"
@@ -96,7 +94,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
         </div>
       </figure>
 
-      <div className={`mt-14 grid gap-14 md:grid-cols-12 md:gap-8 ${gutter}`}>
+      <div className="page-gutter mt-14 grid gap-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-4">
           <p className="font-display text-lg font-semibold tracking-[-0.01em]">
             {study.role}
@@ -180,9 +178,7 @@ function CareerItem({ entry }: { entry: CareerEntry }) {
 function Career() {
   return (
     <div>
-      <h3
-        id="career"
-        className="text-dim text-xs font-medium tracking-[0.32em] uppercase">
+      <h3 id="career" className="label-heading">
         Career
       </h3>
       <ol aria-labelledby="career" className="border-border mt-8 border-t">
@@ -225,9 +221,7 @@ function Publications() {
     <section
       aria-labelledby="publications"
       className="mt-16 grid gap-8 md:mt-24 md:grid-cols-12">
-      <h3
-        id="publications"
-        className="text-dim text-xs font-medium tracking-[0.32em] uppercase md:col-span-5 md:pt-2">
+      <h3 id="publications" className="label-heading md:col-span-5 md:pt-2">
         Publications
       </h3>
       <div className="md:col-span-7">
@@ -298,7 +292,7 @@ function OpenSource() {
         href="https://github.com/sidereal-software"
         target="_blank"
         rel="noreferrer"
-        className="text-primary decoration-primary/40 hover:decoration-primary whitespace-nowrap underline underline-offset-[6px] transition-colors">
+        className="link-accent whitespace-nowrap">
         github.com/sidereal-software
       </a>
     </p>
@@ -308,7 +302,7 @@ function OpenSource() {
 export function Work() {
   return (
     <section id="work" className="scroll-mt-16 overflow-x-clip pt-32 pb-28 md:pt-48">
-      <div className={gutter}>
+      <div className="page-gutter">
         <Monument cap={24} className="mb-16 md:mb-24">
           Work
         </Monument>
@@ -316,7 +310,7 @@ export function Work() {
       {caseStudies.map((study) => (
         <CaseStudyBand key={study.name} study={study} />
       ))}
-      <div className={`mt-32 md:mt-48 ${gutter}`}>
+      <div className="page-gutter mt-32 md:mt-48">
         <Career />
         <Publications />
         <OpenSource />

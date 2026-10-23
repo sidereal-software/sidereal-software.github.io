@@ -38,7 +38,7 @@ function StartProjectLink() {
   return (
     <PressLink
       href="#contact"
-      className="text-primary decoration-primary/40 hover:decoration-primary inline-block py-3 text-sm font-medium whitespace-nowrap underline underline-offset-[6px] transition-colors">
+      className="link-accent inline-block py-3 text-sm font-medium whitespace-nowrap">
       Start a project
     </PressLink>
   )
@@ -72,7 +72,7 @@ export function SiteHeader() {
         'fixed inset-x-0 top-0 z-40 border-b transition-colors duration-500',
         scrolled ? 'border-border bg-background' : 'border-transparent',
       )}>
-      <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter flex h-16 items-center justify-between gap-6">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="" className="size-7 invert" width={28} height={28} />
           <span className="font-display text-[0.8rem] leading-[1.15] font-semibold tracking-[0.18em] uppercase max-sm:w-min">

@@ -64,7 +64,7 @@ export function Testimonials() {
       aria-labelledby="testimonials-title"
       aria-roledescription="carousel"
       className="scroll-mt-16 overflow-x-clip py-28 md:py-44">
-      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter">
         <h2 id="testimonials-title" className="sr-only">
           Testimonials
         </h2>

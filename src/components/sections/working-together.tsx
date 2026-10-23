@@ -61,7 +61,7 @@ export function WorkingTogether() {
   const { ref, trail } = useStaggerOnEntry<HTMLOListElement>(steps.length)
   return (
     <section id="process" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
-      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+      <div className="page-gutter">
         <Monument>Process</Monument>
 
         <ol
@@ -87,9 +87,7 @@ export function WorkingTogether() {
         </ol>
 
         <div className="mt-28 grid gap-10 md:mt-40 md:grid-cols-12 md:gap-8">
-          <h3 className="text-dim text-xs tracking-[0.32em] uppercase md:col-span-4 md:pt-7">
-            Questions
-          </h3>
+          <h3 className="label-heading md:col-span-4 md:pt-7">Questions</h3>
           <Accordion type="single" collapsible className="md:col-span-8">
             {faqs.map((faq) => (
               <AccordionItem

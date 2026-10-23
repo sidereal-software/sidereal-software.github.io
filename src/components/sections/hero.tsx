@@ -23,7 +23,7 @@ export function Hero() {
       id="home"
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-svh flex-col overflow-hidden">
-      <div className="mx-auto flex w-full max-w-[90rem] flex-1 flex-col px-5 pt-7 pb-12 sm:px-8 md:justify-center md:pt-24 md:pb-36 lg:px-12">
+      <div className="page-gutter flex flex-1 flex-col pt-7 pb-12 md:justify-center md:pt-24 md:pb-36">
         <div className="max-w-[40rem] md:max-w-[46%]">
           <animated.p
             style={kicker}
@@ -87,7 +87,7 @@ export function Hero() {
       <div className="border-border border-t md:absolute md:inset-x-0 md:bottom-0 md:bg-background/85">
         <ul
           aria-label="Institutions I have worked with"
-          className="text-muted-foreground mx-auto flex max-w-[90rem] flex-wrap gap-x-7 gap-y-2 px-5 py-5 text-sm sm:px-8 lg:flex-nowrap lg:justify-between lg:px-12">
+          className="page-gutter text-muted-foreground flex flex-wrap gap-x-7 gap-y-2 py-5 text-sm lg:flex-nowrap lg:justify-between">
           {institutions.map((name) => (
             <li key={name} className="whitespace-nowrap">
               {name}
