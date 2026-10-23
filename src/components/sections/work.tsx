@@ -61,10 +61,10 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
     .map((key) => telescopes[key])
     .sort((a, b) => b.width / b.height - a.width / a.height)
   const parts = [
-    ['Problem', study.problem],
-    ['Approach', study.approach],
-    ['Outcome', study.outcome],
-  ] as const
+    { label: 'Problem', text: study.problem, lead: false },
+    { label: 'Approach', text: study.approach, lead: false },
+    { label: 'Outcome', text: study.outcome, lead: true },
+  ]
 
   return (
     <article className="mt-24 first:mt-0 md:mt-40">
@@ -119,7 +119,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
           ))}
         </div>
         <dl className="flex flex-col gap-10 md:col-span-7 md:col-start-6">
-          {parts.map(([label, text]) => (
+          {parts.map(({ label, text, lead }) => (
             <div
               key={label}
               className="border-border grid gap-3 border-t pt-6 sm:grid-cols-[8rem_1fr]">
@@ -128,7 +128,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
               </dt>
               <dd
                 className={
-                  label === 'Outcome'
+                  lead
                     ? 'font-display max-w-[40ch] text-xl leading-snug font-medium tracking-[-0.01em] text-balance md:text-2xl'
                     : 'text-muted-foreground max-w-[62ch] text-lg leading-relaxed'
                 }>
@@ -233,10 +233,10 @@ function Publications() {
                 target="_blank"
                 rel="noreferrer"
                 className="font-display decoration-dim hover:decoration-primary text-lg leading-[1.45] font-medium tracking-[-0.01em] underline underline-offset-[6px] transition-colors md:text-xl">
-                {/* A wrap never opens a line with the separator dash. */}
+                {/* A no-break space glues the separator dash to the word before, so no line opens with it. */}
                 {paper.label
                   .slice(0, paper.label.lastIndexOf(' ') + 1)
-                  .replace(' - ', ' - ')}
+                  .replace(' - ', '\u00a0- ')}
                 {/* The arrow rides with the last word so it never wraps onto a line alone. */}
                 <span className="whitespace-nowrap">
                   {paper.label.slice(paper.label.lastIndexOf(' ') + 1)}
