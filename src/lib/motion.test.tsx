@@ -147,9 +147,26 @@ describe('motion', () => {
     const stop = followReducedMotion(() => query as unknown as MediaQueryList)
     render(<Items />)
     for (const item of screen.getAllByRole('listitem')) {
-      expect(item.style.opacity).toBe('1')
+      expect(item).toBeVisible()
       expect(item.style.transform).toBe('none')
     }
+    stop()
+  })
+
+  it('staggers items in already visible, so a spring that never runs hides nothing', async () => {
+    const stop = followReducedMotion(() => mediaQuery(false) as unknown as MediaQueryList)
+    render(<Items />)
+    const items = screen.getAllByRole('listitem')
+    for (const item of items) {
+      expect(item.style.opacity).not.toBe('0')
+      expect(item.style.transform).toMatch(/^translate3d\(0,\s?[1-9][\d.]*px,\s?0\)$/)
+    }
+    await waitFor(
+      () => {
+        for (const item of items) expect(item.style.transform).toBe('none')
+      },
+      { timeout: 3000 },
+    )
     stop()
   })
 

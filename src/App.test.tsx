@@ -107,7 +107,7 @@ describe('App', () => {
       within(hero).getByText(/^I build the systems/),
       within(hero).getByRole('link', { name: 'Start a project' }).parentElement!,
     ]) {
-      expect(element.style.opacity).toBe('1')
+      expect(element).toBeVisible()
       expect(element.style.transform).toBe('none')
     }
   })

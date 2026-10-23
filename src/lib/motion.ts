@@ -34,10 +34,11 @@ export function usePress() {
   }
 }
 
+// Rises without fading, so content stays readable even if the spring never runs.
 export function useStaggerIn(count: number, active: boolean) {
   return useTrail(count, {
-    from: { opacity: 0, y: 12 },
-    to: active ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 },
+    from: { y: 12 },
+    to: { y: active ? 0 : 12 },
     config: springs.settle,
   })
 }
