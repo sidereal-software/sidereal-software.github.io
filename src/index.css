@@ -79,13 +79,19 @@
 }
 
 @layer components {
-  /* Fallback until useFitText measures; errs small so nothing ever crops. */
   .monument {
+    container-type: inline-size;
     font-family: var(--font-display);
     font-weight: 700;
     line-height: 0.86;
-    letter-spacing: -0.04em;
     white-space: nowrap;
+  }
+
+  /* Fallback until useFitText measures; errs small so nothing ever crops. */
+  .monument > span {
+    display: inline-block;
+    /* Set here, not on the heading, so em resolves against the giant size; any tighter and Unbounded's capitals fuse. */
+    letter-spacing: 0.01em;
     font-size: min(var(--monument-cap, 20rem), calc(80cqi / var(--monument-len, 8)));
   }
 

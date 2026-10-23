@@ -1,166 +1,108 @@
-import {
-  Braces,
-  Cpu,
-  Database,
-  Globe,
-  MonitorSmartphone,
-  Telescope,
-  type LucideIcon,
-} from 'lucide-react'
-
-import { SectionHeading } from '@/components/section-heading'
-import { Badge } from '@/components/ui/badge'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Monument } from '@/components/monument'
+import { cn } from '@/lib/utils'
 
 interface Service {
-  icon: LucideIcon
   title: string
   description: string
+  properName?: boolean
 }
 
 const services: Service[] = [
   {
-    icon: Telescope,
-    title: 'Observatory Applications',
+    title: 'Observatory & instrument control',
     description:
-      'Control software, automation systems, and telescope integrations designed for real-world observatory operations.',
+      'Telescope automation, instrument drivers over INDI and serial or network links, and the operator interfaces that run them.',
   },
   {
-    icon: Globe,
-    title: 'Scientific Web Platforms',
+    title: 'Data pipelines & backends',
     description:
-      'Django-based web applications, TOM Toolkit deployments, and data portals for research teams in any field.',
+      'Processing pipelines that turn raw frames into science-ready data, and the databases and services behind them.',
   },
   {
-    icon: Braces,
-    title: 'Python Libraries & APIs',
+    title: 'Scientific web platforms',
     description:
-      'Reusable libraries, RESTful APIs, and data pipelines built with Python best practices and scientific rigor.',
+      'Django and TOM Toolkit platforms, data portals, and React interfaces with live updates for working scientists.',
   },
   {
-    icon: Database,
-    title: 'Backend Systems',
+    title: 'Python libraries & APIs',
     description:
-      'Scalable database architectures, data processing pipelines, and integration with the infrastructure your team already runs.',
-  },
-  {
-    icon: Cpu,
-    title: 'Drivers & Integrations',
-    description:
-      'Hardware drivers, instrument control software, and integrations with INDI and proprietary systems.',
-  },
-  {
-    icon: MonitorSmartphone,
-    title: 'Frontend Development',
-    description:
-      'Modern React interfaces with TypeScript, real-time data visualization, and responsive design for working scientists.',
+      'Typed SDKs, REST and GraphQL clients, and packages released to PyPI and conda-forge.',
+    properName: true,
   },
 ]
 
-const techStack: { category: string; items: string[] }[] = [
-  {
-    category: 'Languages',
-    items: ['Python', 'TypeScript', 'JavaScript', 'C/C++', 'Shell', 'MATLAB'],
-  },
-  {
-    category: 'Web & Data',
-    items: [
-      'Django & DRF',
-      'FastAPI',
-      'GraphQL',
-      'React',
-      'WebSockets',
-      'PostgreSQL',
-      'Redis',
-    ],
-  },
-  {
-    category: 'Astronomy',
-    items: ['DRAGONS', 'TOM Toolkit', 'INDI', 'Astropy', 'astroquery', 'IRAF'],
-  },
-  {
-    category: 'Packaging & CI',
-    items: ['conda-forge', 'Docker', 'GitHub Actions', 'Jenkins', 'pytest', 'pre-commit'],
-  },
+const stack = [
+  'Python',
+  'TypeScript',
+  'C/C++',
+  'Django',
+  'FastAPI',
+  'React',
+  'GraphQL',
+  'PostgreSQL',
+  'WebSockets',
+  'Astropy',
+  'DRAGONS',
+  'TOM Toolkit',
+  'INDI',
+  'conda-forge',
+  'Docker',
+  'GitHub Actions',
 ]
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-16 py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Full-stack scientific software"
-          description="Deep domain expertise across the entire stack, from instrument hardware to the browser."
-        />
-        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card key={service.title} className="bg-card/60 backdrop-blur-sm">
-              <CardHeader>
-                <service.icon className="text-primary" aria-hidden="true" />
-                <CardTitle className="pt-2 text-lg">{service.title}</CardTitle>
-                <CardDescription className="leading-relaxed">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
+    <section id="services" className="scroll-mt-16 pt-32 pb-28 md:pt-48">
+      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+        <Monument>Services</Monument>
+
+        <ol className="border-border mt-16 border-t md:mt-24">
+          {services.map((service, index) => (
+            <li
+              key={service.title}
+              className="border-border grid gap-4 border-b py-10 md:py-14 lg:grid-cols-12 lg:gap-8">
+              <span className="font-display text-primary text-sm tabular-nums lg:col-span-1 lg:pt-3">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3
+                className={cn(
+                  'font-display text-[clamp(1.6rem,3.6vw,3.25rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance lg:col-span-7',
+                  !service.properName && 'uppercase',
+                )}>
+                {service.title}
+              </h3>
+              <p className="text-muted-foreground max-w-[52ch] text-base lg:max-w-[36ch] leading-relaxed lg:col-span-4 lg:pt-2">
+                {service.description}
+              </p>
+            </li>
           ))}
+        </ol>
+
+        <div className="mt-24 grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <h3 className="font-display text-2xl leading-tight font-semibold tracking-[-0.02em] text-balance md:text-3xl lg:col-span-5">
+            Don't write software? That's the point.
+          </h3>
+          <p className="text-muted-foreground max-w-[60ch] text-lg leading-relaxed text-pretty lg:col-span-6 lg:col-start-7">
+            If you can describe the problem, I can build the app that removes it. ARK
+            began that way: wildlife professionals needed their record keeping to be
+            easier.
+          </p>
         </div>
 
-        <Card className="bg-card/60 mb-16 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-center font-serif text-2xl">
-              Don't write software? That's the point.
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-muted-foreground mx-auto max-w-3xl space-y-4 text-center text-sm leading-relaxed md:text-base">
-              <p>
-                Most projects start with someone who is not a programmer: a scientist, a
-                keeper, an operations lead who knows exactly what makes their day harder
-                than it should be. If you can describe the problem, I can design and build
-                the app that removes it - automating a routine, replacing the spreadsheet
-                that stopped scaling, or putting your field work on your phone.
-              </p>
-              <p>
-                That is how ARK began: wildlife professionals needed their everyday record
-                keeping to be easier, so I am building a tool around how they actually
-                work.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-card/60 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-center font-serif text-2xl">
-              Technology Stack
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {techStack.map((group) => (
-                <div key={group.category}>
-                  <h3 className="text-muted-foreground mb-3 font-mono text-sm font-semibold tracking-widest uppercase">
-                    {group.category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <Badge key={item} variant="outline">
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <ul
+          aria-label="Technology stack"
+          className="text-muted-foreground mt-20 flex flex-wrap text-sm leading-loose">
+          {stack.map((item, index) => (
+            <li key={item} className="whitespace-nowrap">
+              {item}
+              {index < stack.length - 1 && (
+                <span aria-hidden="true" className="text-dim px-3">
+                  /
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

@@ -28,7 +28,6 @@ describe('App', () => {
     render(<App />)
     for (const heading of [
       'Production software for observatories, missions, and research teams',
-      'Full-stack scientific software',
       'From problem to production',
       'What Sidereal is building',
       'A career across observatories and missions',
@@ -165,6 +164,25 @@ describe('App', () => {
     render(<App />)
     expect(screen.getByText('INDINexus')).toBeInTheDocument()
     expect(screen.getByText('ARK - Animal Record Keeper')).toBeInTheDocument()
+  })
+
+  it('lists the four services under a Services title with the stack', () => {
+    render(<App />)
+    const services = screen
+      .getByRole('heading', { level: 2, name: 'Services' })
+      .closest('section')!
+    expect(
+      within(services)
+        .getAllByRole('heading', { level: 3 })
+        .map((heading) => heading.textContent),
+    ).toEqual([
+      'Observatory & instrument control',
+      'Data pipelines & backends',
+      'Scientific web platforms',
+      'Python libraries & APIs',
+      "Don't write software? That's the point.",
+    ])
+    expect(within(services).getByText('TOM Toolkit')).toBeInTheDocument()
   })
 
   it('speaks to non-software clients', () => {
