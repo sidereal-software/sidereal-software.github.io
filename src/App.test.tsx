@@ -44,6 +44,62 @@ describe('App', () => {
     }
   })
 
+  it('opens on the M27 hero with the kicker and authored-casing institutions', () => {
+    render(<App />)
+    const hero = screen.getByRole('region', {
+      name: 'Production software for observatories, missions, and research teams.',
+    })
+    expect(
+      within(hero).getByText('Software that does the heavy lifting'),
+    ).toBeInTheDocument()
+    expect(within(hero).getByText('M27, the Dumbbell Nebula')).toBeInTheDocument()
+    expect(within(hero).getByText('NSF NOIRLab')).toBeInTheDocument()
+  })
+
+  it('sends hero visitors to contact or the work', () => {
+    render(<App />)
+    const hero = screen.getByRole('region', { name: /^Production software/ })
+    expect(within(hero).getByRole('link', { name: 'Start a project' })).toHaveAttribute(
+      'href',
+      '#contact',
+    )
+    expect(within(hero).getByRole('link', { name: 'See the work' })).toHaveAttribute(
+      'href',
+      '#work',
+    )
+    expect(
+      within(hero).getByText(/^I build the systems behind modern astronomy/),
+    ).toBeInTheDocument()
+  })
+
+  it('credits the hero image and lists every institution as authored', () => {
+    render(<App />)
+    const hero = screen.getByRole('region', { name: /^Production software/ })
+    const caption = within(hero)
+      .getByText('M27, the Dumbbell Nebula')
+      .closest('figcaption')!
+    expect(caption).toHaveTextContent('Mayall 4-m Telescope, Kitt Peak, Arizona')
+    expect(caption).toHaveTextContent('T.A. Rector (University of Alaska Anchorage)')
+    expect(within(caption).getByRole('link', { name: 'CC BY 4.0' })).toHaveAttribute(
+      'href',
+      'https://creativecommons.org/licenses/by/4.0/',
+    )
+    const institutions = within(
+      within(hero).getByRole('list', { name: 'Institutions I have worked with' }),
+    )
+      .getAllByRole('listitem')
+      .map((item) => item.textContent)
+    expect(institutions).toEqual([
+      'NSF NOIRLab',
+      'Gemini Observatory',
+      'Caltech / IPAC',
+      'NASA SPHEREx',
+      'Steward Observatory',
+      'Lowell Observatory',
+      'Northern Arizona University',
+    ])
+  })
+
   it('links the founder profiles', () => {
     render(<App />)
     for (const href of [
