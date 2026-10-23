@@ -3,6 +3,7 @@ name: Sidereal Software
 description: Software that does the heavy lifting - a dark, art-led monolith for an astronomy software consultancy.
 colors:
   night-ground: '#050507'
+  night-band: '#0c0c11'
   bone-ink: '#edece7'
   ice-cyan: '#9be7ff'
   ice-cyan-ink: '#050507'
@@ -91,10 +92,8 @@ spacing:
   content-max: '1440px'
   header-height: '64px'
   title-to-content: '48px'
-  section-top-mobile: '80px'
-  section-bottom-mobile: '64px'
-  section-top: '192px'
-  section-bottom: '112px'
+  section-y-mobile: '72px'
+  section-y: '128px'
 components:
   button-primary:
     backgroundColor: '{colors.ice-cyan}'
@@ -137,9 +136,9 @@ components:
 
 A night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.
 
-Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
+Density is low and vertical. Sections alternate between the night ground and a barely lifted night band, each with the same space above and below, so the long scroll reads as chapters; inside a section, space and hairline rules separate blocks, never cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
 
-The theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.
+The theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on both the night ground and the night band.
 
 **Key Characteristics:**
 
@@ -147,7 +146,7 @@ The theme is dark-only. There is no light mode and no theme switch, and every te
 - Monument titles at peer scale (76px at most), uppercase for generic words only.
 - Square everything: zero radius on every surface and control.
 - Credited observatory photography as the only imagery.
-- Hairline rules and space as the only separators.
+- Sections alternate night ground and night band; hairlines and space separate everything inside them.
 - Soft spring micro-motion, fully disabled under reduced motion.
 
 ## Colors
@@ -162,6 +161,7 @@ A near-black, slightly blue night with warm bone ink and one ice-cyan accent; gr
 ### Neutral
 
 - **Night Ground** (`night-ground`): the page, the scrolled header, the mobile menu panel, and the 85% translucent strips over the hero (institutions row, image caption).
+- **Night Band** (`night-band`): the alternate section ground, one small step above the night: Services, About, and Contact. Felt more than seen; it marks chapters without becoming a stripe.
 - **Bone Ink** (`bone-ink`): headings, Monument titles, primary text, and the primary button's hover fill.
 - **Moon Grey** (`moon-grey`): body copy, ledes, descriptions, nav links at rest, and form labels (8.6:1 on the ground).
 - **Dust Grey** (`dust-grey`): tertiary text: periods, years, counters, captions, small section labels, and the large process numerals (6.0:1 on the ground).
@@ -175,7 +175,7 @@ The shadcn surface tokens (card, popover, secondary, muted, accent) map onto the
 
 **The One Cold Light Rule.** Ice cyan is the only chromatic color in the interface. Color in the page beyond it comes from the photographs.
 
-**The No Bands Rule.** Sections never get their own background color. They separate by space and a hairline.
+**The Alternating Band Rule.** After the hero, sections alternate grounds, starting with the band: Services, About, and Contact sit on the night band; Work, Process, and the footer stay on the night ground. Only these two grounds, never a third color or a light band. The footer carries no top rule; the change of ground marks it.
 
 ## Typography
 
@@ -212,7 +212,7 @@ Both are self-hosted through Fontsource; no font is loaded from a third party.
 
 One centered column, max 90rem (1440px) wide, with gutters of 20px, 32px from 640px, and 48px from 1024px (the `page-gutter` utility). Inside it, content sits on a 12-column grid from 768px or 1024px, typically a narrow left column (4-5 columns: labels, metadata, portraits) and a wide right column (6-7 columns: lists and prose). Mobile collapses to one column.
 
-Rhythm is generous and vertical on desktop and compact on phones: through the shared `section-y` utility, sections open with 80px of top space and close with 64px below 768px, and with 192px and 112px from 768px. A section title is followed by 32px (48px from 768px) before its content, a gap the Monument component owns so call sites add none. Lists are rows divided by hairlines with 32px of vertical padding per row on phones and 56px from 768px. Blocks inside a section sit 40-80px apart on phones, never more.
+Rhythm is generous and vertical on desktop and compact on phones: through the shared `section-y` utility, every section has 72px of space above and below its content below 768px and 128px from 768px, equal on both sides so each band's edges sit evenly. A section title is followed by 32px (48px from 768px) before its content, a gap the Monument component owns so call sites add none. Lists are rows divided by hairlines with 32px of vertical padding per row on phones and 56px from 768px. Blocks inside a section sit 40-80px apart on phones, never more.
 
 The hero fills the small viewport height. On desktop the nebula sits full-bleed to the right with a left fade mask and the text column takes the left 46%; on mobile the image takes the top 46% of the viewport with a bottom fade and the text follows. The institutions row is a hairline-topped strip pinned to the hero's bottom on desktop.
 
@@ -228,7 +228,7 @@ Flat. There are no shadows in the site's own components; field shadows from the 
 
 ### Named Rules
 
-**The Flat Night Rule.** Nothing floats. Separation is space, a hairline, or a fade to the ground.
+**The Flat Night Rule.** Nothing floats. Separation is space, a hairline, the step between the two grounds, or a fade to the ground.
 
 ## Shapes
 
@@ -291,14 +291,14 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 ### Do:
 
 - **Do** use ice cyan as the only accent, with dark ink on any cyan fill.
-- **Do** separate sections with space and hairlines on the one night ground.
+- **Do** alternate sections between the night ground and the night band, with equal space above and below.
 - **Do** use the Monument component for a new section title so it takes the shared Display size; never size one by hand.
 - **Do** author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.
 - **Do** keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).
 - **Do** credit every photo in a caption and in the footer credits list.
 - **Do** show CC BY-SA photos unaltered: CSS cropping (object-fit, aspect ratio, overflow) only.
 - **Do** keep every new animation behind the shared motion module or a reduced-motion query, and start content visible.
-- **Do** keep every text color at WCAG AA on the night ground and every control boundary at 3:1.
+- **Do** keep every text color at WCAG AA on both grounds and every control boundary at 3:1.
 
 ### Don't:
 
@@ -307,5 +307,5 @@ The section title described in the Monument Scale Rule. It is an h2 by default (
 - **Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.
 - **Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for the M27 hero.
 - **Don't** round corners or add shadows.
-- **Don't** use card grids or background bands to group content.
+- **Don't** use card grids, a third ground color, or a light band to group content.
 - **Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation.

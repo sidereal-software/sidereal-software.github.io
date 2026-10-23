@@ -14,7 +14,7 @@ export function About() {
     <section
       id="about"
       aria-label="About"
-      className="section-y scroll-mt-16 overflow-x-clip">
+      className="section-y bg-band scroll-mt-16 overflow-x-clip">
       <div className="page-gutter">
         <Monument>About</Monument>
 

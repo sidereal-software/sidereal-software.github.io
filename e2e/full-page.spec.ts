@@ -30,6 +30,32 @@ for (const width of widths) {
   })
 }
 
+for (const [width, padding] of [
+  [390, '72px'],
+  [1440, '128px'],
+] as const) {
+  test(`sections alternate night and band with equal padding at ${width}px`, async ({
+    page,
+  }) => {
+    await openAt(page, width)
+    const sections = await page.$$eval('main > section:not(#home)', (els) =>
+      els.map((el) => {
+        const style = getComputedStyle(el)
+        return [el.id, style.backgroundColor, style.paddingTop, style.paddingBottom]
+      }),
+    )
+    const band = 'rgb(12, 12, 17)'
+    const night = 'rgba(0, 0, 0, 0)'
+    expect(sections).toEqual([
+      ['services', band, padding, padding],
+      ['work', night, padding, padding],
+      ['about', band, padding, padding],
+      ['process', night, padding, padding],
+      ['contact', band, padding, padding],
+    ])
+  })
+}
+
 // Reads every element in main two frames after a change, too soon for any running spring to finish.
 function unsettledElements(page: Page) {
   return page.evaluate(async () => {

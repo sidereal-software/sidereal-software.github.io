@@ -6,7 +6,7 @@ const linkClass =
 
 export function SiteFooter() {
   return (
-    <footer className="border-border border-t">
+    <footer>
       <div className="page-gutter py-16">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-4">

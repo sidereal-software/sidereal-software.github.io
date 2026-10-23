@@ -23,6 +23,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-dim: var(--dim);
+  --color-band: var(--band);
   --radius-xs: var(--radius);
   --radius-sm: var(--radius);
   --radius-md: var(--radius);
@@ -34,11 +35,12 @@
   --font-display: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Dark-only; every text color passes WCAG AA on --background. */
+/* Dark-only; every text color passes WCAG AA on --background and --band. */
 :root {
   color-scheme: dark;
   --radius: 0rem;
   --background: #050507;
+  --band: #0c0c11;
   --foreground: #edece7;
   --card: #0c0d10;
   --card-foreground: #edece7;
@@ -64,7 +66,7 @@
 }
 
 @utility section-y {
-  @apply pt-20 pb-16 md:pt-48 md:pb-28;
+  @apply py-18 md:py-32;
 }
 
 @utility label-heading {

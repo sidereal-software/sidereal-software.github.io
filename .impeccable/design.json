@@ -19,6 +19,21 @@
           "oklch(95% 0.006 285)"
         ]
       },
+      "night-band": {
+        "role": "neutral",
+        "displayName": "Night Band",
+        "canonical": "#0c0c11",
+        "tonalRamp": [
+          "oklch(15% 0.006 285)",
+          "oklch(25% 0.006 285)",
+          "oklch(35% 0.006 285)",
+          "oklch(45% 0.006 285)",
+          "oklch(55% 0.006 285)",
+          "oklch(65% 0.006 285)",
+          "oklch(80% 0.006 285)",
+          "oklch(95% 0.006 285)"
+        ]
+      },
       "bone-ink": {
         "role": "neutral",
         "displayName": "Bone Ink",
@@ -312,7 +327,7 @@
   ],
   "narrative": {
     "northStar": "The Monolith",
-    "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.",
+    "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections alternate between the night ground and a barely lifted night band, each with the same space above and below, so the long scroll reads as chapters; inside a section, space and hairline rules separate blocks, never cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on both the night ground and the night band.",
     "keyCharacteristics": [
       "Dark-only ground with a single ice-cyan accent.",
       "Monument titles at peer scale (76px at most), uppercase for generic words only.",
@@ -328,8 +343,8 @@
         "section": "colors"
       },
       {
-        "name": "The No Bands Rule",
-        "body": "Sections never get their own background color. They separate by space and a hairline.",
+        "name": "The Alternating Band Rule",
+        "body": "After the hero, sections alternate grounds, starting with the band: Services, About, and Contact sit on the night band; Work, Process, and the footer stay on the night ground. Only these two grounds, never a third color or a light band. The footer carries no top rule; the change of ground marks it.",
         "section": "colors"
       },
       {
@@ -349,20 +364,20 @@
       },
       {
         "name": "The Flat Night Rule",
-        "body": "Nothing floats. Separation is space, a hairline, or a fade to the ground.",
+        "body": "Nothing floats. Separation is space, a hairline, the step between the two grounds, or a fade to the ground.",
         "section": "elevation"
       }
     ],
     "dos": [
       "**Do** use ice cyan as the only accent, with dark ink on any cyan fill.",
-      "**Do** separate sections with space and hairlines on the one night ground.",
+      "**Do** alternate sections between the night ground and the night band, with equal space above and below.",
       "**Do** use the Monument component for a new section title so it takes the shared Display size; never size one by hand.",
       "**Do** author generic titles in sentence case and let CSS uppercase them; route uppercase text with a mixed-case acronym through Caps.",
       "**Do** keep proper names, institutions, and brands in their authored casing (pyINDI, NSF NOIRLab, Caltech / IPAC, SPHEREx).",
       "**Do** credit every photo in a caption and in the footer credits list.",
       "**Do** show CC BY-SA photos unaltered: CSS cropping (object-fit, aspect ratio, overflow) only.",
       "**Do** keep every new animation behind the shared motion module or a reduced-motion query, and start content visible.",
-      "**Do** keep every text color at WCAG AA on the night ground and every control boundary at 3:1."
+      "**Do** keep every text color at WCAG AA on both grounds and every control boundary at 3:1."
     ],
     "donts": [
       "**Don't** add a light theme, theme switch, or second accent color.",
@@ -370,7 +385,7 @@
       "**Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.",
       "**Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for the M27 hero.",
       "**Don't** round corners or add shadows.",
-      "**Don't** use card grids or background bands to group content.",
+      "**Don't** use card grids, a third ground color, or a light band to group content.",
       "**Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation."
     ]
   }

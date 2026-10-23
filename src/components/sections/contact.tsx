@@ -28,7 +28,7 @@ export function Contact() {
   const email = `${EMAIL_USER}@${EMAIL_DOMAIN}`
 
   return (
-    <section id="contact" className="section-y scroll-mt-16">
+    <section id="contact" className="section-y bg-band scroll-mt-16">
       <div className="page-gutter">
         <Monument>Start a project</Monument>
 

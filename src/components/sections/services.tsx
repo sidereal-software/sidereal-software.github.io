@@ -50,7 +50,7 @@ const stack = [
 
 export function Services() {
   return (
-    <section id="services" className="section-y scroll-mt-16">
+    <section id="services" className="section-y bg-band scroll-mt-16">
       <div className="page-gutter">
         <Monument>Services</Monument>
 
