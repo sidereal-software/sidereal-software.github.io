@@ -151,7 +151,7 @@ export function Contact() {
                     name="message"
                     required
                     rows={5}
-                    className={cn(fieldClass, 'min-h-36 resize-y')}
+                    className={cn(fieldClass, 'min-h-36 resize-none')}
                   />
                   <ValidationError
                     prefix="Message"

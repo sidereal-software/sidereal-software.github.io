@@ -94,3 +94,14 @@ for (const width of widths) {
     await expectNoHorizontalScroll(page)
   })
 }
+
+test('the message field grows with its text and shows no resize grabber', async ({
+  page,
+}) => {
+  await openAt(page, 1440)
+  const message = page.locator('#contact form').getByLabel('What do you need help with?')
+  expect(await message.evaluate((el) => getComputedStyle(el).resize)).toBe('none')
+  const before = (await message.boundingBox())?.height ?? 0
+  await message.fill(Array.from({ length: 12 }, (_, line) => `Line ${line}`).join('\n'))
+  expect((await message.boundingBox())?.height ?? 0).toBeGreaterThan(before)
+})
