@@ -1,6 +1,5 @@
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
-import { TrustStrip } from '@/components/trust-strip'
 import { CaseStudies } from '@/components/sections/case-studies'
 import { Contact } from '@/components/sections/contact'
 import { Experience } from '@/components/sections/experience'
@@ -18,7 +17,6 @@ function App() {
       <SiteHeader />
       <main className="relative z-10">
         <Hero />
-        <TrustStrip />
         <Services />
         <CaseStudies />
         <Projects />

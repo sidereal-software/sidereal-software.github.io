@@ -100,6 +100,12 @@ describe('App', () => {
     ])
   })
 
+  it('names the institutions only in the hero, not in a separate strip', () => {
+    render(<App />)
+    expect(screen.queryByRole('region', { name: 'Institutions' })).toBeNull()
+    expect(screen.queryByText('Experience across')).toBeNull()
+  })
+
   it('links the founder profiles', () => {
     render(<App />)
     for (const href of [
