@@ -319,6 +319,15 @@ describe('App', () => {
     expect(document.querySelector('input[name="_gotcha"]')).not.toBeNull()
   })
 
+  it('presses the inquiry button down and lets it spring back', async () => {
+    render(<App />)
+    const submit = screen.getByRole('button', { name: 'Send inquiry' })
+    fireEvent.pointerDown(submit)
+    await waitFor(() => expect(submit.style.transform).toBe('scale(0.97)'))
+    fireEvent.pointerUp(submit)
+    await waitFor(() => expect(submit.style.transform).toBe('none'))
+  })
+
   it('states availability and location', () => {
     render(<App />)
     expect(screen.getByText('Currently taking on new projects')).toBeInTheDocument()

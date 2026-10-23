@@ -84,7 +84,8 @@
     font-family: var(--font-display);
     font-weight: 700;
     line-height: 0.86;
-    white-space: nowrap;
+    /* Authored newlines break the line; nothing else wraps. */
+    white-space: pre;
   }
 
   /* Fallback until useFitText measures; errs small so nothing ever crops. */
