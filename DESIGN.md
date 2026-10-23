@@ -141,7 +141,7 @@ components:
 
 A night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.
 
-Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
+Density is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption attached to it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.
 
 The theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.
 
@@ -165,7 +165,7 @@ A near-black, slightly blue night with warm bone ink and one ice-cyan accent; gr
 
 ### Neutral
 
-- **Night Ground** (`night-ground`): the page, the scrolled header, the mobile menu panel, and the 85% translucent strips over the hero (institutions row, image caption).
+- **Night Ground** (`night-ground`): the page, the scrolled header, the mobile menu panel, and the 85% translucent strips over photos (the hero's institutions row and image caption, and the case-study caption on phones).
 - **Bone Ink** (`bone-ink`): headings, Monument titles, primary text, and the primary button's hover fill.
 - **Moon Grey** (`moon-grey`): body copy, ledes, descriptions, nav links at rest, and form labels (8.6:1 on the ground).
 - **Dust Grey** (`dust-grey`): tertiary text: periods, years, counters, captions, small section labels, and the large process numerals (6.0:1 on the ground).
@@ -273,6 +273,8 @@ Numbered or dated rows divided by hairlines: services (cyan two-digit number, up
 ### Image Credit
 
 Every photo carries a caption: name, location, credit, and a linked license, middle-dot separated, in 0.75rem dust grey. The footer repeats every credit with the source link.
+
+The caption always reads as part of its photo, never as the first line of the text below it. Secondary photos take it directly under the image. On a case-study band it sits on the photo, never under the name: from 768px it is set at the band's bottom right, level with the name; below 768px it runs up the band's right edge, bottom to top, on an 85% night-ground strip. Both band photos are CC BY, which allows the strip; a CC BY-SA photo would need its caption under the image instead.
 
 ### Monument (signature)
 

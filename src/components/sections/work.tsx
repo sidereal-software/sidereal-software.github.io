@@ -68,30 +68,27 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
 
   return (
     <article className="mt-24 first-of-type:mt-0 md:mt-40">
-      <figure>
-        <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
+      <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
+        {/* The figure stays unpositioned so the photo, and the caption strip on phones, anchor to the full-bleed band rather than the gutter. */}
+        <figure className="page-gutter flex h-full items-end pb-6 md:justify-between md:gap-12 md:pb-0">
           <img
             src={lead.src}
             alt={altText(lead)}
             width={lead.width}
             height={lead.height}
             loading="lazy"
-            className="size-full object-cover"
+            className="absolute inset-0 size-full object-cover"
           />
           <div className="from-background absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent" />
-          <div className="page-gutter absolute inset-x-0 bottom-0">
-            <Monument as="h3" properName>
-              {study.name}
-            </Monument>
-          </div>
-        </div>
-        <div className="page-gutter">
+          <Monument as="h3" properName className="relative">
+            {study.name}
+          </Monument>
           <ImageCredit
             image={lead}
-            className="pt-6 md:ml-auto md:max-w-[42rem] md:text-right"
+            className="max-md:bg-background/85 absolute right-0 bottom-0 max-h-full rotate-180 px-1 py-3 leading-snug [writing-mode:vertical-rl] md:leading-relaxed md:relative md:max-w-[26rem] md:rotate-0 md:p-0 md:pb-4 md:text-right md:[writing-mode:horizontal-tb]"
           />
-        </div>
-      </figure>
+        </figure>
+      </div>
 
       <div className="page-gutter mt-14 grid gap-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-4">
