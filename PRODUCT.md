@@ -12,8 +12,8 @@ web
   observatories, instrument teams, and space missions who need production software
   built or rescued: telescope control, data pipelines, web platforms for astronomers.
 - Secondary: research and operations teams outside astronomy, often led by people
-  who do not write software (for example the wildlife professionals behind ARK), who
-  can describe a problem and need it turned into a working app.
+  who do not write software, who can describe a problem and need it turned into a
+  working app.
 
 They arrive by referral, from a paper or GitHub repo, or from a search, and judge
 fast whether this person has done real work at real facilities.

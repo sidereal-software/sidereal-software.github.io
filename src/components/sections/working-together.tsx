@@ -33,7 +33,7 @@ const faqs = [
   {
     question: 'What kinds of projects are a good fit?',
     answer:
-      'Observatory control systems, data-processing pipelines, and scientific web platforms are what I build most, but any science with a software problem is a good fit: ARK exists because wildlife professionals needed better record keeping. I take on new builds and modernizations of systems you already run.',
+      'Observatory control systems, data-processing pipelines, and scientific web platforms are what I build most, but any science with a software problem is a good fit, including teams who do not write software themselves. I take on new builds and modernizations of systems you already run.',
   },
   {
     question: 'Where are you based, and do you work remotely?',

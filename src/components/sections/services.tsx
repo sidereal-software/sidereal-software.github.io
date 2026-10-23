@@ -77,9 +77,9 @@ export function Services() {
             Don't write software? That's the point.
           </h3>
           <p className="text-muted-foreground max-w-[60ch] text-lg leading-relaxed text-pretty lg:col-span-6 lg:col-start-7">
-            If you can describe the problem, I can build the app that removes it. ARK
-            began that way: wildlife professionals needed their record keeping to be
-            easier.
+            Bring the problem in your own words: the spreadsheet nobody trusts, the step
+            someone does by hand every night, the data stuck on one laptop. I turn it into
+            an app your team can run without me.
           </p>
         </div>
 
