@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T09:50:41+00:00",
+  "generatedAt": "2026-10-23T10:10:01+00:00",
   "title": "Design System: Sidereal Software",
   "extensions": {
     "colorMeta": {
@@ -147,7 +147,7 @@
       },
       "display-name": {
         "displayName": "Display name",
-        "purpose": "Case-study names over their photos, authored casing: clamp(2.25rem, 5vw, 4.25rem), 36px at 390 and 68px at 1440."
+        "purpose": "Case-study names under their photos, authored casing: clamp(2.25rem, 5vw, 4.25rem), 36px at 390 and 68px at 1440."
       },
       "headline": {
         "displayName": "Headline",
@@ -187,7 +187,7 @@
       },
       "caption": {
         "displayName": "Caption",
-        "purpose": "Image credits, attached to their photo: under secondary photos, on the case-study band photo."
+        "purpose": "Image credits, 16px directly under their photo."
       }
     },
     "shadows": [],
@@ -313,22 +313,14 @@
       "name": "Image Credit",
       "kind": "custom",
       "refersTo": "caption",
-      "description": "Caption directly under a career photo: name, location, credit, linked license. It reads as part of the photo, never as the first line of the text below.",
+      "description": "Caption 16px directly under every photo outside the hero: name, location, credit, linked license. Any heading for the photo's content follows it.",
       "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-img\"></div><figcaption class=\"ds-credit\"><span class=\"ds-credit-name\">VATT</span> · Mt. Graham, Arizona · Vatican Observatory (photo: Jjstott), via Wikimedia Commons · <a href=\"#\">CC BY-SA 3.0</a></figcaption></figure>",
-      "css": ".ds-photo { margin: 0; max-width: 320px; } .ds-photo-img { aspect-ratio: 4 / 3; background: linear-gradient(160deg, #2a3a4a, #0c0d10); } .ds-photo .ds-credit { padding-top: 12px; } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
-    },
-    {
-      "name": "Band Caption",
-      "kind": "custom",
-      "refersTo": "caption",
-      "description": "Caption on a full-bleed case-study photo's bottom fade (CC BY only), in the same horizontal style as every caption. From 768px it sits at the bottom right, level with the name; below 768px directly under the name.",
-      "html": "<div class=\"ds-band\"><h3 class=\"ds-band-name\">GOATS</h3><figcaption class=\"ds-credit ds-band-credit\"><span class=\"ds-credit-name\">Gemini North</span> · Maunakea, Hawai'i · International Gemini Observatory/NOIRLab/NSF/AURA/J. Warner · <a href=\"#\">CC BY 4.0</a></figcaption></div>",
-      "css": ".ds-band { position: relative; height: 26rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 0 20px 20px; background: linear-gradient(to top, #050507 0%, transparent 60%), linear-gradient(170deg, #3a5a4a, #1a2230 60%, #0c0d10); overflow: hidden; } .ds-band-name { margin: 0; font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.25rem, 5vw, 4.25rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; color: var(--foreground, #edece7); } @media (min-width: 768px) { .ds-band { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; padding: 0 48px; } .ds-band-credit { max-width: 26rem; padding-bottom: 16px; text-align: right; } } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+      "css": ".ds-photo { margin: 0; max-width: 320px; } .ds-photo-img { aspect-ratio: 16 / 10; background: linear-gradient(160deg, #2a3a4a, #0c0d10); } .ds-photo .ds-credit { padding-top: 16px; } .ds-credit { color: var(--dim, #8a8a94); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; line-height: 1.625; } .ds-credit-name { color: var(--muted-foreground, #a8a8b0); } .ds-credit a { color: inherit; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--border, #26272d); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-credit a:hover { color: var(--foreground, #edece7); text-decoration-color: var(--primary, #9be7ff); } .ds-credit a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     }
   ],
   "narrative": {
     "northStar": "The Monolith",
-    "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is full-bleed or plainly cropped, always credited in a caption attached to it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.",
+    "overview": "**Creative North Star: \"The Monolith\"**\n\nA night ground, one cold accent, and large uppercase titles at peer scale standing in front of real telescope photographs. The site borrows the restraint of a large observatory's public face: almost nothing on the page is decorative, so the photographs of facilities Dan's work touched and the large uppercase section titles carry the whole atmosphere. One retro-future signature, the Monument title, does the shouting; everything else is quiet, small, and set in a humanist grotesk.\n\nDensity is low and vertical. Sections are separated by space and hairline rules, never by background bands or cards. Photography is the hero's full-bleed nebula or a plain rectangle inside the page margin, always credited in a caption directly under it, and the hero nebula is the only image that moves. Motion is slow (a 60 s zoom) or small (springs that settle in under half a second); nothing loops for decoration.\n\nThe theme is dark-only. There is no light mode and no theme switch, and every text color is chosen to pass WCAG AA on the night ground.",
     "keyCharacteristics": [
       "Dark-only ground with a single ice-cyan accent.",
       "Monument titles at peer scale (76px at most), uppercase for generic words only.",
@@ -350,7 +342,7 @@
       },
       {
         "name": "The Monument Scale Rule",
-        "body": "A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so \"Start a project\" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside a clipping photo band. No negative margins, no viewport-overflowing sizes, no horizontal translation.",
+        "body": "A Monument title sits at the scale of its peers (observatory and studio sites top out at 70-80px on desktop and 35-60px on mobile), never filling the viewport width. Its size is a fixed clamp per role (Display for section titles, Display name for case-study names), not measured from the container, and it stays left aligned and larger than the service titles at every width. Long titles wrap naturally and balance, so \"Start a project\" takes two lines on a phone and one on a desktop. A bottom padding of 0.12em keeps descenders inside any clipping parent. No negative margins, no viewport-overflowing sizes, no horizontal translation.",
         "section": "typography"
       },
       {
@@ -384,7 +376,7 @@
       "**Don't** add a light theme, theme switch, or second accent color.",
       "**Don't** add eyebrow labels or kickers; the hero tagline is the single sanctioned kicker.",
       "**Don't** uppercase a proper name or brand, and don't crop, overflow, translate, or negatively-margin a Monument title.",
-      "**Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for CC BY and public-domain images such as the M27 hero and the case-study bands.",
+      "**Don't** retint, recolor, filter, mask, dim, or overlay a CC BY-SA photo (VATT, Lowell Discovery Telescope); masks, dimming, and gradients are only for the M27 hero.",
       "**Don't** round corners or add shadows.",
       "**Don't** use card grids or background bands to group content.",
       "**Don't** add springs on scroll position, decorative loops, horizontal title drift, WebGL, video, or canvas animation."
