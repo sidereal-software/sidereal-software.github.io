@@ -1,14 +1,8 @@
-import Autoplay from 'embla-carousel-autoplay'
+import { useState, type ComponentProps } from 'react'
+import { animated } from '@react-spring/web'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-import { SectionHeading } from '@/components/section-heading'
-import { Card, CardContent } from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { usePress, useSpringIn } from '@/lib/motion'
 
 interface Testimonial {
   quote: string
@@ -48,41 +42,79 @@ const testimonials: Testimonial[] = [
   },
 ]
 
-export function Testimonials() {
+function StepButton(props: ComponentProps<typeof animated.button>) {
+  const { style, bind } = usePress()
   return (
-    <section id="testimonials" className="scroll-mt-16 py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading title="In their words" />
-        <Carousel
-          opts={{ loop: true, align: 'start' }}
-          plugins={[
-            Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true }),
-          ]}
-          className="mx-auto max-w-5xl px-12">
-          <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.name} className="md:basis-1/2">
-                <Card className="bg-card/60 h-full backdrop-blur-sm">
-                  <CardContent className="flex h-full flex-col gap-6">
-                    <blockquote className="flex-1 font-serif text-base italic leading-relaxed">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-                    <footer className="font-mono text-xs">
-                      <div className="text-foreground font-medium">
-                        {testimonial.name}
-                      </div>
-                      <div className="text-muted-foreground mt-1">
-                        {testimonial.title} · {testimonial.org}
-                      </div>
-                    </footer>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-0" />
-          <CarouselNext className="right-0" />
-        </Carousel>
+    <animated.button
+      type="button"
+      {...props}
+      style={style}
+      {...bind}
+      className="group border-border hover:border-primary hover:text-primary grid size-12 place-items-center border transition-colors"
+    />
+  )
+}
+
+export function Testimonials() {
+  const [index, setIndex] = useState(0)
+  const incoming = useSpringIn(index)
+  const step = (delta: number) =>
+    setIndex((current) => (current + delta + testimonials.length) % testimonials.length)
+
+  return (
+    <section
+      id="testimonials"
+      aria-labelledby="testimonials-title"
+      aria-roledescription="carousel"
+      className="scroll-mt-16 overflow-x-clip py-28 md:py-44">
+      <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-12">
+        <h2
+          id="testimonials-title"
+          className="text-primary mb-12 text-xs font-medium tracking-[0.32em] uppercase md:mb-16">
+          Testimonials
+        </h2>
+        <div className="grid">
+          {testimonials.map((testimonial, position) => (
+            <animated.figure
+              key={testimonial.name}
+              aria-hidden={position !== index}
+              style={position === index ? incoming : undefined}
+              className={
+                position === index
+                  ? 'm-0 [grid-area:1/1]'
+                  : 'invisible m-0 [grid-area:1/1]'
+              }>
+              <blockquote className="font-display max-w-[24ch] indent-[-0.42em] text-[clamp(1.5rem,3.8vw,3.5rem)] leading-[1.14] font-normal tracking-[-0.02em] text-pretty sm:max-w-[28ch]">
+                &ldquo;{testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-10 md:mt-12">
+                <p className="font-semibold">{testimonial.name}</p>
+                <p className="text-muted-foreground mt-1">
+                  {testimonial.title}, {testimonial.org}
+                </p>
+              </figcaption>
+            </animated.figure>
+          ))}
+        </div>
+        <div className="mt-12 flex items-center gap-4 md:mt-14">
+          <StepButton aria-label="Previous testimonial" onClick={() => step(-1)}>
+            <ArrowLeft
+              aria-hidden
+              className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:-translate-x-0.5"
+              strokeWidth={1.75}
+            />
+          </StepButton>
+          <StepButton aria-label="Next testimonial" onClick={() => step(1)}>
+            <ArrowRight
+              aria-hidden
+              className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-0.5"
+              strokeWidth={1.75}
+            />
+          </StepButton>
+          <p aria-live="polite" className="text-dim ml-2 text-sm tabular-nums">
+            {index + 1} / {testimonials.length}
+          </p>
+        </div>
       </div>
     </section>
   )

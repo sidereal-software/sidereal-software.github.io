@@ -31,8 +31,8 @@ describe('App', () => {
       'From problem to production',
       'What Sidereal is building',
       'A career across observatories and missions',
-      'In their words',
-      'Meet the founder',
+      'Testimonials',
+      'About',
       'How I work',
       'Common questions',
       'Start a project',
@@ -139,16 +139,33 @@ describe('App', () => {
     expect(screen.queryByText('Experience across')).toBeNull()
   })
 
-  it('links the founder profiles', () => {
+  it('introduces Dan in About with the pull quote, his MS, and profile links', () => {
     render(<App />)
-    for (const href of [
-      'https://www.danavner.com',
-      'https://github.com/davner',
-      'https://www.linkedin.com/in/danavner',
-    ]) {
-      const links = document.querySelectorAll(`a[href="${href}"]`)
-      expect(links.length, `missing link to ${href}`).toBeGreaterThan(0)
-    }
+    const about = screen.getByRole('region', { name: 'About' })
+    expect(
+      within(about).getByText(
+        'I build the tools I wished I had at 3 a.m. on the mountain.',
+      ),
+    ).toBeInTheDocument()
+    expect(
+      within(about).getByText(
+        /an MS in Applied Physics from Northern Arizona University/,
+      ),
+    ).toBeInTheDocument()
+    expect(within(about).getByText('Dan Avner')).toBeInTheDocument()
+    expect(within(about).getByText('Founder & Principal Engineer')).toBeInTheDocument()
+    expect(
+      within(about).getByRole('img', { name: 'Portrait of Dan Avner' }),
+    ).toBeInTheDocument()
+    expect(
+      within(about)
+        .getAllByRole('link')
+        .map((link) => [link.textContent, link.getAttribute('href')]),
+    ).toEqual([
+      ['danavner.com', 'https://www.danavner.com'],
+      ['GitHub', 'https://github.com/davner'],
+      ['LinkedIn', 'https://www.linkedin.com/in/danavner'],
+    ])
   })
 
   it('reveals the contact email on click', () => {
@@ -245,8 +262,7 @@ describe('App', () => {
 
   it('closes the footer with the tagline and credits for every image', () => {
     render(<App />)
-    // Testimonial attributions also use <footer>, so find the site footer by its own link.
-    const footer = screen.getByRole('link', { name: 'Back to top' }).closest('footer')!
+    const footer = screen.getByRole('contentinfo')
     expect(
       within(footer).getByText('Sidereal Software · Los Angeles, California'),
     ).toBeInTheDocument()
@@ -291,6 +307,71 @@ describe('App', () => {
     render(<App />)
     expect(screen.getByText('Currently taking on new projects')).toBeInTheDocument()
     expect(screen.getByText('Los Angeles, California · Pacific Time')).toBeInTheDocument()
+  })
+
+  it('steps to the next testimonial and announces its position', () => {
+    render(<App />)
+    const testimonials = screen.getByRole('region', { name: 'Testimonials' })
+    fireEvent.click(
+      within(testimonials).getByRole('button', { name: 'Next testimonial' }),
+    )
+    expect(
+      within(testimonials).getByText(
+        '“What truly sets Dan apart is his innate ability to present solutions when faced with challenges... He consistently met deadlines and exceeded expectations, thriving under pressure while delivering exceptional results.”',
+      ),
+    ).toBeVisible()
+    expect(within(testimonials).getByText('2 / 4')).toBeInTheDocument()
+  })
+
+  it('reaches every verbatim testimonial through the controls, one at a time', () => {
+    const approved = [
+      [
+        '“He has an eye for GUIs and graphical design that I have never seen equaled... Everything he touched became instantly improved.”',
+        'Chris Johnson',
+        'Lead Software Engineer, Mountain Operations, Steward Observatory',
+      ],
+      [
+        '“What truly sets Dan apart is his innate ability to present solutions when faced with challenges... He consistently met deadlines and exceeded expectations, thriving under pressure while delivering exceptional results.”',
+        'Scott Swindell',
+        'Software Engineer, Steward Observatory',
+      ],
+      [
+        '“The range of skills that Dan mastered to complete this project is really astounding... Not only did Dan essentially complete the project, but he made it look easy.”',
+        'David Trilling',
+        'Professor & Chair, Astronomy & Planetary Science, Northern Arizona University',
+      ],
+      [
+        "“He is attentive, well-spoken, and responsive... I have learned from him the practice of trying to 'always leave code better than when you found it.'”",
+        'Christina Nelson',
+        'Application Developer, SPHEREx, Caltech / IPAC',
+      ],
+    ]
+    render(<App />)
+    const testimonials = screen.getByRole('region', { name: 'Testimonials' })
+    const shown = () => {
+      const figure = within(testimonials).getByRole('figure')
+      return [
+        figure.querySelector('blockquote')!.textContent,
+        ...[...figure.querySelectorAll('figcaption p')].map((line) => line.textContent),
+      ]
+    }
+    const press = (name: string) =>
+      fireEvent.click(within(testimonials).getByRole('button', { name }))
+
+    for (const [position, expected] of approved.entries()) {
+      expect(shown()).toEqual(expected)
+      expect(within(testimonials).getByText(`${position + 1} / 4`)).toBeInTheDocument()
+      press('Next testimonial')
+    }
+    expect(shown()).toEqual(approved[0])
+    press('Previous testimonial')
+    expect(shown()).toEqual(approved[3])
+    expect(within(testimonials).getByText('4 / 4')).toHaveAttribute('aria-live', 'polite')
+  })
+
+  it('keeps testimonial attributions out of the page landmarks', () => {
+    render(<App />)
+    expect(screen.getAllByRole('contentinfo')).toHaveLength(1)
   })
 
   it('credits every testimonial author', () => {
