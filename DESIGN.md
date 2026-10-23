@@ -165,7 +165,7 @@ A near-black, slightly blue night with warm bone ink and one ice-cyan accent; gr
 
 ### Neutral
 
-- **Night Ground** (`night-ground`): the page, the scrolled header, the mobile menu panel, and the 85% translucent strips over photos (the hero's institutions row and image caption, and the case-study caption on phones).
+- **Night Ground** (`night-ground`): the page, the scrolled header, the mobile menu panel, and the 85% translucent strips over the hero (institutions row, image caption).
 - **Bone Ink** (`bone-ink`): headings, Monument titles, primary text, and the primary button's hover fill.
 - **Moon Grey** (`moon-grey`): body copy, ledes, descriptions, nav links at rest, and form labels (8.6:1 on the ground).
 - **Dust Grey** (`dust-grey`): tertiary text: periods, years, counters, captions, small section labels, and the large process numerals (6.0:1 on the ground).
@@ -274,7 +274,7 @@ Numbered or dated rows divided by hairlines: services (cyan two-digit number, up
 
 Every photo carries a caption: name, location, credit, and a linked license, middle-dot separated, in 0.75rem dust grey. The footer repeats every credit with the source link.
 
-The caption always reads as part of its photo, never as the first line of the text below it. Secondary photos take it directly under the image. On a case-study band it sits on the photo, never under the name: from 768px it is set at the band's bottom right, level with the name; below 768px it runs up the band's right edge, bottom to top, on an 85% night-ground strip. Both band photos are CC BY, which allows the strip; a CC BY-SA photo would need its caption under the image instead.
+The caption always reads as part of its photo, never as the first line of the text below it, and every caption is one horizontal style at the photo's bottom edge. Secondary photos take it directly under the image. On a case-study band it sits on the photo's bottom fade: from 768px at the bottom right, level with the name; below 768px directly under the name. Both band photos are CC BY, which allows text on the image; a CC BY-SA photo always takes its caption under the image.
 
 ### Monument (signature)
 

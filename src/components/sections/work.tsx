@@ -69,8 +69,8 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
   return (
     <article className="mt-24 first-of-type:mt-0 md:mt-40">
       <div className="relative h-[26rem] overflow-hidden md:h-[clamp(20rem,72vh,46rem)]">
-        {/* The figure stays unpositioned so the photo, and the caption strip on phones, anchor to the full-bleed band rather than the gutter. */}
-        <figure className="page-gutter flex h-full items-end pb-6 md:justify-between md:gap-12 md:pb-0">
+        {/* The figure stays unpositioned so the photo fills the full-bleed band while the name and caption keep the page gutter. */}
+        <figure className="page-gutter flex h-full flex-col justify-end gap-3 pb-5 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-0">
           <img
             src={lead.src}
             alt={altText(lead)}
@@ -85,7 +85,7 @@ function CaseStudyBand({ study }: { study: CaseStudy }) {
           </Monument>
           <ImageCredit
             image={lead}
-            className="max-md:bg-background/85 absolute right-0 bottom-0 max-h-full rotate-180 px-1 py-3 leading-snug [writing-mode:vertical-rl] md:leading-relaxed md:relative md:max-w-[26rem] md:rotate-0 md:p-0 md:pb-4 md:text-right md:[writing-mode:horizontal-tb]"
+            className="relative md:max-w-[26rem] md:pb-4 md:text-right"
           />
         </figure>
       </div>
