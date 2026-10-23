@@ -120,6 +120,11 @@ components:
     typography: '{typography.body-small}'
   nav-link-hover:
     textColor: '{colors.bone-ink}'
+  nav-menu-trigger:
+    textColor: '{colors.bone-ink}'
+    typography: '{typography.body-small}'
+    padding: '0 10px'
+    height: '44px'
 ---
 
 # Design System: Sidereal Software
@@ -234,8 +239,8 @@ Few, solid, and square.
 
 - **Shape:** square corners (0px), 48px tall.
 - **Primary:** ice-cyan fill, dark ink, Hanken Grotesk 600 at 0.875rem with slight tracking, 24-28px side padding, trailing arrow icon. Used for "Start a project" in the hero and "Send inquiry".
-- **Hover / Focus:** fill shifts to bone ink; the arrow nudges 4px right (only when motion is allowed). Focus is a 2px ice-cyan outline offset 4px. Press scales to 0.97 on a spring.
-- **Step button:** 48px square with a hairline border and a 1.75-stroke arrow; hover turns border and arrow ice cyan. Used for testimonial previous and next.
+- **Hover / Focus:** fill shifts to bone ink; the arrow nudges 4px right (only when motion is allowed). Focus is a 2px ice-cyan outline offset 4px. Press scales to 0.97 on a spring through the shared press component (`PressButton`, `PressLink`).
+- **Step button:** 48px square with a hairline border and a 1.75-stroke arrow; hover turns border and arrow ice cyan, and it presses like the primary. Used for testimonial previous and next.
 - **Disabled / sending:** 70% opacity and a wait cursor.
 
 ### Links
@@ -270,7 +275,7 @@ The giant fitted title described in the Monument Fit Rule. It is an h2 by defaul
 
 - **Hero zoom:** the nebula scales slowly from 1.04 to 1.12 with a slight drift, 60 s ease-in-out, alternating forever. The only looping motion on the site.
 - **Scroll reveal:** Monument titles rise 1.5rem from 15% opacity as they enter the viewport, driven by the CSS scroll timeline where supported, ending fully visible. Where scroll timelines are unsupported, titles simply show.
-- **Springs** (react-spring, one shared motion module): a settle spring (tension 280, friction 30) and a press spring (tension 520, friction 40), both damped near 0.9 so they settle without visible bounce. Used in five places only: the hero entrance stagger (kicker, H1, lede, actions rising 12px, already visible, with no fade), the 0.97 press on buttons and CTA links, the incoming testimonial quote, the process numerals rising 24px in a 90 ms sequence the first time the row scrolls into view, and the mobile menu link stagger.
+- **Springs** (react-spring, one shared motion module): a settle spring (tension 280, friction 30) and a press spring (tension 520, friction 40), both damped near 0.9 so they settle without visible bounce. Used in five places only: the hero entrance stagger (kicker, H1, lede, actions rising 12px, already visible, with no fade), the 0.97 press on buttons and CTA links (one shared press component, never a per-call-site spring), the incoming testimonial quote, the process numerals rising 24px in a 90 ms sequence the first time the row scrolls into view, and the mobile menu link stagger.
 - **Reduced motion:** under prefers-reduced-motion the hero zoom, scroll reveal, smooth in-page scrolling, and the menu sheet and FAQ open animations are not applied and every spring skips straight to its end state, following live changes to the setting. Hover nudges are gated to motion-safe. Entrance springs (hero, menu links) only move content that is already visible, and the process numerals hide only once they are known to be off-screen, so content is never left invisible if a spring never runs.
 
 ## Do's and Don'ts

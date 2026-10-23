@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T01:52:45+00:00",
+  "generatedAt": "2026-10-23T02:26:28+00:00",
   "title": "Design System: Sidereal Software",
   "extensions": {
     "colorMeta": {
@@ -196,7 +196,12 @@
       {
         "name": "spring-press",
         "value": "react-spring { tension: 520, friction: 40 }, scale 0.97",
-        "purpose": "Press feedback on buttons and CTA links."
+        "purpose": "Press feedback on buttons, step buttons and CTA links, always through the shared PressButton / PressLink components."
+      },
+      {
+        "name": "stagger-in",
+        "value": "react-spring useTrail, translateY 12px to 0, no opacity change, settle spring",
+        "purpose": "Hero entrance (kicker, H1, lede, actions) and mobile menu links. Content is visible from the first frame; it only rises."
       },
       {
         "name": "stagger-step",
@@ -221,7 +226,7 @@
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Hero zoom and scroll reveal not applied; springs skip to end state (react-spring Globals.skipAnimation, live); hover nudges motion-safe only."
+        "purpose": "Not applied under reduce: hero zoom, scroll reveal, smooth in-page scrolling (motion-safe:scroll-smooth), and the Sheet overlay, Sheet panel and Accordion open animations. Springs skip to end state (react-spring Globals.skipAnimation, following live changes); hover nudges motion-safe only."
       }
     ],
     "breakpoints": [
@@ -248,7 +253,7 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Solid square ice-cyan call to action with a trailing arrow.",
+      "description": "Solid square ice-cyan call to action with a trailing arrow; presses to 0.97 through the shared press component.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Start a project <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
       "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; background: var(--primary, #9be7ff); color: var(--primary-foreground, #050507); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em; text-decoration: none; border-radius: 0; transition: background-color 150ms, transform 150ms; } .ds-btn-primary svg { transition: transform 300ms ease-out; } .ds-btn-primary:hover { background: var(--foreground, #edece7); } .ds-btn-primary:hover svg { transform: translateX(4px); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     },
@@ -256,7 +261,7 @@
       "name": "Accent Link",
       "kind": "custom",
       "refersTo": "link-accent",
-      "description": "Ice-cyan underlined link for the header CTA, repos, papers and the GitHub line.",
+      "description": "Ice-cyan underlined link (the link-accent utility) for the header CTA, repos, papers, the GitHub line and the revealed email.",
       "html": "<a class=\"ds-link-accent\" href=\"#\">SPIE 2022 paper <svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
       "css": ".ds-link-accent { display: inline-flex; align-items: center; gap: 8px; color: var(--primary, #9be7ff); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; text-decoration: underline; text-decoration-color: rgb(155 231 255 / 0.4); text-underline-offset: 6px; transition: text-decoration-color 150ms; } .ds-link-accent:hover { text-decoration-color: var(--primary, #9be7ff); } .ds-link-accent:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     },
@@ -272,7 +277,7 @@
       "name": "Step Button",
       "kind": "button",
       "refersTo": "step-button",
-      "description": "48px square hairline button for testimonial previous and next.",
+      "description": "48px square hairline button for testimonial previous and next; presses through the shared press component.",
       "html": "<button class=\"ds-step\" type=\"button\" aria-label=\"Next testimonial\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
       "css": ".ds-step { display: grid; place-items: center; width: 48px; height: 48px; background: transparent; color: var(--foreground, #edece7); border: 1px solid var(--border, #26272d); border-radius: 0; cursor: pointer; transition: color 150ms, border-color 150ms, transform 150ms; } .ds-step:hover { color: var(--primary, #9be7ff); border-color: var(--primary, #9be7ff); } .ds-step:active { transform: scale(0.97); } .ds-step:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
     },
@@ -280,17 +285,17 @@
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "input-underline",
-      "description": "Boxless form field with a tracked uppercase label and a cyan focus underline.",
+      "description": "Boxless form field with a tracked uppercase label; on focus the underline thickens to 2px ice cyan (padding gives back the pixel) and the label turns ice cyan.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input class=\"ds-field-input\" type=\"email\" /></label>",
-      "css": ".ds-field { display: grid; gap: 4px; } .ds-field-label { color: var(--muted-foreground, #a8a8b0); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; } .ds-field-input { background: transparent; color: var(--foreground, #edece7); border: 0; border-bottom: 1px solid var(--input, #5a5b63); border-radius: 0; padding: 12px 0; font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.125rem; outline: none; transition: border-color 150ms; } .ds-field-input:focus-visible { border-bottom-color: var(--primary, #9be7ff); }"
+      "css": ".ds-field { display: grid; gap: 4px; } .ds-field-label { color: var(--muted-foreground, #a8a8b0); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 150ms; } .ds-field:focus-within .ds-field-label { color: var(--primary, #9be7ff); } .ds-field-input { background: transparent; color: var(--foreground, #edece7); border: 0; border-bottom: 1px solid var(--input, #5a5b63); border-radius: 0; padding: 12px 0; font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.125rem; outline: none; transition: border-color 150ms; } .ds-field-input:focus-visible { border-bottom: 2px solid var(--primary, #9be7ff); padding-bottom: 11px; }"
     },
     {
       "name": "Header Navigation",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Inverted logo, tracked Unbounded wordmark, grey nav links, cyan CTA.",
-      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">Sidereal Software</span><ul><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Process</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Start a project</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 64px; padding: 0 48px; background: var(--background, #050507); border-bottom: 1px solid var(--border, #26272d); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; } .ds-nav-mark { font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foreground, #edece7); } .ds-nav ul { display: flex; gap: 32px; list-style: none; margin: 0 0 0 auto; padding: 0; } .ds-nav ul a { color: var(--muted-foreground, #a8a8b0); font-size: 0.875rem; text-decoration: none; transition: color 150ms; } .ds-nav ul a:hover { color: var(--foreground, #edece7); } .ds-nav-cta { color: var(--primary, #9be7ff); font-size: 0.875rem; font-weight: 500; text-decoration: underline; text-decoration-color: rgb(155 231 255 / 0.4); text-underline-offset: 6px; } .ds-nav-cta:hover { text-decoration-color: var(--primary, #9be7ff); } .ds-nav a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; }"
+      "description": "Inverted logo, tracked Unbounded wordmark, grey nav links, cyan CTA kept at every width. Below 1024px the links collapse into a 44px-tall Menu trigger; below 640px the wordmark stacks onto two lines.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">Sidereal Software</span><ul><li><a href=\"#\">Services</a></li><li><a href=\"#\">Work</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Process</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Start a project</a><button class=\"ds-nav-menu\" type=\"button\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16\"/><path d=\"M4 12h16\"/><path d=\"M4 18h16\"/></svg>Menu</button></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 64px; padding: 0 48px; background: var(--background, #050507); border-bottom: 1px solid var(--border, #26272d); font-family: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif; } .ds-nav-mark { font-family: 'Unbounded Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foreground, #edece7); } .ds-nav ul { display: flex; gap: 32px; list-style: none; margin: 0 0 0 auto; padding: 0; } .ds-nav ul a { color: var(--muted-foreground, #a8a8b0); font-size: 0.875rem; text-decoration: none; transition: color 150ms; } .ds-nav ul a:hover { color: var(--foreground, #edece7); } .ds-nav-cta { display: inline-block; padding: 12px 0; white-space: nowrap; color: var(--primary, #9be7ff); font-size: 0.875rem; font-weight: 500; text-decoration: underline; text-decoration-color: rgb(155 231 255 / 0.4); text-underline-offset: 6px; } .ds-nav-cta:hover { text-decoration-color: var(--primary, #9be7ff); } .ds-nav a:focus-visible { outline: 2px solid var(--primary, #9be7ff); outline-offset: 4px; } .ds-nav-menu { display: none; align-items: center; gap: 8px; height: 44px; padding: 0 10px; margin-right: -10px; background: transparent; border: 0; color: var(--foreground, #edece7); font: inherit; font-size: 0.875rem; cursor: pointer; } @media (max-width: 1023px) { .ds-nav ul { display: none; } .ds-nav-menu { display: flex; } } @media (max-width: 639px) { .ds-nav { gap: 16px; padding: 0 20px; } .ds-nav-mark { width: min-content; line-height: 1.15; } }"
     },
     {
       "name": "Monument Title",
